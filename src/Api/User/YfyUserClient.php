@@ -4,6 +4,7 @@ namespace Fangcloud\Api\User;
 
 
 use Fangcloud\Api\YfyBaseApiClient;
+use Fangcloud\Authentication\OAuthClient;
 use Fangcloud\Download\DownloadFile;
 use Fangcloud\Exception\YfySdkException;
 use Fangcloud\HttpClient\YfyHttpClient;
@@ -26,12 +27,13 @@ class YfyUserClient extends YfyBaseApiClient
 
     /**
      * YfyUserClient constructor.
+     * @param YfyContext $yfyContext
      * @param YfyHttpClient $httpClient
-     * @param $yfyContext
+     * @param \Fangcloud\Authentication\OAuthClient $oauthClient
      */
-    public function __construct(YfyContext $yfyContext, YfyHttpClient $httpClient)
+    public function __construct(YfyContext $yfyContext, YfyHttpClient $httpClient, OAuthClient $oauthClient)
     {
-        parent::__construct($yfyContext, $httpClient);
+        parent::__construct($yfyContext, $httpClient, $oauthClient);
     }
 
     /**

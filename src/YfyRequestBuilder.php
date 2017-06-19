@@ -6,29 +6,31 @@ use Fangcloud\Upload\YfyFile;
 
 class YfyRequestBuilder
 {
-    /* @var string */
+    /** @var string */
     protected $method;
-    /* @var string */
+    /** @var string */
     protected $endpoint;
-    /* @var array */
+    /** @var array */
     protected $headers = [];
-    /* @var array */
+    /** @var array  */
+    protected $basicAuth = [];
+    /** @var array */
     protected $pathParams = [];
-    /* @var array */
+    /** @var array */
     protected $queryParams = [];
-    /* @var array */
+    /** @var array */
     protected $formParams = [];
-    /* @var array */
+    /** @var array */
     protected $json = [];
-    /* @var array */
+    /** @var array */
     protected $files = [];
-    /* @var int */
+    /** @var int */
     protected $connectTimeout = 10;
-    /* @var int */
+    /** @var int */
     protected $timeout = 10;
-    /* @var bool */
+    /** @var bool */
     protected $stream = false;
-    /* @var YfyContext */
+    /** @var YfyContext */
     protected $yfyContext;
 
     /**
@@ -62,6 +64,11 @@ class YfyRequestBuilder
 
     public function addHeader($key, $value) {
         $this->headers[$key] = $value;
+        return $this;
+    }
+
+    public function withBasicAuth($username, $secret) {
+        $this->basicAuth = [$username, $secret];
         return $this;
     }
 
@@ -142,6 +149,10 @@ class YfyRequestBuilder
         );
         if (!empty($this->yfyContext)) {
             $defaultHeaders['Authorization'] = 'Bearer ' . $this->yfyContext->getAccessToken();
+        }
+        if (!empty($this->basicAuth)) {
+            $basicAuth = $this->basicAuth;
+            $defaultHeaders['Authorization'] = 'Basic ' . base64_encode("$basicAuth[0]:$basicAuth[1]");
         }
         return array_merge($defaultHeaders, $this->headers);
     }

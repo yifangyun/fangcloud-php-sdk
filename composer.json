@@ -13,7 +13,8 @@
     "guzzlehttp/guzzle": "^6.2.3"
   },
   "require-dev": {
-    "phpunit/phpunit": "^4.8.35|^5.4.0"
+    "phpunit/phpunit": "^4.8.35|^5.4.0",
+    "mockery/mockery": "@stable"
   },
   "autoload": {
     "psr-4": {

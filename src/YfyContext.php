@@ -15,6 +15,8 @@ class YfyContext
     private $accessToken;
     /* @var string */
     private $refreshToken;
+    /** @var  bool */
+    private $autoRefresh;
 
     /**
      * @return string
@@ -46,5 +48,21 @@ class YfyContext
     public function setRefreshToken($refreshToken)
     {
         $this->refreshToken = $refreshToken;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isAutoRefresh()
+    {
+        return $this->autoRefresh || !empty($this->refreshToken);
+    }
+
+    /**
+     * @param boolean $autoRefresh
+     */
+    public function setAutoRefresh($autoRefresh)
+    {
+        $this->autoRefresh = $autoRefresh;
     }
 }

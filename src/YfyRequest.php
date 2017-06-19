@@ -237,4 +237,8 @@ class YfyRequest
     public function hasQuery() {
         return !empty($this->queryParams);
     }
+
+    public function setAccessToken($accessToken) {
+        $this->headers['Authorization'] = 'Bearer ' . $accessToken;
+    }
 }

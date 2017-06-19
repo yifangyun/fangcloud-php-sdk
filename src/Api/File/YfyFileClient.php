@@ -4,6 +4,7 @@ namespace Fangcloud\Api\File;
 
 
 use Fangcloud\Api\YfyBaseApiClient;
+use Fangcloud\Authentication\OAuthClient;
 use Fangcloud\HttpClient\YfyHttpClient;
 use Fangcloud\Upload\YfyFile;
 use Fangcloud\YfyAppInfo;
@@ -19,12 +20,13 @@ class YfyFileClient extends YfyBaseApiClient
 
     /**
      * YfyUserClient constructor.
+     * @param YfyContext $yfyContext
      * @param YfyHttpClient $httpClient
-     * @param $yfyContext
+     * @param OAuthClient $oauthClient
      */
-    public function __construct(YfyContext $yfyContext, YfyHttpClient $httpClient)
+    public function __construct(YfyContext $yfyContext, YfyHttpClient $httpClient, OAuthClient $oauthClient)
     {
-        parent::__construct($yfyContext, $httpClient);
+        parent::__construct($yfyContext, $httpClient, $oauthClient);
     }
 
     /**

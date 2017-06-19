@@ -3,6 +3,8 @@
 namespace Fangcloud\Api;
 
 
+use Fangcloud\Authentication\OAuthClient;
+use Fangcloud\Exception\YfyAuthorizationRequiredException;
 use Fangcloud\Exception\YfyInvalidTokenException;
 use Fangcloud\Exception\YfyRateLimitException;
 use Fangcloud\Exception\YfySdkException;
@@ -18,20 +20,48 @@ abstract class YfyBaseApiClient
     protected $yfyContext;
     /* @var YfyHttpClient */
     protected $httpClient;
+    /** @var  OAuthClient */
+    protected $oauthClient;
+    /**
+     * @var OAuthClient
+     */
+    private $OAuthClient;
 
     /**
      * YfyBaseApiClient constructor.
      * @param YfyContext $yfyContext
-     * @param $httpClient
+     * @param YfyHttpClient $httpClient
+     * @param OAuthClient $oauthClient
      */
-    public function __construct(YfyContext $yfyContext, YfyHttpClient $httpClient)
+    public function __construct(YfyContext $yfyContext, YfyHttpClient $httpClient, OAuthClient $oauthClient)
     {
         $this->yfyContext = $yfyContext;
         $this->httpClient = $httpClient;
+        $this->OAuthClient = $oauthClient;
+    }
+
+    public function execute(YfyRequest $yfyRequest) {
+        $maxRetries = 1;
+        $retires = 0;
+        while (true) {
+            try {
+                return $this->realExecute($yfyRequest);
+            }
+            catch (YfyInvalidTokenException $e) {
+                if (!$this->yfyContext->isAutoRefresh() || $retires >= $maxRetries) {
+                    throw $e;
+                }
+                $tokenResponse = $this->oauthClient->refreshToken($this->yfyContext->getRefreshToken());
+                $this->yfyContext->setAccessToken($tokenResponse['access_token']);
+                $this->yfyContext->setRefreshToken($tokenResponse['refresh_token']);
+                $yfyRequest->setAccessToken($tokenResponse['access_token']);
+                $retires++;
+            }
+        }
     }
 
 
-    protected function execute(YfyRequest $yfyRequest) {
+    protected function realExecute(YfyRequest $yfyRequest) {
         $rawResponse = $this->httpClient->send($yfyRequest);
         $statusCode = $rawResponse->getHttpResponseCode();
         if ($statusCode === 200) {
@@ -43,7 +73,16 @@ abstract class YfyBaseApiClient
             $requestId = array_key_exists('request_id', $body) ? $body['request_id'] : null;
             switch ($statusCode) {
                 case 401:
-                    throw new YfyInvalidTokenException(null, $errors, $requestId);
+                    switch ($errors[0]['code']) {
+                        // without token
+                        case 'unauthorized':
+                            throw new YfyAuthorizationRequiredException(null, $errors, $requestId);
+                            break;
+                        // with invalid token
+                        case 'invalid_token':
+                            throw new YfyInvalidTokenException(null, $errors, $requestId);
+                            break;
+                    }
                     break;
                 case 429:
                     throw new YfyRateLimitException(null, $errors, $requestId);
