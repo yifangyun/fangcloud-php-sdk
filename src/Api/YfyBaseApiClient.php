@@ -40,6 +40,11 @@ abstract class YfyBaseApiClient
         $this->OAuthClient = $oauthClient;
     }
 
+    /**
+     * @param YfyRequest $yfyRequest
+     * @return \Fangcloud\Http\YfyRawResponse
+     * @throws YfySdkException
+     */
     public function execute(YfyRequest $yfyRequest) {
         $maxRetries = 1;
         $retires = 0;
@@ -60,7 +65,15 @@ abstract class YfyBaseApiClient
         }
     }
 
-
+    /**
+     * @param YfyRequest $yfyRequest
+     * @return \Fangcloud\Http\YfyRawResponse
+     * @throws YfyAuthorizationRequiredException
+     * @throws YfyInvalidTokenException
+     * @throws YfyRateLimitException
+     * @throws YfySdkException
+     * @throws YfyServerException
+     */
     protected function realExecute(YfyRequest $yfyRequest) {
         $rawResponse = $this->httpClient->send($yfyRequest);
         $statusCode = $rawResponse->getHttpResponseCode();

@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: just-cj
- * Date: 2017/6/1
- * Time: 17:19
- */
 
 namespace Fangcloud;
 

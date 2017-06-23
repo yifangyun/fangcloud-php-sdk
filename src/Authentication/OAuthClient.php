@@ -45,6 +45,11 @@ class OAuthClient
         $this->randomStringGenerator = $randomStringGenerator ?: RandomStringGeneratorFactory::createPseudoRandomStringGenerator();
     }
 
+    /**
+     * @param YfyRequest $yfyRequest
+     * @return \Fangcloud\Http\YfyRawResponse
+     * @throws YfySdkException
+     */
     protected function execute(YfyRequest $yfyRequest) {
         $rawResponse = $this->httpClient->send($yfyRequest);
         $statusCode = $rawResponse->getHttpResponseCode();

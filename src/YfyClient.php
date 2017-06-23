@@ -2,7 +2,13 @@
 
 namespace Fangcloud;
 
+use Fangcloud\Api\Collab\YfyCollabClient;
+use Fangcloud\Api\Comment\YfyCommentClient;
 use Fangcloud\Api\File\YfyFileClient;
+use Fangcloud\Api\Folder\YfyFolderClient;
+use Fangcloud\Api\Item\YfyItemClient;
+use Fangcloud\Api\ShareLink\YfyShareLinkClient;
+use Fangcloud\Api\Trash\YfyTrashClient;
 use Fangcloud\Api\User\YfyUserClient;
 use Fangcloud\Authentication\OAuthClient;
 use Fangcloud\HttpClient\YfyHttpClientFactory;
@@ -33,6 +39,18 @@ class YfyClient
     private $userClient;
     /** @var  YfyFileClient */
     private $fileClient;
+    /** @var  YfyFolderClient */
+    private $folderClient;
+    /** @var  YfyItemClient */
+    private $itemClient;
+    /** @var  YfyTrashClient */
+    private $trashClient;
+    /** @var  YfyShareLinkClient */
+    private $shareLinkClient;
+    /** @var  YfyCollabClient */
+    private $collabClient;
+    /** @var  YfyCommentClient */
+    private $commentClient;
 
     /**
      * YfyClient constructor.
@@ -142,6 +160,78 @@ class YfyClient
             $this->fileClient =  new YfyFileClient($this->yfyContext, $this->httpClient, $this->oauth());
         }
         return $this->fileClient;
+    }
+
+    /**
+     * 返回文件夹操作
+     *
+     * @return YfyFolderClient
+     */
+    public function folders() {
+        if (!$this->folderClient) {
+            $this->folderClient =  new YfyFolderClient($this->yfyContext, $this->httpClient, $this->oauth());
+        }
+        return $this->folderClient;
+    }
+
+    /**
+     * 返回文件/文件夹通用操作
+     *
+     * @return YfyItemClient
+     */
+    public function items() {
+        if (!$this->itemClient) {
+            $this->itemClient =  new YfyItemClient($this->yfyContext, $this->httpClient, $this->oauth());
+        }
+        return $this->itemClient;
+    }
+
+    /**
+     * 返回分享链接操作
+     *
+     * @return YfyShareLinkClient
+     */
+    public function shareLinks() {
+        if (!$this->shareLinkClient) {
+            $this->shareLinkClient =  new YfyShareLinkClient($this->yfyContext, $this->httpClient, $this->oauth());
+        }
+        return $this->shareLinkClient;
+    }
+
+    /**
+     * 返回回收站操作
+     *
+     * @return YfyTrashClient
+     */
+    public function trash() {
+        if (!$this->trashClient) {
+            $this->trashClient =  new YfyTrashClient($this->yfyContext, $this->httpClient, $this->oauth());
+        }
+        return $this->trashClient;
+    }
+
+    /**
+     * 返回协作操作
+     *
+     * @return YfyCollabClient
+     */
+    public function collabs() {
+        if (!$this->collabClient) {
+            $this->collabClient =  new YfyCollabClient($this->yfyContext, $this->httpClient, $this->oauth());
+        }
+        return $this->collabClient;
+    }
+
+    /**
+     * 返回评论操作
+     *
+     * @return YfyCommentClient
+     */
+    public function comments() {
+        if (!$this->commentClient) {
+            $this->commentClient =  new YfyCommentClient($this->yfyContext, $this->httpClient, $this->oauth());
+        }
+        return $this->commentClient;
     }
 
 
