@@ -1,7 +1,13 @@
 <?php
-
+/**
+ * 提供随机字符串接口实现的公用方法
+ */
 namespace Fangcloud\RandomString;
 
+/**
+ * Class RandomStringGeneratorTrait
+ * @package Fangcloud\RandomString
+ */
 trait RandomStringGeneratorTrait
 {
     /**

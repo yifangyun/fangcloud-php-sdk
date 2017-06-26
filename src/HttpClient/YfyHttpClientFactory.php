@@ -1,18 +1,12 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: just-cj
- * Date: 2017/6/2
- * Time: 16:38
+ * HttpClient工厂
  */
 
 namespace Fangcloud\HttpClient;
 
 use Exception;
-use Fangcloud\HttpClient\Curl\YfyCurlHttpClient;
 use Fangcloud\HttpClient\Guzzle\YfyGuzzleHttpClient;
-use Fangcloud\HttpClient\Stream\YfyStreamHttpClient;
-use InvalidArgumentException;
 
 
 /**
@@ -21,25 +15,26 @@ use InvalidArgumentException;
  */
 class YfyHttpClientFactory
 {
+    /**
+     * YfyHttpClientFactory constructor.
+     */
     private function __construct()
     {
         // a factory constructor should never be invoked
     }
 
     /**
-     * HTTP client generation.
+     * 创建一个http client
      *
      * @param string|null $handler
-     * @return YfyHttpClient If the cURL extension or the Guzzle client aren't available (if required).
-     * @throws Exception If the cURL extension or the Guzzle client aren't available (if required).
+     * @return YfyHttpClient
+     * @throws Exception
      */
     public static function createHttpClient($handler = null)
     {
-
         if (!class_exists('GuzzleHttp\Client')) {
             throw new Exception('The Guzzle HTTP client must be included in order to use the "guzzle" handler.');
         }
-
         return new YfyGuzzleHttpClient();
     }
 

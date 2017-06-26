@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: just-cj
- * Date: 2017/6/5
- * Time: 16:48
+ * 请求返回结果的封装
  */
 
 namespace Fangcloud\Http;
@@ -13,29 +10,32 @@ use Fangcloud\Download\DownloadFile;
 use Fangcloud\Util\HttpUtil;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Class YfyRawResponse
+ * @package Fangcloud\Http
+ */
 class YfyRawResponse
 {
     /**
-     * @var array The response headers in the form of an associative array.
+     * @var array 请求返回的header数组
      */
     protected $headers;
 
     /**
-     * @var StreamInterface The raw response body.
+     * @var StreamInterface 请求返回的流
      */
     protected $body;
 
     /**
-     * @var int The HTTP status response code.
+     * @var int 请求返回的status code
      */
     protected $httpResponseCode;
 
     /**
-     * Creates a new YfyRawResponse entity.
-     *
-     * @param string|array          $headers        The headers as a raw string or array.
-     * @param StreamInterface       $body           The raw response body.
-     * @param int                   $httpStatusCode The HTTP response code (if sending headers as parsed array).
+     * YfyRawResponse constructor.
+     * @param string|array          $headers        请求返回的header数组
+     * @param StreamInterface       $body           请求返回的流
+     * @param int                   $httpStatusCode 请求返回的status code
      */
     public function __construct($headers, $body, $httpStatusCode = null)
     {
@@ -53,7 +53,7 @@ class YfyRawResponse
     }
 
     /**
-     * Return the response headers.
+     * 获取header数组
      *
      * @return array
      */
@@ -63,7 +63,7 @@ class YfyRawResponse
     }
 
     /**
-     * Return the body of the response.
+     * 获取返回的流
      *
      * @return StreamInterface
      */
@@ -73,7 +73,7 @@ class YfyRawResponse
     }
 
     /**
-     * Return the HTTP response code.
+     * 获取返回的status code
      *
      * @return int
      */
@@ -83,7 +83,7 @@ class YfyRawResponse
     }
 
     /**
-     * Sets the HTTP response code from a raw header.
+     * 从返回的string中提取status code
      *
      * @param string $rawResponseHeader
      */
@@ -94,7 +94,7 @@ class YfyRawResponse
     }
 
     /**
-     * Parse the raw headers and set as an array.
+     * 将返回的string解析为header数组
      *
      * @param string $rawHeaders The raw headers from the response.
      */
@@ -121,7 +121,9 @@ class YfyRawResponse
     }
 
     /**
-     * @param string $savePath dir path or file path
+     * 将请求返回结果存储为文件(通常用于下载文件)
+     *
+     * @param string $savePath 存储文件的路径,可以是文件夹,也可以是文件名
      */
     public function saveToFile($savePath) {
         $finalPath = $savePath;
@@ -135,6 +137,11 @@ class YfyRawResponse
         fclose($fp);
     }
 
+    /**
+     * 将请求返回结果以DownloadFile的形式返回给用户
+     *
+     * @return DownloadFile
+     */
     public function createDownloadFile() {
         return new DownloadFile(HttpUtil::detectFilename($this->headers), $this->getBody());
     }

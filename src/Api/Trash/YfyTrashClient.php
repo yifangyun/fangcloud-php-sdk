@@ -1,7 +1,8 @@
 <?php
-
+/**
+ * 回收站操作
+ */
 namespace Fangcloud\Api\Trash;
-
 
 use Fangcloud\Api\YfyBaseApiClient;
 use Fangcloud\Authentication\OAuthClient;
@@ -11,6 +12,10 @@ use Fangcloud\YfyAppInfo;
 use Fangcloud\YfyContext;
 use Fangcloud\YfyRequestBuilder;
 
+/**
+ * Class YfyTrashClient
+ * @package Fangcloud\Api\Trash
+ */
 class YfyTrashClient extends YfyBaseApiClient
 {
     const TRASH_LIST_URI = self::API_PREFIX . 'trash/list';
@@ -32,7 +37,7 @@ class YfyTrashClient extends YfyBaseApiClient
      * 获取回收站中的文件和文件夹列表
      *
      * @param int $pageId 页码, 默认为0
-     * @param int $pageCapacity, 页容量, 默认为20
+     * @param int $pageCapacity 页容量, 默认为20
      * @param string $type 分为file，folder，all三种，默认为all
      * @return mixed
      * @throws YfySdkException

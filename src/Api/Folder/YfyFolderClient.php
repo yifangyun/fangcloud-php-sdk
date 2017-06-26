@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * 文件夹操作
+ */
 namespace Fangcloud\Api\Folder;
 
 
@@ -11,6 +13,10 @@ use Fangcloud\YfyAppInfo;
 use Fangcloud\YfyContext;
 use Fangcloud\YfyRequestBuilder;
 
+/**
+ * Class YfyFolderClient
+ * @package Fangcloud\Api\Folder
+ */
 class YfyFolderClient extends YfyBaseApiClient
 {
     const FOLDER_INFO_URI = self::API_PREFIX . 'folder/%s/info';

@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * 持久化数据的处理
+ * 参考Facebook
+ */
 namespace Fangcloud\PersistentData;
 
 /**
@@ -10,16 +13,15 @@ namespace Fangcloud\PersistentData;
 interface PersistentDataHandler
 {
     /**
-     * Get a value from a persistent data store.
+     * 从持久化数据存储中根据key获取一个value
      *
      * @param string $key
-     *
      * @return mixed
      */
     public function get($key);
 
     /**
-     * Set a value in the persistent data store.
+     * 向持久化数据存储中存储一对key,value
      *
      * @param string $key
      * @param mixed  $value

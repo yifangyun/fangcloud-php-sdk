@@ -1,14 +1,14 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: just-cj
- * Date: 2017/6/12
- * Time: 15:18
+ * 表示state无效的异常
  */
 
 namespace Fangcloud\Exception;
 
-
+/**
+ * Class YfyInvalidStateException
+ * @package Fangcloud\Exception
+ */
 class YfyInvalidStateException extends YfySdkException
 {
 

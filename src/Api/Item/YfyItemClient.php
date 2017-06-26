@@ -1,7 +1,8 @@
 <?php
-
+/**
+ * 文件/文件夹通用操作
+ */
 namespace Fangcloud\Api\Item;
-
 
 use Fangcloud\Api\YfyBaseApiClient;
 use Fangcloud\Authentication\OAuthClient;
@@ -11,6 +12,10 @@ use Fangcloud\YfyAppInfo;
 use Fangcloud\YfyContext;
 use Fangcloud\YfyRequestBuilder;
 
+/**
+ * Class YfyItemClient
+ * @package Fangcloud\Api\Item
+ */
 class YfyItemClient extends YfyBaseApiClient
 {
     const ITEM_SEARCH_URI = self::API_PREFIX . 'item/search';

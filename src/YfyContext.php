@@ -1,24 +1,32 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: just-cj
- * Date: 2017/6/5
- * Time: 14:15
+ * YfyClient的上下文
  */
 
 namespace Fangcloud;
 
-
+/**
+ * Class YfyContext
+ * @package Fangcloud
+ */
 class YfyContext
 {
-    /* @var string */
+    /**
+     * @var string access token
+     */
     private $accessToken;
-    /* @var string */
+    /**
+     * @var string refresh token
+     */
     private $refreshToken;
-    /** @var  bool */
+    /**
+     * @var bool 是否自动刷新token
+     */
     private $autoRefresh;
 
     /**
+     * 获取access token
+     *
      * @return string
      */
     public function getAccessToken()
@@ -27,6 +35,8 @@ class YfyContext
     }
 
     /**
+     * 设置access token
+     *
      * @param string $accessToken
      */
     public function setAccessToken($accessToken)
@@ -35,6 +45,8 @@ class YfyContext
     }
 
     /**
+     * 获取refresh token
+     *
      * @return string
      */
     public function getRefreshToken()
@@ -43,6 +55,8 @@ class YfyContext
     }
 
     /**
+     * 设置refresh token
+     *
      * @param string $refreshToken
      */
     public function setRefreshToken($refreshToken)
@@ -51,6 +65,8 @@ class YfyContext
     }
 
     /**
+     * 是否自动刷新token
+     *
      * @return boolean
      */
     public function isAutoRefresh()
@@ -59,6 +75,8 @@ class YfyContext
     }
 
     /**
+     * 设置是否自动刷新token
+     *
      * @param boolean $autoRefresh
      */
     public function setAutoRefresh($autoRefresh)

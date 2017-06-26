@@ -1,7 +1,9 @@
 <?php
+/**
+ * 协作操作
+ */
 
 namespace Fangcloud\Api\Collab;
-
 
 use Fangcloud\Api\YfyBaseApiClient;
 use Fangcloud\Authentication\OAuthClient;
@@ -11,6 +13,10 @@ use Fangcloud\YfyAppInfo;
 use Fangcloud\YfyContext;
 use Fangcloud\YfyRequestBuilder;
 
+/**
+ * Class YfyCollabClient
+ * @package Fangcloud\Api\Collab
+ */
 class YfyCollabClient extends YfyBaseApiClient
 {
     const COLLAB_INVITE_URI = self::API_PREFIX . 'collab/invite';

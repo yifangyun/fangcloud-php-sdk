@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * 处理授权操作的client
+ */
 namespace Fangcloud\Authentication;
 
 
@@ -15,6 +17,10 @@ use Fangcloud\YfyAppInfo;
 use Fangcloud\YfyRequest;
 use Fangcloud\YfyRequestBuilder;
 
+/**
+ * Class OAuthClient
+ * @package Fangcloud\Authentication
+ */
 class OAuthClient
 {
     const AUTHORIZATION_URI = '/oauth/authorize';
@@ -23,12 +29,16 @@ class OAuthClient
 
     const PERSISTENT_DATA_STATE_KEY = 'yfy_oauth_state';
 
-    /** @var  YfyHttpClient */
+    /**
+     * @var YfyHttpClient 发送请求用的http client
+     */
     private $httpClient;
-    /** @var  PersistentDataHandler */
+    /**
+     * @var PersistentDataHandler 持久化数据处理
+     */
     private $persistentDataHandler;
     /**
-     * @var RandomStringGenerator
+     * @var RandomStringGenerator 随机字符串生成器
      */
     private $randomStringGenerator;
 
@@ -46,6 +56,8 @@ class OAuthClient
     }
 
     /**
+     * 执行所有授权请求, 并且进行错误处理
+     *
      * @param YfyRequest $yfyRequest
      * @return \Fangcloud\Http\YfyRawResponse
      * @throws YfySdkException

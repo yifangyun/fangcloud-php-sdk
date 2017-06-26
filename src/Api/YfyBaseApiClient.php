@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * 所有api client的基类
+ * 在这里处理请求的发送以及统一的错误处理(包括重试机制)
+ */
 namespace Fangcloud\Api;
 
 
@@ -13,19 +16,27 @@ use Fangcloud\HttpClient\YfyHttpClient;
 use Fangcloud\YfyContext;
 use Fangcloud\YfyRequest;
 
+/**
+ * Class YfyBaseApiClient
+ * @package Fangcloud\Api
+ */
 abstract class YfyBaseApiClient
 {
     const API_PREFIX = '/api/v2';
-    /* @var YfyContext */
-    protected $yfyContext;
-    /* @var YfyHttpClient */
-    protected $httpClient;
-    /** @var  OAuthClient */
-    protected $oauthClient;
     /**
-     * @var OAuthClient
+     * @var YfyContext 请求上下文
      */
-    private $OAuthClient;
+    protected $yfyContext;
+
+    /**
+     * @var YfyHttpClient 执行请求的HttpClient
+     */
+    protected $httpClient;
+
+    /**
+     * @var OAuthClient refresh token时使用的oauth client
+     */
+    protected $oauthClient;
 
     /**
      * YfyBaseApiClient constructor.
@@ -37,10 +48,12 @@ abstract class YfyBaseApiClient
     {
         $this->yfyContext = $yfyContext;
         $this->httpClient = $httpClient;
-        $this->OAuthClient = $oauthClient;
+        $this->oauthClient = $oauthClient;
     }
 
     /**
+     * 执行请求, 调用realExecute, 封装了重试的逻辑
+     *
      * @param YfyRequest $yfyRequest
      * @return \Fangcloud\Http\YfyRawResponse
      * @throws YfySdkException
@@ -66,6 +79,9 @@ abstract class YfyBaseApiClient
     }
 
     /**
+     * 真正执行请求的函数
+     * 会进行所有错误处理
+     *
      * @param YfyRequest $yfyRequest
      * @return \Fangcloud\Http\YfyRawResponse
      * @throws YfyAuthorizationRequiredException

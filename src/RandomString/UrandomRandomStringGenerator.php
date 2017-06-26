@@ -1,9 +1,15 @@
 <?php
-
+/**
+ * 随机字符串的urandom实现
+ */
 namespace Fangcloud\RandomString;
 
 use Fangcloud\Exception\YfySdkException;
 
+/**
+ * Class UrandomRandomStringGenerator
+ * @package Fangcloud\RandomString
+ */
 class UrandomRandomStringGenerator implements RandomStringGenerator
 {
 
@@ -15,6 +21,7 @@ class UrandomRandomStringGenerator implements RandomStringGenerator
     const ERROR_MESSAGE = 'Unable to generate a cryptographically secure pseudo-random string from /dev/urandom. ';
 
     /**
+     * UrandomRandomStringGenerator constructor.
      * @throws YfySdkException
      */
     public function __construct()
@@ -35,7 +42,10 @@ class UrandomRandomStringGenerator implements RandomStringGenerator
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
+     * @param string $length
+     * @return string
+     * @throws YfySdkException
      */
     public function getRandomString($length)
     {

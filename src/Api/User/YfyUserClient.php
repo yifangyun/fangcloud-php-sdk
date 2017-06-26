@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * 用户操作
+ */
 namespace Fangcloud\Api\User;
 
 
@@ -101,7 +103,13 @@ class YfyUserClient extends YfyBaseApiClient
         }
     }
 
-
+    /**
+     * 更新用户信息
+     *
+     * @param string $name 更新的用户名
+     * @return mixed
+     * @throws YfySdkException
+     */
     function updateSelf($name)
     {
         $json = array(
@@ -117,7 +125,13 @@ class YfyUserClient extends YfyBaseApiClient
         return json_decode($response->getBody(), true);
     }
 
-
+    /**
+     * 搜索用户
+     *
+     * @param string $queryWords 搜索关键词
+     * @param int $pageId 页码
+     * @return mixed
+     */
     function searchUser($queryWords, $pageId = 0)
     {
         $request = YfyRequestBuilder::factory()

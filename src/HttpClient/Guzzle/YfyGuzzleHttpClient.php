@@ -1,7 +1,8 @@
 <?php
-
+/**
+ * 使用guzzle库对HttpClient的实现
+ */
 namespace Fangcloud\HttpClient\Guzzle;
-
 
 use Fangcloud\Http\YfyRawResponse;
 
@@ -12,6 +13,10 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use Psr\Http\Message\ResponseInterface;
 
+/**
+ * Class YfyGuzzleHttpClient
+ * @package Fangcloud\HttpClient\Guzzle
+ */
 class YfyGuzzleHttpClient extends AbstractYfyHttpClient
 {
     /**
@@ -20,7 +25,8 @@ class YfyGuzzleHttpClient extends AbstractYfyHttpClient
     protected $guzzleClient;
 
     /**
-     * @param \GuzzleHttp\Client|null The Guzzle client.
+     * YfyGuzzleHttpClient constructor.
+     * @param Client|null $guzzleClient guzzle client
      */
     public function __construct(Client $guzzleClient = null)
     {
@@ -28,7 +34,9 @@ class YfyGuzzleHttpClient extends AbstractYfyHttpClient
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
+     * @param YfyRequest $yfyRequest
+     * @return YfyRawResponse
      */
     public function send(YfyRequest $yfyRequest)
     {

@@ -1,9 +1,15 @@
 <?php
-
+/**
+ * 随机字符串的mcrypt实现
+ */
 namespace Fangcloud\RandomString;
 
 use Fangcloud\Exception\YfySdkException;
 
+/**
+ * Class McryptRandomStringGenerator
+ * @package Fangcloud\RandomString
+ */
 class McryptRandomStringGenerator implements RandomStringGenerator
 {
     use RandomStringGeneratorTrait;
@@ -14,6 +20,7 @@ class McryptRandomStringGenerator implements RandomStringGenerator
     const ERROR_MESSAGE = 'Unable to generate a cryptographically secure pseudo-random string from mcrypt_create_iv(). ';
 
     /**
+     * McryptRandomStringGenerator constructor.
      * @throws YfySdkException
      */
     public function __construct()
@@ -27,7 +34,10 @@ class McryptRandomStringGenerator implements RandomStringGenerator
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
+     * @param string $length
+     * @return string
+     * @throws YfySdkException
      */
     public function getRandomString($length)
     {

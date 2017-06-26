@@ -1,8 +1,13 @@
 <?php
-
+/**
+ * 随机字符串生成器接口
+ */
 namespace Fangcloud\RandomString;
 
-
+/**
+ * Interface RandomStringGenerator
+ * @package Fangcloud\RandomString
+ */
 interface RandomStringGenerator
 {
     /**

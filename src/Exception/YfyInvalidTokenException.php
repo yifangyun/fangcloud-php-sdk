@@ -1,14 +1,14 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: just-cj
- * Date: 2017/6/7
- * Time: 11:47
+ * 表示token无效的异常
  */
 
 namespace Fangcloud\Exception;
 
-
+/**
+ * Class YfyInvalidTokenException
+ * @package Fangcloud\Exception
+ */
 class YfyInvalidTokenException extends YfySdkException
 {
 

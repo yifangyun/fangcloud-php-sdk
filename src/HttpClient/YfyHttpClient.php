@@ -1,9 +1,7 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: just-cj
- * Date: 2017/6/2
- * Time: 16:46
+ * HttpClient基类
+ * 可以有不同实现
  */
 
 namespace Fangcloud\HttpClient;
@@ -18,12 +16,10 @@ use Fangcloud\YfyRequest;
 interface YfyHttpClient
 {
     /**
-     * Sends a request to the server and returns the raw response.
+     * 发送一个请求
      *
-     * @param YfyRequest $yfyRequest
-     *
-     * @return \Fangcloud\Http\YfyRawResponse Raw response from the server.
-     *
+     * @param YfyRequest $yfyRequest 封装的发送请求
+     * @return \Fangcloud\Http\YfyRawResponse 封装的请求返回
      * @throws \Fangcloud\Exception\YfySDKException
      */
     public function send(YfyRequest $yfyRequest);

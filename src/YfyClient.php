@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * 所有操作的对外入口
+ */
 namespace Fangcloud;
 
 use Fangcloud\Api\Collab\YfyCollabClient;
@@ -24,37 +26,62 @@ use Fangcloud\RandomString\RandomStringGeneratorFactory;
  */
 class YfyClient
 {
-    /* @var HttpClient\YfyHttpClient */
+    /**
+     * @var HttpClient\YfyHttpClient 发送请求用的http client
+     */
     private $httpClient;
-    /* @var YfyContext */
+    /**
+     * @var YfyContext 一些上下文信息
+     */
     private $yfyContext;
-    /** @var  PersistentDataHandler */
+    /**
+     * @var PersistentDataHandler 持久化数据处理
+     */
     private $persistentDataHandler;
-    /** @var  RandomStringGenerator */
+    /**
+     * @var RandomStringGenerator 随机字符串生成器
+     */
     private $randomStringGenerator;
-
-    /** @var  OAuthClient */
+    /**
+     * @var OAuthClient 处理授权操作的client
+     */
     private $oauthClient;
-    /** @var  YfyUserClient */
+    /**
+     * @var YfyUserClient 处理用户操作的client
+     */
     private $userClient;
-    /** @var  YfyFileClient */
+    /**
+     * @var YfyFileClient 处理文件操作的client
+     */
     private $fileClient;
-    /** @var  YfyFolderClient */
+    /**
+     * @var YfyFolderClient 处理文件夹操作的client
+     */
     private $folderClient;
-    /** @var  YfyItemClient */
+    /**
+     * @var YfyItemClient 处理item操作的client
+     */
     private $itemClient;
-    /** @var  YfyTrashClient */
+    /**
+     * @var YfyTrashClient 处理回收站操作的client
+     */
     private $trashClient;
-    /** @var  YfyShareLinkClient */
+    /**
+     * @var YfyShareLinkClient 处理分享链接操作的client
+     */
     private $shareLinkClient;
-    /** @var  YfyCollabClient */
+    /**
+     * @var YfyCollabClient 处理协作操作的client
+     */
     private $collabClient;
-    /** @var  YfyCommentClient */
+    /**
+     * @var YfyCommentClient 处理评论操作的client
+     */
     private $commentClient;
 
     /**
      * YfyClient constructor.
-     * @param array $options
+     * @param array $options 可传入的选项
      */
     public function __construct(array $options = [])
     {
@@ -96,6 +123,8 @@ class YfyClient
 
 
     /**
+     * 获取持久化数据处理器
+     *
      * @return PersistentDataHandler
      */
     public function getPersistentDataHandler()
@@ -104,7 +133,9 @@ class YfyClient
     }
 
     /**
-     * @param PersistentDataHandler $persistentDataHandler
+     * 设置持久化数据处理器
+     *
+     * @param PersistentDataHandler $persistentDataHandler PersistentDataHandler的实例
      */
     public function setPersistentDataHandler($persistentDataHandler)
     {
@@ -113,6 +144,8 @@ class YfyClient
 
 
     /**
+     * 获取随机字符串生成器
+     *
      * @return RandomStringGenerator
      */
     public function getRandomStringGenerator()
@@ -121,7 +154,9 @@ class YfyClient
     }
 
     /**
-     * @param RandomStringGenerator $randomStringGenerator
+     * 设置随机字符串生成器
+     *
+     * @param RandomStringGenerator $randomStringGenerator RandomStringGenerator的实例
      */
     public function setRandomStringGenerator($randomStringGenerator)
     {

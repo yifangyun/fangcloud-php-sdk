@@ -1,7 +1,8 @@
 <?php
-
+/**
+ * 分享链接操作
+ */
 namespace Fangcloud\Api\ShareLink;
-
 
 use Fangcloud\Api\YfyBaseApiClient;
 use Fangcloud\Authentication\OAuthClient;
@@ -11,6 +12,10 @@ use Fangcloud\YfyAppInfo;
 use Fangcloud\YfyContext;
 use Fangcloud\YfyRequestBuilder;
 
+/**
+ * Class YfyShareLinkClient
+ * @package Fangcloud\Api\ShareLink
+ */
 class YfyShareLinkClient extends YfyBaseApiClient
 {
     const SHARE_LINK_INFO_URI = self::API_PREFIX . 'share_link/%s/info';

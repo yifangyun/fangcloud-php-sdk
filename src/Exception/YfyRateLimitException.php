@@ -1,14 +1,14 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: just-cj
- * Date: 2017/6/7
- * Time: 10:55
+ * 表示请求速率超过限制的异常
  */
 
 namespace Fangcloud\Exception;
 
-
+/**
+ * Class YfyRateLimitException
+ * @package Fangcloud\Exception
+ */
 class YfyRateLimitException extends YfySdkException
 {
 

@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * 默认的基于php原生session的持久化数据处理
+ */
 namespace Fangcloud\PersistentData;
 
 use Fangcloud\Exception\YfySdkException;
@@ -13,15 +15,13 @@ use Fangcloud\Exception\YfySdkException;
 class YfySessionPersistentDataHandler implements PersistentDataHandler
 {
     /**
-     * @var string Prefix to use for session variables.
+     * @var string session前缀
      */
     protected $sessionPrefix = 'YFY_';
 
     /**
-     * Init the session handler.
-     *
-     * @param boolean $enableSessionCheck
-     *
+     * YfySessionPersistentDataHandler constructor.
+     * @param bool $enableSessionCheck 是否检测session开启状态
      * @throws YfySdkException
      */
     public function __construct($enableSessionCheck = true)
@@ -33,7 +33,9 @@ class YfySessionPersistentDataHandler implements PersistentDataHandler
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
+     * @param string $key
+     * @return mixed
      */
     public function get($key)
     {
@@ -45,7 +47,9 @@ class YfySessionPersistentDataHandler implements PersistentDataHandler
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
+     * @param string $key
+     * @param mixed $value
      */
     public function set($key, $value)
     {

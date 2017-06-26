@@ -1,11 +1,24 @@
 <?php
-
+/**
+ * Http请求的工具方法类
+ */
 namespace Fangcloud\Util;
 
 use Fangcloud\Exception\YfySdkException;
 
+/**
+ * Class HttpUtil
+ * @package Fangcloud\Util
+ */
 class HttpUtil
 {
+    /**
+     * 从response headers中检测文件名
+     *
+     * @param array $headers response的header数组
+     * @return string
+     * @throws YfySdkException
+     */
     public static function detectFilename(array $headers)
     {
         if (isset($headers['Content-Disposition'])) {

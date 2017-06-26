@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * 应用信息类
+ */
 namespace Fangcloud;
 
 
@@ -9,15 +11,25 @@ namespace Fangcloud;
  */
 class YfyAppInfo
 {
-    /** @var string */
+    /**
+     * @var string 用户在亿方云上申请的clientId
+     */
     public static $clientId;
-    /** @var string */
+    /**
+     * @var string 用户在亿方云上申请的clientId对应的secret
+     */
     public static $clientSecret;
-    /** @var  string */
+    /**
+     * @var string 用户在亿方云上申请的clientId对应的回调地址
+     */
     public static $redirectUri;
-    /** @var string */
+    /**
+     * @var string 授权服务器地址
+     */
     public static $authHost = "https://oauth.fangcloud.com";
-    /** @var string */
+    /**
+     * @var string 资源服务器地址
+     */
     public static $apiHost = "https://open.fangcloud.com";
 
     const TEST_ENV = "FangcloudTest";
@@ -26,9 +38,10 @@ class YfyAppInfo
     /**
      * 初始化应用
      * 该方法应当在使用{@see fangcloud\YfyClient} 前被调用
-     * @param $clientId string 亿方云上申请的应用的id
-     * @param $clientSecret string 亿方云上申请的应用的secret
-     * @param $redirectUri
+     *
+     * @param string $clientId      用户在亿方云上申请的clientId
+     * @param string $clientSecret  亿方云上申请的应用的secret
+     * @param string $redirectUri   用户在亿方云上申请的clientId对应的回调地址
      */
     public static function init($clientId, $clientSecret, $redirectUri) {
         self::$clientId = $clientId;

@@ -1,7 +1,8 @@
 <?php
-
+/**
+ * 评论操作
+ */
 namespace Fangcloud\Api\Comment;
-
 
 use Fangcloud\Api\YfyBaseApiClient;
 use Fangcloud\Authentication\OAuthClient;
@@ -11,6 +12,10 @@ use Fangcloud\YfyAppInfo;
 use Fangcloud\YfyContext;
 use Fangcloud\YfyRequestBuilder;
 
+/**
+ * Class YfyCommentClient
+ * @package Fangcloud\Api\Comment
+ */
 class YfyCommentClient extends YfyBaseApiClient
 {
     const COMMENT_CREATE_URI = self::API_PREFIX . 'comment/create';

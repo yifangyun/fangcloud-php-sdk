@@ -1,9 +1,15 @@
 <?php
-
+/**
+ * 随机字符串的random bytes实现
+ */
 namespace Fangcloud\RandomString;
 
 use Fangcloud\Exception\YfySdkException;
 
+/**
+ * Class RandomBytesRandomStringGenerator
+ * @package Fangcloud\RandomString
+ */
 class RandomBytesRandomStringGenerator implements RandomStringGenerator
 {
     use RandomStringGeneratorTrait;
@@ -14,6 +20,7 @@ class RandomBytesRandomStringGenerator implements RandomStringGenerator
     const ERROR_MESSAGE = 'Unable to generate a cryptographically secure pseudo-random string from random_bytes(). ';
 
     /**
+     * RandomBytesRandomStringGenerator constructor.
      * @throws YfySdkException
      */
     public function __construct()
@@ -27,7 +34,9 @@ class RandomBytesRandomStringGenerator implements RandomStringGenerator
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
+     * @param string $length
+     * @return string
      */
     public function getRandomString($length)
     {

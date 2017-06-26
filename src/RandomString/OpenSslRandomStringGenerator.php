@@ -1,9 +1,15 @@
 <?php
-
+/**
+ * 随机字符串的openssl实现
+ */
 namespace Fangcloud\RandomString;
 
 use Fangcloud\Exception\YfySdkException;
 
+/**
+ * Class OpenSslRandomStringGenerator
+ * @package Fangcloud\RandomString
+ */
 class OpenSslRandomStringGenerator implements RandomStringGenerator
 {
     use RandomStringGeneratorTrait;
@@ -14,6 +20,7 @@ class OpenSslRandomStringGenerator implements RandomStringGenerator
     const ERROR_MESSAGE = 'Unable to generate a cryptographically secure pseudo-random string from openssl_random_pseudo_bytes().';
 
     /**
+     * OpenSslRandomStringGenerator constructor.
      * @throws YfySdkException
      */
     public function __construct()
@@ -24,7 +31,10 @@ class OpenSslRandomStringGenerator implements RandomStringGenerator
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
+     * @param string $length
+     * @return string
+     * @throws YfySdkException
      */
     public function getRandomString($length)
     {

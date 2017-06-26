@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * 文件操作
+ */
 namespace Fangcloud\Api\File;
 
 use Fangcloud\Api\YfyBaseApiClient;
@@ -12,6 +14,10 @@ use Fangcloud\YfyContext;
 use Fangcloud\YfyRequestBuilder;
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Class YfyFileClient
+ * @package Fangcloud\Api\File
+ */
 class YfyFileClient extends YfyBaseApiClient
 {
     const FILE_INFO_URI = self::API_PREFIX . 'file/%s/info';

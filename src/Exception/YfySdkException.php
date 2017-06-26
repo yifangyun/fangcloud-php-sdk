@@ -1,9 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: just-cj
- * Date: 2017/6/5
- * Time: 14:26
+ * 通用sdk异常
  */
 
 namespace Fangcloud\Exception;
@@ -15,9 +12,13 @@ namespace Fangcloud\Exception;
  */
 class YfySdkException extends \Exception
 {
-    /* @var array */
+    /**
+     * @var array 请求返回的错误信息
+     */
     private $errors;
-    /* @var string */
+    /**
+     * @var string 请求返回的request id
+     */
     private $requestId;
 
     /**
@@ -43,6 +44,8 @@ class YfySdkException extends \Exception
 
 
     /**
+     * 获取request id
+     *
      * @return string
      */
     public function getRequestId()
@@ -51,6 +54,8 @@ class YfySdkException extends \Exception
     }
 
     /**
+     * 设置request id
+     *
      * @param string $requestId
      */
     public function setRequestId($requestId)
@@ -59,6 +64,8 @@ class YfySdkException extends \Exception
     }
 
     /**
+     * 获取错误信息
+     *
      * @return array
      */
     public function getErrors()
@@ -67,6 +74,8 @@ class YfySdkException extends \Exception
     }
 
     /**
+     * 设置错误信息
+     *
      * @param array $errors
      */
     public function setErrors($errors)
@@ -74,6 +83,11 @@ class YfySdkException extends \Exception
         $this->errors = $errors;
     }
 
+    /**
+     * 重载__toString方法
+     *
+     * @return string
+     */
     public function __toString()
     {
         return 'errors: ' . json_encode($this->errors) . ', request_id: ' . $this->requestId;

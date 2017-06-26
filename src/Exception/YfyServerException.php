@@ -1,14 +1,14 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: just-cj
- * Date: 2017/6/7
- * Time: 10:55
+ * 服务器异常
  */
 
 namespace Fangcloud\Exception;
 
-
+/**
+ * Class YfyServerException
+ * @package Fangcloud\Exception
+ */
 class YfyServerException extends YfySdkException
 {
 
