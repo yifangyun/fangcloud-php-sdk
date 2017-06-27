@@ -11,7 +11,7 @@ use Fangcloud\HttpClient\YfyHttpClient;
 use Fangcloud\Upload\YfyFile;
 use Fangcloud\YfyAppInfo;
 use Fangcloud\YfyContext;
-use Fangcloud\YfyRequestBuilder;
+use Fangcloud\Http\YfyRequestBuilder;
 use Psr\Http\Message\StreamInterface;
 
 /**

@@ -6,7 +6,7 @@
 
 namespace Fangcloud\HttpClient;
 
-use Fangcloud\YfyRequest;
+use Fangcloud\Http\YfyRequest;
 
 
 /**

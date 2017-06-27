@@ -71,7 +71,7 @@ class YfyContext
      */
     public function isAutoRefresh()
     {
-        return $this->autoRefresh || !empty($this->refreshToken);
+        return $this->autoRefresh && !empty($this->refreshToken);
     }
 
     /**

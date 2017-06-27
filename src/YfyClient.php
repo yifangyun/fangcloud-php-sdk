@@ -15,7 +15,7 @@ use Fangcloud\Api\User\YfyUserClient;
 use Fangcloud\Authentication\OAuthClient;
 use Fangcloud\HttpClient\YfyHttpClientFactory;
 use Fangcloud\PersistentData\PersistentDataHandler;
-use Fangcloud\PersistentData\YfySessionPersistentDataHandler;
+use Fangcloud\PersistentData\PersistentDataHandlerFactory;
 use Fangcloud\RandomString\RandomStringGenerator;
 use Fangcloud\RandomString\RandomStringGeneratorFactory;
 
@@ -85,11 +85,12 @@ class YfyClient
      */
     public function __construct(array $options = [])
     {
+        YfyAppInfo::checkInit();
         $options = array_merge([
             'auto_refresh' => true,
             'access_token' => null,
             'refresh_token' => null,
-            'persistent_data_handler' => new YfySessionPersistentDataHandler(),
+            'persistent_data_handler' => PersistentDataHandlerFactory::createPersistentDataHandler(),
             'random_string_generator' => RandomStringGeneratorFactory::createPseudoRandomStringGenerator(),
         ], $options);
         $this->httpClient = YfyHttpClientFactory::createHttpClient();
@@ -104,12 +105,26 @@ class YfyClient
     }
 
     /**
+     * 获取access token
+     */
+    public function getAccessToken() {
+        return $this->yfyContext->getAccessToken();
+    }
+
+    /**
      * 设置access token
      *
      * @param string $accessToken
      */
     public function setAccessToken($accessToken) {
         $this->yfyContext->setAccessToken($accessToken);
+    }
+
+    /**
+     * 获取refresh token
+     */
+    public function getRefreshToken() {
+        return $this->yfyContext->getRefreshToken();
     }
 
     /**
@@ -168,7 +183,7 @@ class YfyClient
      */
     public function oauth() {
         if (!$this->oauthClient) {
-            $this->oauthClient =  new OAuthClient($this->httpClient);
+            $this->oauthClient =  new OAuthClient($this->httpClient, $this->persistentDataHandler, $this->randomStringGenerator);
         }
         return $this->oauthClient;
     }

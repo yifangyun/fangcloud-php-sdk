@@ -4,6 +4,8 @@
  */
 namespace Fangcloud;
 
+use Fangcloud\Exception\YfySdkException;
+
 
 /**
  * Class YfyAppInfo
@@ -50,6 +52,15 @@ class YfyAppInfo
         if (getenv(self::TEST_ENV)) {
             self::$authHost = "https://oauth-server.fangcloud.net";
             self::$apiHost = "https://platform.fangcloud.net";
+        }
+    }
+
+    /**
+     * 检测是否正确初始化
+     */
+    public static function checkInit() {
+        if (empty(static::$clientId) || empty(static::$clientSecret) || empty(static::$redirectUri)) {
+            throw new YfySdkException('App info should be init at first.');
         }
     }
 }

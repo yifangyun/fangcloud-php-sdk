@@ -8,7 +8,6 @@ use PHPUnit\Framework\TestCase;
 
 class YfyHttpClientFactoryTest extends TestCase
 {
-
     /**
      * @expectedException
      */
@@ -20,5 +19,4 @@ class YfyHttpClientFactoryTest extends TestCase
         $this->assertInstanceOf('Fangcloud\HttpClient\Guzzle\YfyGuzzleHttpClient', $httpClient);
 
     }
-
 }

@@ -2,9 +2,10 @@
 /**
  * 请求的封装类
  */
-namespace Fangcloud;
+namespace Fangcloud\Http;
 
 use Fangcloud\Upload\YfyFile;
+use Fangcloud\YfyContext;
 
 /**
  * Class YfyRequestBuilder
@@ -78,7 +79,7 @@ class YfyRequestBuilder
     /**
      * 设置请求方法
      *
-     * @param $method 请求方法
+     * @param string $method 请求方法
      * @return $this
      */
     public function withMethod($method) {
@@ -89,7 +90,7 @@ class YfyRequestBuilder
     /**
      * 设置请求路径模板
      *
-     * @param $endpoint 请求路径模板
+     * @param string $endpoint 请求路径模板
      * @return $this
      */
     public function withEndpoint($endpoint) {

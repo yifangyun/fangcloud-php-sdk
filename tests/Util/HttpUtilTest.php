@@ -1,5 +1,7 @@
 <?php
 
+namespace Fangcloud\Test\Util;
+
 use Fangcloud\Util\HttpUtil;
 
 class HttpUtilTest extends \PHPUnit\Framework\TestCase

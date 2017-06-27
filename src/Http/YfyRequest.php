@@ -3,7 +3,7 @@
  * 请求的封装类
  */
 
-namespace Fangcloud;
+namespace Fangcloud\Http;
 
 /**
  * Class YfyRequest

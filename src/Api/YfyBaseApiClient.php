@@ -14,7 +14,7 @@ use Fangcloud\Exception\YfySdkException;
 use Fangcloud\Exception\YfyServerException;
 use Fangcloud\HttpClient\YfyHttpClient;
 use Fangcloud\YfyContext;
-use Fangcloud\YfyRequest;
+use Fangcloud\Http\YfyRequest;
 
 /**
  * Class YfyBaseApiClient
@@ -96,9 +96,10 @@ abstract class YfyBaseApiClient
         if ($statusCode === 200) {
             return $rawResponse;
         }
-        elseif ($statusCode >= 400 && $statusCode <= 500) {
-            $body = json_decode($rawResponse->getBody(), true);
-            $errors = array_key_exists('errors', $body) ? $body['errors'] : null;
+        $rawContent = $rawResponse->getBody()->getContents();
+        $body = json_decode($rawContent, true);
+        if (is_array($body)) {
+            $errors = array_key_exists('errors', $body) ? $body['errors'] : [['code' => 'unknown_error']];
             $requestId = array_key_exists('request_id', $body) ? $body['request_id'] : null;
             switch ($statusCode) {
                 case 401:
@@ -124,7 +125,12 @@ abstract class YfyBaseApiClient
             }
         }
         else {
-            throw new YfyServerException('status code: '. $statusCode . ' unknown error');
+            if ($statusCode < 500) {
+                throw new YfySdkException('status code: ' . $statusCode . ' with content ' . $rawContent);
+            }
+            else {
+                throw new YfyServerException('status code: ' . $statusCode . ' with content ' . $rawContent);
+            }
         }
     }
 

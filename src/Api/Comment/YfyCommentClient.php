@@ -10,7 +10,7 @@ use Fangcloud\Exception\YfySdkException;
 use Fangcloud\HttpClient\YfyHttpClient;
 use Fangcloud\YfyAppInfo;
 use Fangcloud\YfyContext;
-use Fangcloud\YfyRequestBuilder;
+use Fangcloud\Http\YfyRequestBuilder;
 
 /**
  * Class YfyCommentClient

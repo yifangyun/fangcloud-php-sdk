@@ -8,7 +8,7 @@ use Fangcloud\Http\YfyRawResponse;
 
 use Fangcloud\HttpClient\AbstractYfyHttpClient;
 use Fangcloud\Upload\YfyFile;
-use Fangcloud\YfyRequest;
+use Fangcloud\Http\YfyRequest;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use Psr\Http\Message\ResponseInterface;

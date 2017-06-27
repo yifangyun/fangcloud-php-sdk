@@ -5,17 +5,20 @@
 namespace Fangcloud\Authentication;
 
 
+use Fangcloud\Exception\YfyInvalidGrantException;
 use Fangcloud\Exception\YfyInvalidStateException;
 use Fangcloud\Exception\YfySdkException;
 use Fangcloud\Exception\YfyServerException;
+use Fangcloud\Exception\YfyUnauthorizedException;
 use Fangcloud\HttpClient\YfyHttpClient;
 use Fangcloud\PersistentData\PersistentDataHandler;
+use Fangcloud\PersistentData\PersistentDataHandlerFactory;
 use Fangcloud\PersistentData\YfySessionPersistentDataHandler;
 use Fangcloud\RandomString\RandomStringGenerator;
 use Fangcloud\RandomString\RandomStringGeneratorFactory;
 use Fangcloud\YfyAppInfo;
-use Fangcloud\YfyRequest;
-use Fangcloud\YfyRequestBuilder;
+use Fangcloud\Http\YfyRequest;
+use Fangcloud\Http\YfyRequestBuilder;
 
 /**
  * Class OAuthClient
@@ -51,7 +54,7 @@ class OAuthClient
     public function __construct(YfyHttpClient $httpClient, PersistentDataHandler $persistentDataHandler = null, RandomStringGenerator $randomStringGenerator = null)
     {
         $this->httpClient = $httpClient;
-        $this->persistentDataHandler = $persistentDataHandler ?: new YfySessionPersistentDataHandler();
+        $this->persistentDataHandler = $persistentDataHandler ?: PersistentDataHandlerFactory::createPersistentDataHandler();
         $this->randomStringGenerator = $randomStringGenerator ?: RandomStringGeneratorFactory::createPseudoRandomStringGenerator();
     }
 
@@ -68,13 +71,23 @@ class OAuthClient
         if ($statusCode === 200) {
             return $rawResponse;
         }
-        elseif ($statusCode >= 400 && $statusCode <= 500) {
-            $body = json_decode($rawResponse->getBody(), true);
-            $errors = array_key_exists('errors', $body) ? $body['errors'] : null;
+        $rawContent = $rawResponse->getBody()->getContents();
+        $body = json_decode($rawContent, true);
+        if (is_array($body)) {
+            $errors = array_key_exists('errors', $body) ? $body['errors'] : [['code' => 'unknown_error']];
             $requestId = array_key_exists('request_id', $body) ? $body['request_id'] : null;
             switch ($statusCode) {
+                case 400:
+                    switch ($errors['code']) {
+                        case 'invalid_grant':
+                            throw new YfyInvalidGrantException(null, $errors, $requestId);
+                            break;
+                        default:
+                            throw new YfySdkException(null, $errors, $requestId);
+                    }
+                    break;
                 case 401:
-                    throw new YfySdkException(null, $errors, $requestId);
+                    throw new YfyUnauthorizedException(null, $errors, $requestId);
                     break;
                 case 500:
                     throw new YfyServerException(null, $errors, $requestId);
@@ -84,8 +97,14 @@ class OAuthClient
             }
         }
         else {
-            throw new YfyServerException('status code: '. $statusCode . ' unknown error');
+            if ($statusCode <500) {
+                throw new YfySdkException('status code: ' . $statusCode . ' with content ' . $rawContent);
+            }
+            else {
+                throw new YfyServerException('status code: ' . $statusCode . ' with content ' . $rawContent);
+            }
         }
+
     }
 
     /**
@@ -93,6 +112,7 @@ class OAuthClient
      *
      * @param string $refreshToken
      * @return mixed
+     * @throws YfySdkException
      */
     public function refreshToken($refreshToken) {
         $request = YfyRequestBuilder::factory()
@@ -111,6 +131,7 @@ class OAuthClient
      *
      * @param $code
      * @return mixed
+     * @throws YfySdkException
      */
     private function getTokenByAuthorizationCodeFlow($code) {
         $request = YfyRequestBuilder::factory()
@@ -128,9 +149,10 @@ class OAuthClient
     /**
      * 通过密码模式获取token
      *
-     * @param $username
-     * @param $password
+     * @param string $username 密码模式用户用户名
+     * @param string $password 密码模式用户密码
      * @return mixed
+     * @throws YfySdkException
      */
     public function getTokenByPasswordFlow($username, $password) {
         $request = YfyRequestBuilder::factory()
@@ -149,6 +171,7 @@ class OAuthClient
      * 取消一个token的授权(对应的refresh token也会失效)
      *
      * @param $token
+     * @throws YfySdkException
      */
     public function revokeToken($token) {
         $request = YfyRequestBuilder::factory()
@@ -164,6 +187,7 @@ class OAuthClient
      * 获取授权url
      * @param string|null $state
      * @return string
+     * @throws YfySdkException
      */
     public function getAuthorizationUrl($state = null) {
         if (empty($state)) {
@@ -190,6 +214,7 @@ class OAuthClient
      * @param string|null $code
      * @param string|null $state
      * @return mixed
+     * @throws YfySdkException
      */
     public function finishAuthorizationCodeFlow($code = null, $state = null) {
         $code = $code ?: $_GET['code'];
