@@ -1,5 +1,5 @@
 # CHANGELOG
 
-## unreleased - 2017-06-29
+## unreleased 
 
 * 基本API实现
