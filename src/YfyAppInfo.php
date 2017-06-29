@@ -63,4 +63,13 @@ class YfyAppInfo
             throw new YfySdkException('App info should be init at first.');
         }
     }
+
+    /**
+     * 重置应用信息
+     */
+    public static function reset() {
+        self::$clientId = null;
+        self::$clientSecret = null;
+        self::$redirectUri = null;
+    }
 }

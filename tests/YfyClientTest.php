@@ -14,6 +14,7 @@ class YfyClientTest extends TestCase
      * 测试没有初始化的情况
      */
     public function testYfyClientWithoutInit() {
+        YfyAppInfo::reset();
         $this->expectException('Fangcloud\Exception\YfySdkException');
         new YfyClient();
     }
