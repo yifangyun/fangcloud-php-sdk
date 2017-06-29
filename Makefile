@@ -24,8 +24,8 @@ tag:
 	$(if $(TAG),,$(error TAG is not defined. Pass via "make tag TAG=4.2.1"))
 	@echo Tagging $(TAG)
 	chag update $(TAG)
-	sed -i '' -e "s/VERSION = '.*'/VERSION = '$(TAG)'/" src/ClientInterface.php
-	php -l src/ClientInterface.php
+	sed -i '' -e "s/VERSION = '.*'/VERSION = '$(TAG)'/" src/YfyClient.php
+	php -l src/YfyClient.php
 	git add -A
 	git commit -m '$(TAG) release'
 	chag tag

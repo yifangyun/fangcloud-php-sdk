@@ -27,6 +27,10 @@ use Fangcloud\RandomString\RandomStringGeneratorFactory;
 class YfyClient
 {
     /**
+     * @var string SDK版本
+     */
+    const VERSION = '2.0.0';
+    /**
      * @var HttpClient\YfyHttpClient 发送请求用的http client
      */
     private $httpClient;
