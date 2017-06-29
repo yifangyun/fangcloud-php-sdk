@@ -94,7 +94,7 @@ class YfyGuzzleHttpClient extends AbstractYfyHttpClient
      *
      * @return string
      */
-    public function getHeadersAsString(ResponseInterface $response)
+    private function getHeadersAsString(ResponseInterface $response)
     {
         $headers = $response->getHeaders();
         $rawHeaders = [];

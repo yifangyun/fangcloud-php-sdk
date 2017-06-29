@@ -20,14 +20,14 @@ use Psr\Http\Message\StreamInterface;
  */
 class YfyFileClient extends YfyBaseApiClient
 {
-    const FILE_INFO_URI = self::API_PREFIX . 'file/%s/info';
-    const FILE_TRASH_INFO_URI = self::API_PREFIX . 'file/%s/trash';
-    const FILE_UPDATE_URI = self::API_PREFIX . 'file/%s/update';
-    const FILE_DELETE_URI = self::API_PREFIX . 'file/%s/delete';
-    const FILE_DELETE_FROM_TRASH_URI = self::API_PREFIX . 'file/%s/delete_from_trash';
-    const FILE_RESTORE_FROM_TRASH_URI = self::API_PREFIX . 'file/%s/restore_from_trash';
-    const FILE_MOVE_URI = self::API_PREFIX . 'file/%s/move';
-    const FILE_COPY_URI = self::API_PREFIX . 'file/%s/copy';
+    const FILE_INFO_URI = self::API_PREFIX . '/file/%s/info';
+    const FILE_TRASH_INFO_URI = self::API_PREFIX . '/file/%s/trash';
+    const FILE_UPDATE_URI = self::API_PREFIX . '/file/%s/update';
+    const FILE_DELETE_URI = self::API_PREFIX . '/file/%s/delete';
+    const FILE_DELETE_FROM_TRASH_URI = self::API_PREFIX . '/file/%s/delete_from_trash';
+    const FILE_RESTORE_FROM_TRASH_URI = self::API_PREFIX . '/file/%s/restore_from_trash';
+    const FILE_MOVE_URI = self::API_PREFIX . '/file/%s/move';
+    const FILE_COPY_URI = self::API_PREFIX . '/file/%s/copy';
     const FILE_UPLOAD_URI = self::API_PREFIX . '/file/upload';
     const FILE_UPLOAD_NEW_VERSION_URI = self::API_PREFIX . '/file/%s/new_version';
     const FILE_DOWNLOAD_URI = self::API_PREFIX . '/file/%s/download';
@@ -312,7 +312,7 @@ class YfyFileClient extends YfyBaseApiClient
      * @return mixed
      * @throws YfySdkException
      */
-    public function deleteVersionVersion($fileId, $versionId) {
+    public function deleteVersion($fileId, $versionId) {
         $request = YfyRequestBuilder::factory()
             ->withEndpoint(YfyAppInfo::$apiHost . self::FILE_VERSION_DELETE_URI)
             ->withMethod('POST')
@@ -352,11 +352,38 @@ class YfyFileClient extends YfyBaseApiClient
     }
 
     /**
+     * 获取上传文件新版本url
+     *
+     * @param int $fileId 文件id
+     * @return string 上传链接
+     * @throws YfySdkException
+     */
+    public function getUploadNewVersionUrl($fileId, $name, $remark) {
+        // presign
+        $json = [
+            'name' => $name,
+            'remark' => $remark,
+            'upload_type' => 'api'
+        ];
+        $request = YfyRequestBuilder::factory()
+            ->withEndpoint(YfyAppInfo::$apiHost . self::FILE_UPLOAD_NEW_VERSION_URI)
+            ->withMethod('POST')
+            ->addPathParam($fileId)
+            ->withJson($json)
+            ->withYfyContext($this->yfyContext)
+            ->build();
+        $response =  $this->execute($request);
+        $responseBody = json_decode($response->getBody(), true);
+        return $responseBody['presign_url'];
+    }
+
+    /**
      * 上传文件
      *
      * @param int $parentId 父文件夹id
      * @param string $name 上传文件名
      * @param resource|StreamInterface|string $resource
+     * @return mixed
      * @throws YfySdkException
      */
     public function uploadFile($parentId, $name, $resource) {
@@ -374,7 +401,37 @@ class YfyFileClient extends YfyBaseApiClient
             ->withMethod('POST')
             ->addFile($uploadFile)
             ->build();
-        $this->execute($request);
+        $response =  $this->execute($request);
+        return json_decode($response->getBody(), true);
+    }
+
+    /**
+     * 上传文件新版本
+     *
+     * @param int $fileId 文件id
+     * @param string $name 上传文件名
+     * @param string $remark 备注
+     * @param resource|StreamInterface|string $resource
+     * @return mixed
+     * @throws YfySdkException
+     */
+    public function uploadNewVersion($fileId, $name, $remark, $resource) {
+        $uploadLink = $this->getUploadNewVersionUrl($fileId, $name, $remark);
+
+        // multipart upload
+        if (is_string($resource)) {
+            $uploadFile = new YfyFile('file', $name, \GuzzleHttp\Psr7\stream_for(fopen($resource, 'r+')));
+        }
+        else {
+            $uploadFile = new YfyFile('file', $name, \GuzzleHttp\Psr7\stream_for($resource));
+        }
+        $request = YfyRequestBuilder::factory()
+            ->withEndpoint($uploadLink)
+            ->withMethod('POST')
+            ->addFile($uploadFile)
+            ->build();
+        $response =  $this->execute($request);
+        return json_decode($response->getBody(), true);
     }
 
     /**

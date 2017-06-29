@@ -4,21 +4,72 @@ namespace Fangcloud\Test\Api\User;
 
 use Fangcloud\Api\User\YfyUserClient;
 use Fangcloud\HttpClient\YfyHttpClientFactory;
+use Fangcloud\Test\Api\AbstractApiTest;
 use Fangcloud\YfyAppInfo;
 use Fangcloud\YfyContext;
 use PHPUnit\Framework\TestCase;
 
-class YfyUserClientTest extends TestCase
+class YfyUserClientTest extends AbstractApiTest
 {
-//    public function testUserClient() {
-//        YfyAppInfo::init(null, null);
-//        $context = new YfyContext();
-//        $context->setAccessToken('a000d8bf-0bfe-4233-af2d-635fef7bfac8');
-//        $context->setRefreshToken('8c3c36df-a028-4d80-a896-54bfdb7f308c');
-//        $httpClient = YfyHttpClientFactory::createHttpClient('guzzle');
-//        $client = new YfyUserClient($context, $httpClient);
-//        $user = $client->getSelf();
-//
-//        $result = $client->downloadProfilePic($user['id'], $user['profile_pic_key'], '/Users/just-cj/tmp');
-//    }
+    static $selfUserId;
+    static $anotherUserId;
+    static $originName;
+    static $updatedName = 'tt new';
+    static $selfProfileKey;
+
+    public function testSelfInfo() {
+        $response = static::$client->users()->getSelf();
+        $this->assertArrayHasKey('id', $response);
+        $this->assertArrayHasKey('name', $response);
+        $this->assertArrayHasKey('profile_pic_key', $response);
+        static::$selfUserId = $response['id'];
+        static::$originName = $response['name'];
+        static::$selfProfileKey = $response['profile_pic_key'];
+    }
+
+    /**
+     * @depends testSelfInfo
+     */
+    public function testSearchUser() {
+        $response = static::$client->users()->searchUser();
+        $this->assertArrayHasKey('users', $response);
+        $this->assertTrue(is_array($response['users']));
+        foreach ($response['users'] as $user) {
+            if ($user['id'] !== static::$selfUserId) {
+                static::$anotherUserId = $user['id'];
+                break;
+            }
+        }
+    }
+
+    /**
+     * @depends testSelfInfo
+     */
+    public function testUserInfo() {
+        $response = static::$client->users()->getUser(static::$selfUserId);
+        $this->assertArrayHasKey('id', $response);
+    }
+
+    /**
+     * @depends testSelfInfo
+     */
+    public function testUpdateSelf() {
+        $response = static::$client->users()->updateSelf(static::$updatedName);
+        $this->assertArrayHasKey('id', $response);
+        $this->assertArrayHasKey('name', $response);
+        $this->assertEquals(static::$updatedName, $response['name']);
+
+        $response = static::$client->users()->updateSelf(static::$originName);
+        $this->assertArrayHasKey('id', $response);
+        $this->assertArrayHasKey('name', $response);
+        $this->assertEquals(static::$originName, $response['name']);
+    }
+
+    /**
+     * @depends testSelfInfo
+     */
+    public function testDownloadProfilePic() {
+        $downloadProfilePic = static::$client->users()->downloadProfilePic(static::$selfUserId, static::$selfProfileKey);
+        $this->assertNotTrue($downloadProfilePic->getStream()->eof());
+    }
 }

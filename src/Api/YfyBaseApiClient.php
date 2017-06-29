@@ -58,7 +58,7 @@ abstract class YfyBaseApiClient
      * @return \Fangcloud\Http\YfyRawResponse
      * @throws YfySdkException
      */
-    public function execute(YfyRequest $yfyRequest) {
+    protected function execute(YfyRequest $yfyRequest) {
         $maxRetries = 1;
         $retires = 0;
         while (true) {

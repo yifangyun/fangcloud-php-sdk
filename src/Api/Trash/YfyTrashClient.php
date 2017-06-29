@@ -18,9 +18,9 @@ use Fangcloud\Http\YfyRequestBuilder;
  */
 class YfyTrashClient extends YfyBaseApiClient
 {
-    const TRASH_LIST_URI = self::API_PREFIX . 'trash/list';
-    const TRASH_CLEAR_URI = self::API_PREFIX . 'trash/clear';
-    const TRASH_RESTORE_ALL_URI = self::API_PREFIX . 'trash/restore_all';
+    const TRASH_LIST_URI = self::API_PREFIX . '/trash/list';
+    const TRASH_CLEAR_URI = self::API_PREFIX . '/trash/clear';
+    const TRASH_RESTORE_ALL_URI = self::API_PREFIX . '/trash/restore_all';
 
     /**
      * YfyUserClient constructor.

@@ -12,7 +12,7 @@ use Fangcloud\Exception\YfySdkException;
 use Fangcloud\HttpClient\YfyHttpClient;
 use Fangcloud\YfyAppInfo;
 use Fangcloud\YfyContext;
-use Fangcloud\YfyRequestBuilder;
+use Fangcloud\Http\YfyRequestBuilder;
 
 /**
  * Class YfyUserClient
@@ -84,7 +84,7 @@ class YfyUserClient extends YfyBaseApiClient
      * @return void|DownloadFile
      * @throws YfySdkException
      */
-    function downloadProfilePic($userId, $profilePicKey, $savePath)
+    function downloadProfilePic($userId, $profilePicKey, $savePath = null)
     {
         $request = YfyRequestBuilder::factory()
             ->withEndpoint(YfyAppInfo::$apiHost . self::PROFILE_PIC_DOWNLOAD_URI)
@@ -132,12 +132,12 @@ class YfyUserClient extends YfyBaseApiClient
      * @param int $pageId 页码
      * @return mixed
      */
-    function searchUser($queryWords, $pageId = 0)
+    function searchUser($queryWords = null, $pageId = 0)
     {
         $request = YfyRequestBuilder::factory()
-            ->withEndpoint(YfyAppInfo::$apiHost . self::USER_INFO_URI)
+            ->withEndpoint(YfyAppInfo::$apiHost . self::SEARCH_USER_URI)
             ->withMethod('GET')
-            ->addQueryParam('query)words', $queryWords)
+            ->addQueryParam('query_words', $queryWords)
             ->addQueryParam('page_id', $pageId)
             ->withYfyContext($this->yfyContext)
             ->build();

@@ -13,6 +13,10 @@ namespace Fangcloud\Exception;
 class YfySdkException extends \Exception
 {
     /**
+     * @var string 错误码
+     */
+    protected $code;
+    /**
      * @var array 请求返回的错误信息
      */
     private $errors;
@@ -35,6 +39,8 @@ class YfySdkException extends \Exception
             if (!$errors) {
                 parent::__construct('unknown error');
             }
+            $this->code = 'unknown_error';
+            if (isset($errors[0]) && isset($errors[0]['code'])) $this->code = $errors[0]['code'];
             parent::__construct($this->__toString());
         }
         else {
@@ -82,6 +88,8 @@ class YfySdkException extends \Exception
     {
         $this->errors = $errors;
     }
+
+
 
     /**
      * 重载__toString方法

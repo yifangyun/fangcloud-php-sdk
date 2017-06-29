@@ -18,8 +18,8 @@ use Fangcloud\Http\YfyRequestBuilder;
  */
 class YfyCommentClient extends YfyBaseApiClient
 {
-    const COMMENT_CREATE_URI = self::API_PREFIX . 'comment/create';
-    const COMMENT_DELETE_URI = self::API_PREFIX . 'comment/%s/delete';
+    const COMMENT_CREATE_URI = self::API_PREFIX . '/comment/create';
+    const COMMENT_DELETE_URI = self::API_PREFIX . '/comment/%s/delete';
     /**
      * YfyUserClient constructor.
      * @param YfyContext $yfyContext
@@ -39,7 +39,7 @@ class YfyCommentClient extends YfyBaseApiClient
      * @return mixed
      * @throws YfySdkException
      */
-    public function invite($fileId, $content) {
+    public function create($fileId, $content) {
         $json = [
             'file_id' => $fileId,
             'content' => $content

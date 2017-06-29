@@ -19,17 +19,17 @@ use Fangcloud\Http\YfyRequestBuilder;
  */
 class YfyFolderClient extends YfyBaseApiClient
 {
-    const FOLDER_INFO_URI = self::API_PREFIX . 'folder/%s/info';
-    const FOLDER_TRASH_INFO_URI = self::API_PREFIX . 'folder/%s/trash';
-    const FOLDER_CREATE_URI = self::API_PREFIX . 'folder/create';
-    const FOLDER_UPDATE_URI = self::API_PREFIX . 'folder/%s/update';
-    const FOLDER_DELETE_URI = self::API_PREFIX . 'folder/%s/delete';
-    const FOLDER_DELETE_FROM_TRASH_URI = self::API_PREFIX . 'folder/%s/delete_from_trash';
-    const FOLDER_RESTORE_FROM_TRASH_URI = self::API_PREFIX . 'folder/%s/restore_from_trash';
-    const FOLDER_MOVE_URI = self::API_PREFIX . 'folder/%s/move';
-    const FOLDER_CHILDREN_URI = self::API_PREFIX . 'folder/%s/children';
-    const FOLDER_SHARE_LINKS = self::API_PREFIX . 'folder/%s/share_links';
-    const FOLDER_COLLABS = self::API_PREFIX . 'folder/%s/collabs';
+    const FOLDER_INFO_URI = self::API_PREFIX . '/folder/%s/info';
+    const FOLDER_TRASH_INFO_URI = self::API_PREFIX . '/folder/%s/trash';
+    const FOLDER_CREATE_URI = self::API_PREFIX . '/folder/create';
+    const FOLDER_UPDATE_URI = self::API_PREFIX . '/folder/%s/update';
+    const FOLDER_DELETE_URI = self::API_PREFIX . '/folder/%s/delete';
+    const FOLDER_DELETE_FROM_TRASH_URI = self::API_PREFIX . '/folder/%s/delete_from_trash';
+    const FOLDER_RESTORE_FROM_TRASH_URI = self::API_PREFIX . '/folder/%s/restore_from_trash';
+    const FOLDER_MOVE_URI = self::API_PREFIX . '/folder/%s/move';
+    const FOLDER_CHILDREN_URI = self::API_PREFIX . '/folder/%s/children';
+    const FOLDER_SHARE_LINKS = self::API_PREFIX . '/folder/%s/share_links';
+    const FOLDER_COLLABS = self::API_PREFIX . '/folder/%s/collabs';
 
     /**
      * YfyUserClient constructor.
@@ -138,7 +138,7 @@ class YfyFolderClient extends YfyBaseApiClient
             ->addPathParam($folderId)
             ->withYfyContext($this->yfyContext)
             ->build();
-        $response =  $this->execute($request);
+        $response = $this->execute($request);
         return json_decode($response->getBody(), true);
     }
 

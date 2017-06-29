@@ -7,7 +7,7 @@ use Fangcloud\Exception\YfyInvalidGrantException;
 use Fangcloud\Http\YfyRawResponse;
 use Fangcloud\YfyAppInfo;
 use Fangcloud\YfyContext;
-use Fangcloud\YfyRequest;
+use Fangcloud\Http\YfyRequest;
 use Mockery\MockInterface;
 
 class YfyBaseApiClientTest extends \PHPUnit_Framework_TestCase
@@ -128,6 +128,7 @@ class YfyBaseApiClientTest extends \PHPUnit_Framework_TestCase
      * 测试无效token,并且不尝试刷新token
      */
     public function testInvalidTokenWithoutRefreshToken() {
+        $this->expectException('Fangcloud\Exception\YfyInvalidTokenException');
         $this->yfyContext->setAutoRefresh(false);
         $this->mockHttpClient->shouldReceive('send')
             ->once()

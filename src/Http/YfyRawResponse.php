@@ -100,6 +100,7 @@ class YfyRawResponse
      */
     protected function setHeadersFromString($rawHeaders)
     {
+        if (empty($rawHeaders)) return;
         // Normalize line breaks
         $rawHeaders = str_replace("\r\n", "\n", $rawHeaders);
 

@@ -18,7 +18,7 @@ use Fangcloud\Http\YfyRequestBuilder;
  */
 class YfyItemClient extends YfyBaseApiClient
 {
-    const ITEM_SEARCH_URI = self::API_PREFIX . 'item/search';
+    const ITEM_SEARCH_URI = self::API_PREFIX . '/item/search';
 
     /**
      * YfyUserClient constructor.
@@ -41,7 +41,7 @@ class YfyItemClient extends YfyBaseApiClient
      * @return mixed
      * @throws YfySdkException
      */
-    public function getInfo($queryWords, $type = 'all', $pageId = 0, $searchInFolder = null) {
+    public function search($queryWords, $type = 'all', $pageId = 0, $searchInFolder = null) {
         $builder = YfyRequestBuilder::factory()
             ->withEndpoint(YfyAppInfo::$apiHost . self::ITEM_SEARCH_URI)
             ->withMethod('GET')

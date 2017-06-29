@@ -18,10 +18,10 @@ use Fangcloud\Http\YfyRequestBuilder;
  */
 class YfyShareLinkClient extends YfyBaseApiClient
 {
-    const SHARE_LINK_INFO_URI = self::API_PREFIX . 'share_link/%s/info';
-    const SHARE_CREATE_URI = self::API_PREFIX . 'share_link/create';
-    const SHARE_UPDATE_URI = self::API_PREFIX . 'share_link/%s/update';
-    const SHARE_REVOKE_URI = self::API_PREFIX . 'share_link/%s/revoke';
+    const SHARE_LINK_INFO_URI = self::API_PREFIX . '/share_link/%s/info';
+    const SHARE_CREATE_URI = self::API_PREFIX . '/share_link/create';
+    const SHARE_UPDATE_URI = self::API_PREFIX . '/share_link/%s/update';
+    const SHARE_REVOKE_URI = self::API_PREFIX . '/share_link/%s/revoke';
     /**
      * YfyUserClient constructor.
      * @param YfyContext $yfyContext
@@ -71,7 +71,7 @@ class YfyShareLinkClient extends YfyBaseApiClient
         $json = [
             $id_key => $id,
             'access' => $access,
-            'dueTime' => $dueTime,
+            'due_time' => $dueTime,
             'disable_download' => $disableDownload,
             'password_protected' => $passwordProtected,
             'password' => $password
@@ -101,7 +101,7 @@ class YfyShareLinkClient extends YfyBaseApiClient
     public function update($uniqueName, $access, $dueTime, $disableDownload = false, $passwordProtected = false, $password = null) {
         $json = [
             'access' => $access,
-            'dueTime' => $dueTime,
+            'due_time' => $dueTime,
             'disable_download' => $disableDownload,
             'password_protected' => $passwordProtected,
             'password' => $password

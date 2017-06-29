@@ -8,8 +8,14 @@ use Fangcloud\YfyAppInfo;
 class YfyAppInfoTest extends \PHPUnit_Framework_TestCase
 {
 
+    public function testCheckInitFail()
+    {
+        $this->expectException('Fangcloud\Exception\YfySdkException');
+        YfyAppInfo::checkInit();
+    }
+
     /**
-     * @after testCheckInitFail
+     * @depends testCheckInitFail
      */
     public function testCheckInit()
     {
@@ -17,10 +23,4 @@ class YfyAppInfoTest extends \PHPUnit_Framework_TestCase
         YfyAppInfo::checkInit();
     }
 
-    public function testCheckInitFail()
-    {
-        $this->expectException('Fangcloud\Exception\YfySdkException');
-        YfyAppInfo::checkInit();
-    }
-    
 }

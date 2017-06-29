@@ -19,10 +19,10 @@ use Fangcloud\Http\YfyRequestBuilder;
  */
 class YfyCollabClient extends YfyBaseApiClient
 {
-    const COLLAB_INVITE_URI = self::API_PREFIX . 'collab/invite';
-    const COLLAB_INFO_URI = self::API_PREFIX . 'collab/%s/info';
-    const COLLAB_UPDATE_URI = self::API_PREFIX . 'collab/%s/update';
-    const COLLAB_DELETE_URI = self::API_PREFIX . 'collab/%s/delete';
+    const COLLAB_INVITE_URI = self::API_PREFIX . '/collab/invite';
+    const COLLAB_INFO_URI = self::API_PREFIX . '/collab/%s/info';
+    const COLLAB_UPDATE_URI = self::API_PREFIX . '/collab/%s/update';
+    const COLLAB_DELETE_URI = self::API_PREFIX . '/collab/%s/delete';
 
     /**
      * YfyUserClient constructor.
@@ -95,7 +95,7 @@ class YfyCollabClient extends YfyBaseApiClient
             'role' => $role
         ];
         $request = YfyRequestBuilder::factory()
-            ->withEndpoint(YfyAppInfo::$apiHost . self::COLLAB_INVITE_URI)
+            ->withEndpoint(YfyAppInfo::$apiHost . self::COLLAB_UPDATE_URI)
             ->withMethod('POST')
             ->addPathParam($collabId)
             ->withJson($json)
@@ -114,7 +114,7 @@ class YfyCollabClient extends YfyBaseApiClient
      */
     public function delete($collabId) {
         $request = YfyRequestBuilder::factory()
-            ->withEndpoint(YfyAppInfo::$apiHost . self::COLLAB_INVITE_URI)
+            ->withEndpoint(YfyAppInfo::$apiHost . self::COLLAB_DELETE_URI)
             ->withMethod('POST')
             ->addPathParam($collabId)
             ->withYfyContext($this->yfyContext)

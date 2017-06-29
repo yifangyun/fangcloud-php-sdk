@@ -6,7 +6,7 @@ namespace Fangcloud\Test\Authentication;
 use Fangcloud\Authentication\OAuthClient;
 use Fangcloud\Http\YfyRawResponse;
 use Fangcloud\YfyAppInfo;
-use Fangcloud\YfyRequest;
+use Fangcloud\Http\YfyRequest;
 use Mockery\MockInterface;
 
 class OAuthClientTest extends \PHPUnit_Framework_TestCase
@@ -73,7 +73,7 @@ class OAuthClientTest extends \PHPUnit_Framework_TestCase
                 if (!array_key_exists('Authorization', $headers)) {
                     return false;
                 }
-                if (!array_key_exists('grant_type', $params) || $params['grant_type'] !== 'refresh') {
+                if (!array_key_exists('grant_type', $params) || $params['grant_type'] !== 'refresh_token') {
                     return false;
                 }
                 if (!array_key_exists('refresh_token', $params)) {
