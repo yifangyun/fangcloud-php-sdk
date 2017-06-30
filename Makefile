@@ -1,6 +1,8 @@
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
 	@echo "  clean          to remove build artifacts"
+	@echo "  coverage       to perform unit tests with code coverage. Provide TEST to perform a specific test."
+	@echo "  coverage-show  to show the code coverage report"
 	@echo "  docs           to build the Sphinx docs"
 	@echo "  docs-show      to view the Sphinx docs"
 	@echo "  package        to package a phar and zip file for a release"
@@ -13,6 +15,13 @@ help:
 
 clean:
 	rm -rf build/artifacts/*
+
+coverage:
+	$(if $(YFY_TOKEN),,$(error YFY_TOKEN is not defined.))
+	vendor/bin/phpunit --coverage-html=build/artifacts/coverage
+
+coverage-show:
+	open build/artifacts/coverage/index.html
 
 docs:
 	vendor/bin/phpdoc run -d ./src -t --target=build/artifacts/docs --cache-folder=build/artifacts/phpdoc-cache
