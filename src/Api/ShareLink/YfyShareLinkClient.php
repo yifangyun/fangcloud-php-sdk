@@ -6,6 +6,8 @@ namespace Fangcloud\Api\ShareLink;
 
 use Fangcloud\Api\YfyBaseApiClient;
 use Fangcloud\Authentication\OAuthClient;
+use Fangcloud\Constant\YfyItemType;
+use Fangcloud\Constant\YfyShareLinkAccess;
 use Fangcloud\Exception\YfySdkException;
 use Fangcloud\HttpClient\YfyHttpClient;
 use Fangcloud\YfyAppInfo;
@@ -54,20 +56,25 @@ class YfyShareLinkClient extends YfyBaseApiClient
     /**
      * 创建分享链接
      *
-     * @param string $type item类型, 为file或者folder
+     * @param string $type item类型, 只能是Fangcloud\Constant\YfyItemType::FILE 或者Fangcloud\Constant\YfyItemType::FOLDER
      * @param int $id item的id
-     * @param string $access 分享链接的访问权限, 为public或者company
+     * @param string $access 分享链接的访问权限, 只能是Fangcloud\Constant\YfyShareLinkAccess中定义的常量
      * @param string $dueTime 到期时间(格式如:2017-05-30)
      * @param bool $disableDownload 是否不允许下载(默认false)
      * @param bool $passwordProtected 是否有密码(默认false)
      * @param string $password 密码
      * @return mixed
      * @throws YfySdkException
+     * @throws \InvalidArgumentException
+     *
+     * @see YfyItemType
+     * @see YfyShareLinkAccess
      */
     public function create($type, $id, $access, $dueTime, $disableDownload = false, $passwordProtected = false, $password = null) {
-        if ($type === 'file') $id_key = 'file_id';
-        elseif ($type === 'folder') $id_key = 'folder_id';
+        if ($type === YfyItemType::FILE) $id_key = 'file_id';
+        elseif ($type === YfyItemType::FOLDER) $id_key = 'folder_id';
         else throw new \InvalidArgumentException('Type should be file or folder!');
+        YfyShareLinkAccess::validate($access);
         $json = [
             $id_key => $id,
             'access' => $access,
@@ -90,15 +97,19 @@ class YfyShareLinkClient extends YfyBaseApiClient
      * 更新分享链接
      *
      * @param string $uniqueName 分享链接唯一标识
-     * @param string $access 分享链接的访问权限, 为public或者company
+     * @param string $access 分享链接的访问权限, 只能是Fangcloud\Constant\YfyShareLinkAccess中定义的常量
      * @param string $dueTime 到期时间(格式如:2017-05-30)
      * @param bool $disableDownload 是否不允许下载(默认false)
      * @param bool $passwordProtected 是否有密码(默认false)
      * @param string $password 密码
      * @return mixed
      * @throws YfySdkException
+     * @throws \InvalidArgumentException
+     *
+     * @see YfyShareLinkAccess
      */
     public function update($uniqueName, $access, $dueTime, $disableDownload = false, $passwordProtected = false, $password = null) {
+        YfyShareLinkAccess::validate($access);
         $json = [
             'access' => $access,
             'due_time' => $dueTime,

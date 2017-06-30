@@ -27,10 +27,10 @@ class RandomStringGeneratorFactory
      * @param string|RandomStringGenerator|null $generator 可以一个RandomStringGenerator实例, 也可以是'random_bytes','mcrypt','openssl','urandom'四种其中一种的string, 若不提供则会自动检测默认实现
      * @return RandomStringGenerator
      */
-    public static function createPseudoRandomStringGenerator($generator = null)
+    public static function createRandomStringGenerator($generator = null)
     {
         if (!$generator) {
-            return self::detectDefaultPseudoRandomStringGenerator();
+            return self::detectDefaultRandomStringGenerator();
         }
 
         if ($generator instanceof RandomStringGenerator) {
@@ -59,7 +59,7 @@ class RandomStringGeneratorFactory
      * @throws YfySdkException
      * @return RandomStringGenerator
      */
-    private static function detectDefaultPseudoRandomStringGenerator()
+    private static function detectDefaultRandomStringGenerator()
     {
         // Check for PHP 7's CSPRNG first to keep mcrypt deprecation messages from appearing in PHP 7.1.
         if (function_exists('random_bytes')) {

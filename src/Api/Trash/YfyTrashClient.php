@@ -6,6 +6,7 @@ namespace Fangcloud\Api\Trash;
 
 use Fangcloud\Api\YfyBaseApiClient;
 use Fangcloud\Authentication\OAuthClient;
+use Fangcloud\Constant\YfyItemType;
 use Fangcloud\Exception\YfySdkException;
 use Fangcloud\HttpClient\YfyHttpClient;
 use Fangcloud\YfyAppInfo;
@@ -38,11 +39,15 @@ class YfyTrashClient extends YfyBaseApiClient
      *
      * @param int $pageId 页码, 默认为0
      * @param int $pageCapacity 页容量, 默认为20
-     * @param string $type 分为file，folder，all三种，默认为all
+     * @param string $type item类型, 只能是Fangcloud\Constant\YfyItemType中定义的常量
      * @return mixed
      * @throws YfySdkException
+     * @throws \InvalidArgumentException
+     *
+     * @see YfyItemType
      */
-    public function listItems($pageId = 0, $pageCapacity = 20, $type = 'all') {
+    public function listItems($pageId = 0, $pageCapacity = 20, $type = YfyItemType::ITEM) {
+        YfyItemType::validate($type);
         $request = YfyRequestBuilder::factory()
             ->withEndpoint(YfyAppInfo::$apiHost . self::TRASH_LIST_URI)
             ->withMethod('GET')
@@ -58,11 +63,15 @@ class YfyTrashClient extends YfyBaseApiClient
     /**
      * 清空回收站
      *
-     * @param string $type 分为file，folder，all三种，默认为all
+     * @param string $type item类型, 只能是Fangcloud\Constant\YfyItemType中定义的常量
      * @return mixed
      * @throws YfySdkException
+     * @throws \InvalidArgumentException
+     *
+     * @see YfyItemType
      */
-    public function clear($type = 'all') {
+    public function clear($type = YfyItemType::ITEM) {
+        YfyItemType::validate($type);
         $json = [
             'type' => $type
         ];
@@ -79,11 +88,15 @@ class YfyTrashClient extends YfyBaseApiClient
     /**
      * 从回收站恢复所有文件/文件夹
      *
-     * @param string $type 分为file，folder，all三种，默认为all
+     * @param string $type item类型, 只能是Fangcloud\Constant\YfyItemType中定义的常量
      * @return mixed
      * @throws YfySdkException
+     * @throws \InvalidArgumentException
+     *
+     * @see YfyItemType
      */
     public function restoreAll($type = 'all') {
+        YfyItemType::validate($type);
         $json = [
             'type' => $type
         ];

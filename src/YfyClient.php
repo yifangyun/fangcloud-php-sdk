@@ -86,16 +86,17 @@ class YfyClient
     /**
      * YfyClient constructor.
      * @param array $options 可传入的选项
+     * @see YfyClientOptions
      */
     public function __construct(array $options = [])
     {
         YfyAppInfo::checkInit();
         $options = array_merge([
-            'auto_refresh' => true,
-            'access_token' => null,
-            'refresh_token' => null,
-            'persistent_data_handler' => PersistentDataHandlerFactory::createPersistentDataHandler(),
-            'random_string_generator' => RandomStringGeneratorFactory::createPseudoRandomStringGenerator(),
+            YfyClientOptions::AUTO_REFRESH => true,
+            YfyClientOptions::ACCESS_TOKEN => null,
+            YfyClientOptions::REFRESH_TOKEN => null,
+            YfyClientOptions::PERSISTENT_DATA_HANDLER => PersistentDataHandlerFactory::createPersistentDataHandler(),
+            YfyClientOptions::RANDOM_STRING_GENERATOR => RandomStringGeneratorFactory::createRandomStringGenerator(),
         ], $options);
         $this->httpClient = YfyHttpClientFactory::createHttpClient();
         $this->yfyContext = new YfyContext();

@@ -55,7 +55,7 @@ class OAuthClient
     {
         $this->httpClient = $httpClient;
         $this->persistentDataHandler = $persistentDataHandler ?: PersistentDataHandlerFactory::createPersistentDataHandler();
-        $this->randomStringGenerator = $randomStringGenerator ?: RandomStringGeneratorFactory::createPseudoRandomStringGenerator();
+        $this->randomStringGenerator = $randomStringGenerator ?: RandomStringGeneratorFactory::createRandomStringGenerator();
     }
 
     /**
