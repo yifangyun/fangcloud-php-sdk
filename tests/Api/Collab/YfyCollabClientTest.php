@@ -21,12 +21,12 @@ class YfyCollabClientTest extends AbstractApiTest
         $response = static::$client->folders()->create(static::TEST_ROOT_FOLDER_NAME, 0);
         $this->assertArrayHasKey('id', $response);
         static::$testRootFolderId = $response['id'];
-        echo "create test root folder success with id " . static::$testRootFolderId . "\n";
+        //echo "create test root folder success with id " . static::$testRootFolderId . "\n";
 
         $response = static::$client->folders()->create(static::TEST_FOLDER_NAME, static::$testRootFolderId);
         $this->assertArrayHasKey('id', $response);
         static::$testFolderId = $response['id'];
-        echo "create test folder success with id " . static::$testFolderId . "\n";
+        //echo "create test folder success with id " . static::$testFolderId . "\n";
 
         $response = static::$client->users()->getSelf();
         $this->assertArrayHasKey('id', $response);
@@ -98,6 +98,6 @@ class YfyCollabClientTest extends AbstractApiTest
         $this->assertEquals(static::SUCCESS_RESPONSE, $response);
         $response = static::$client->folders()->deleteFromTrash(static::$testRootFolderId);
         $this->assertEquals(static::SUCCESS_RESPONSE, $response);
-        echo "delete test root folder success\n";
+        //echo "delete test root folder success\n";
     }
 }

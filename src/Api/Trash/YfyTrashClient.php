@@ -95,7 +95,7 @@ class YfyTrashClient extends YfyBaseApiClient
      *
      * @see YfyItemType
      */
-    public function restoreAll($type = 'all') {
+    public function restoreAll($type = YfyItemType::ITEM) {
         YfyItemType::validate($type);
         $json = [
             'type' => $type

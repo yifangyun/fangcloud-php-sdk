@@ -21,17 +21,17 @@ class YfyFileClientTest extends AbstractApiTest
         $response = static::$client->folders()->create(static::TEST_ROOT_FOLDER_NAME, 0);
         $this->assertArrayHasKey('id', $response);
         static::$testRootFolderId = $response['id'];
-        echo "create test root folder success with id " . static::$testRootFolderId . "\n";
+        //echo "create test root folder success with id " . static::$testRootFolderId . "\n";
 
         $response = static::$client->folders()->create(static::TEST_MOVE_TO_FOLDER_NAME, static::$testRootFolderId);
         $this->assertArrayHasKey('id', $response);
         static::$testMoveToFolderId = $response['id'];
-        echo "create test move to folder success with id " . static::$testMoveToFolderId . "\n";
+        //echo "create test move to folder success with id " . static::$testMoveToFolderId . "\n";
 
         $response = static::$client->folders()->create(static::TEST_COPY_TO_FOLDER_NAME, static::$testRootFolderId);
         $this->assertArrayHasKey('id', $response);
         static::$testCopyToFolderId = $response['id'];
-        echo "create test copy to folder success with id " . static::$testCopyToFolderId . "\n";
+        //echo "create test copy to folder success with id " . static::$testCopyToFolderId . "\n";
     }
 
     /**
@@ -41,7 +41,7 @@ class YfyFileClientTest extends AbstractApiTest
         $response = static::$client->files()->uploadFile(static::$testRootFolderId, static::TEST_FILENAME, \GuzzleHttp\Psr7\stream_for(static::TEST_FILE_CONTENT));
         $this->assertArrayHasKey('id', $response);
         static::$testFileId = $response['id'];
-        echo "upload a file with returned id " . static::$testFileId . "\n";
+        //echo "upload a file with returned id " . static::$testFileId . "\n";
     }
 
     /**
@@ -50,7 +50,7 @@ class YfyFileClientTest extends AbstractApiTest
     public function testFileInfo() {
         $response = static::$client->files()->getInfo(static::$testFileId);
         $this->assertArrayHasKey('id', $response);
-        echo "get the file info with id " . static::$testFileId . "\n";
+        //echo "get the file info with id " . static::$testFileId . "\n";
     }
 
     /**
@@ -60,7 +60,7 @@ class YfyFileClientTest extends AbstractApiTest
         $response = static::$client->files()->update(static::$testFileId, static::TEST_FILENAME_UPDATED);
         $this->assertArrayHasKey('name', $response);
         $this->assertEquals(static::TEST_FILENAME_UPDATED . '.txt', $response['name']);
-        echo "update the file name to " . static::TEST_FILENAME_UPDATED . "\n";
+        //echo "update the file name to " . static::TEST_FILENAME_UPDATED . "\n";
     }
 
     /**
@@ -69,7 +69,7 @@ class YfyFileClientTest extends AbstractApiTest
     public function testMoveFile() {
         $response = static::$client->files()->move(static::$testFileId, static::$testMoveToFolderId);
         $this->assertEquals(static::SUCCESS_RESPONSE, $response);
-        echo "move the file to folder " . static::$testMoveToFolderId . "\n";
+        //echo "move the file to folder " . static::$testMoveToFolderId . "\n";
     }
 
     /**
@@ -78,7 +78,7 @@ class YfyFileClientTest extends AbstractApiTest
     public function testCopyFile() {
         $response = static::$client->files()->copy(static::$testFileId, static::$testCopyToFolderId);
         $this->assertArrayHasKey('id', $response);
-        echo "copy the file to folder " . static::$testCopyToFolderId . "\n";
+        //echo "copy the file to folder " . static::$testCopyToFolderId . "\n";
     }
 
     /**
@@ -87,7 +87,7 @@ class YfyFileClientTest extends AbstractApiTest
     public function testDownload() {
         $downloadFile = static::$client->files()->download(static::$testFileId);
         $this->assertEquals(static::TEST_FILE_CONTENT, $downloadFile->getStream()->getContents());
-        echo "download file success with id " . static::$testFileId . "\n";
+        //echo "download file success with id " . static::$testFileId . "\n";
     }
 
     /**
@@ -96,7 +96,7 @@ class YfyFileClientTest extends AbstractApiTest
     public function testUploadNewVersion() {
         $response = static::$client->files()->uploadNewVersion(static::$testFileId, static::TEST_FILENAME_NEW_VERSION, 'fake remark', \GuzzleHttp\Psr7\stream_for(static::TEST_FILE_CONTENT));
         $this->assertArrayHasKey('id', $response);
-        echo "upload new version with id " . static::$testFileId . "\n";
+        //echo "upload new version with id " . static::$testFileId . "\n";
     }
 
     /**
@@ -113,7 +113,7 @@ class YfyFileClientTest extends AbstractApiTest
         $this->assertEquals(false, $response['file_versions'][1]['current']);
         $this->assertArrayHasKey('id', $response['file_versions'][1]);
         static::$testFileVersionId = $response['file_versions'][1]['id'];
-        echo "get the file versions with id " . static::$testFileId . ". get an old version with id " . static::$testFileVersionId . "\n";
+        //echo "get the file versions with id " . static::$testFileId . ". get an old version with id " . static::$testFileVersionId . "\n";
     }
 
     /**
@@ -122,7 +122,7 @@ class YfyFileClientTest extends AbstractApiTest
     public function testFileVersionInfo() {
         $response = static::$client->files()->getVersionInfo(static::$testFileId, static::$testFileVersionId);
         $this->assertArrayHasKey('id', $response);
-        echo "get the file version info with file id " . static::$testFileId . " version id " . static::$testFileVersionId . "\n";
+        //echo "get the file version info with file id " . static::$testFileId . " version id " . static::$testFileVersionId . "\n";
     }
 
     /**
@@ -135,7 +135,7 @@ class YfyFileClientTest extends AbstractApiTest
         $this->assertArrayHasKey('file_versions', $response);
         $this->assertTrue(is_array($response['file_versions']));
         $this->assertEquals(3, count($response['file_versions']));
-        echo "promote file version with id " . static::$testFileId . " and version id " . static::$testFileVersionId . "\n";
+        //echo "promote file version with id " . static::$testFileId . " and version id " . static::$testFileVersionId . "\n";
     }
 
     /**
@@ -148,7 +148,7 @@ class YfyFileClientTest extends AbstractApiTest
         $this->assertArrayHasKey('file_versions', $response);
         $this->assertTrue(is_array($response['file_versions']));
         $this->assertEquals(2, count($response['file_versions']));
-        echo "delete file version with id " . static::$testFileId . " and version id " . static::$testFileVersionId . "\n";
+        //echo "delete file version with id " . static::$testFileId . " and version id " . static::$testFileVersionId . "\n";
     }
 
     /**
@@ -197,7 +197,7 @@ class YfyFileClientTest extends AbstractApiTest
         $this->assertEquals(static::SUCCESS_RESPONSE, $response);
         $response = static::$client->folders()->deleteFromTrash(static::$testRootFolderId);
         $this->assertEquals(static::SUCCESS_RESPONSE, $response);
-        echo "delete test root folder success\n";
+        //echo "delete test root folder success\n";
     }
 
 }
