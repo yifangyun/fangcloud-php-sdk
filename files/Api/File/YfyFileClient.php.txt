@@ -355,6 +355,8 @@ class YfyFileClient extends YfyBaseApiClient
      * 获取上传文件新版本url
      *
      * @param int $fileId 文件id
+     * @param string $name 新版本文件名
+     * @param string $remark 备注
      * @return string 上传链接
      * @throws YfySdkException
      */

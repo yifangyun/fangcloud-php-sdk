@@ -7,6 +7,7 @@ namespace Fangcloud\Api\Collab;
 
 use Fangcloud\Api\YfyBaseApiClient;
 use Fangcloud\Authentication\OAuthClient;
+use Fangcloud\Constant\YfyCollabRole;
 use Fangcloud\Exception\YfySdkException;
 use Fangcloud\HttpClient\YfyHttpClient;
 use Fangcloud\YfyAppInfo;
@@ -40,12 +41,16 @@ class YfyCollabClient extends YfyBaseApiClient
      *
      * @param int $folderId 协作文件夹id
      * @param int $userId 邀请用户id
-     * @param string $userRole 邀请用户角色
+     * @param string $userRole 邀请用户角色, 只能是Fangcloud\Constant\YfyCollabRole中定义的常量
      * @param string $message 邀请信息，长度不能超过140个字符
      * @return mixed
      * @throws YfySdkException
+     * @throws \InvalidArgumentException
+     *
+     * @see YfyCollabRole
      */
     public function invite($folderId, $userId, $userRole, $message = null) {
+        YfyCollabRole::validate($userRole);
         $json = [
             'folder_id' => $folderId,
             'invited_user' => [
@@ -86,11 +91,15 @@ class YfyCollabClient extends YfyBaseApiClient
      * 更新协作
      *
      * @param int $collabId 协作id
-     * @param string $role 用户角色
+     * @param string $role 用户角色, 只能是Fangcloud\Constant\YfyCollabRole中定义的常量
      * @return mixed
      * @throws YfySdkException
+     * @throws \InvalidArgumentException
+     *
+     * @see YfyCollabRole
      */
     public function update($collabId, $role) {
+        YfyCollabRole::validate($role);
         $json = [
             'role' => $role
         ];

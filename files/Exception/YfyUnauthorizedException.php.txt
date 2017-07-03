@@ -5,7 +5,10 @@
 
 namespace Fangcloud\Exception;
 
-
+/**
+ * Class YfyUnauthorizedException
+ * @package Fangcloud\Exception
+ */
 class YfyUnauthorizedException extends YfySdkException
 {
 

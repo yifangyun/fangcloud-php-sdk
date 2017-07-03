@@ -12,6 +12,7 @@ use Fangcloud\HttpClient\YfyHttpClient;
 use Fangcloud\YfyAppInfo;
 use Fangcloud\YfyContext;
 use Fangcloud\Http\YfyRequestBuilder;
+use Fangcloud\Constant\YfyItemType;
 
 /**
  * Class YfyFolderClient
@@ -205,16 +206,31 @@ class YfyFolderClient extends YfyBaseApiClient
      * 获取文件夹的单层子文件和文件夹列表
      *
      * @param int $folderId 文件夹id
+     * @param int $pageId 页码
+     * @param int $pageCapacity 页容量
+     * @param string $type 搜索文件类型, 只能是Fangcloud\Constant\YfyItemType中定义的常量
      * @return mixed
      * @throws YfySdkException
+     * @throws \InvalidArgumentException
+     *
+     * @see YfyItemType
      */
-    public function listChildren($folderId) {
-        $request = YfyRequestBuilder::factory()
+    public function listChildren($folderId, $pageId = 0, $pageCapacity = 20, $type = YfyItemType::ITEM) {
+        YfyItemType::validate($type);
+        $builder = YfyRequestBuilder::factory()
             ->withEndpoint(YfyAppInfo::$apiHost . self::FOLDER_CHILDREN_URI)
             ->withMethod('GET')
             ->addPathParam($folderId)
-            ->withYfyContext($this->yfyContext)
-            ->build();
+            ->withYfyContext($this->yfyContext);
+        if (is_int($pageId)) {
+            $builder->addQueryParam('page_id', $pageId);
+        }
+        if (is_int($pageCapacity)) {
+            $builder->addQueryParam('page_capacity', $pageCapacity);
+        }
+        $builder->addQueryParam('type', $type);
+
+        $request = $builder->build();
         $response =  $this->execute($request);
         return json_decode($response->getBody(), true);
     }
