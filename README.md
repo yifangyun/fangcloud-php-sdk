@@ -12,7 +12,7 @@ curl -sS https://getcomposer.org/installer | php
 你可以通过composer.phar安装亿方云php sdk
 
 ```bash
-php composer.phar require yifangyun/yifangyun-sdk-php:@stable
+php composer.phar require fangcloud/fangcloud-sdk-php:@stable
 ```
 
 你也可以在已有的composer.json文件中加入亿方云php sdk的依赖
@@ -20,7 +20,7 @@ php composer.phar require yifangyun/yifangyun-sdk-php:@stable
 ```json
 {
    "require": {
-      "yifangyun/yifangyun-sdk-php": "@stable"
+      "fangcloud/fangcloud-sdk-php": "@stable"
    }
 }
 ```
@@ -121,7 +121,7 @@ git clone git@github.com:yifangyun/fangcloud-php-sdk.git
 php -S localhost:8000
 ```
 
-打开http://localhost:8000以使用该demo，根据提示操作即可
+打开[http://localhost:8000](http://localhost:8000)以使用该demo，根据提示操作即可
 
 
 

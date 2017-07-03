@@ -1,11 +1,11 @@
 {
-  "name": "yifangyun/yifangyun-sdk-php",
-  "description": "Yifangyun SDK for PHP",
+  "name": "fangcloud/fangcloud-php-sdk",
+  "description": "Fangcloud SDK for PHP",
   "minimum-stability": "stable",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "authors": [
     {
-      "name": "Yifangyun Open Platform"
+      "name": "Fangcloud Open Platform"
     }
   ],
   "require": {
