@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Fangcloud\Http\YfyRequestBuilder | Fangcloud PHP SDK API</title>
+
+            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
+        <script src="../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/typeahead.min.js"></script>
+        <script src="../../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
+
+    <body id="class" data-name="class:Fangcloud_Http_YfyRequestBuilder" data-root-path="../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <script>
+            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
+        </script>
+        <form id="search-form" action="../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">Fangcloud PHP SDK API</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../classes.html">Classes</a></li>
+                                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../traits.html">Traits</a></li>
+                    <li><a href="../../doc-index.html">Index</a></li>
+                    <li><a href="../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                        <li><a href="../../Fangcloud.html">Fangcloud</a></li><li class="backslash">\</li><li><a href="../../Fangcloud/Http.html">Http</a></li><li class="backslash">\</li><li>YfyRequestBuilder</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>
+            YfyRequestBuilder
+                
+        </h1>
+    </div>
+
+    <p>    class
+    <strong>YfyRequestBuilder</strong>
+</p>
+
+        
+    
+
+            <div class="description">
+            <p>Class YfyRequestBuilder</p>                                </div>
+    
+    
+    
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_method">
+                                        protected                                        string
+                </td>
+                <td>$method</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_endpoint">
+                                        protected                                        string
+                </td>
+                <td>$endpoint</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_headers">
+                                        protected                                        array
+                </td>
+                <td>$headers</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_basicAuth">
+                                        protected                                        array
+                </td>
+                <td>$basicAuth</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_pathParams">
+                                        protected                                        array
+                </td>
+                <td>$pathParams</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_queryParams">
+                                        protected                                        array
+                </td>
+                <td>$queryParams</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_formParams">
+                                        protected                                        array
+                </td>
+                <td>$formParams</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_json">
+                                        protected                                        array
+                </td>
+                <td>$json</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_files">
+                                        protected                                        array
+                </td>
+                <td>$files</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_connectTimeout">
+                                        protected                                        int
+                </td>
+                <td>$connectTimeout</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_timeout">
+                                        protected                                        int
+                </td>
+                <td>$timeout</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_stream">
+                                        protected                                        bool
+                </td>
+                <td>$stream</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_yfyContext">
+                                        protected                                        <a href="../../Fangcloud/YfyContext.html"><abbr title="Fangcloud\YfyContext">YfyContext</abbr></a>
+                </td>
+                <td>$yfyContext</td>
+                <td class="last"></td>
+                <td></td>
+            </tr>
+            </table>
+
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___construct">__construct</a>(<a href="../../Fangcloud/YfyContext.html"><abbr title="Fangcloud\YfyContext">YfyContext</abbr></a> $yfyContext = null)
+        
+                                            <p>YfyRequestBuilder constructor.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_withMethod">withMethod</a>(string $method)
+        
+                                            <p>设置请求方法</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_withEndpoint">withEndpoint</a>(string $endpoint)
+        
+                                            <p>设置请求路径模板</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_withHeaders">withHeaders</a>(array $headers)
+        
+                                            <p>设置请求header数组</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_addHeader">addHeader</a>(string $key, string $value)
+        
+                                            <p>增加一个header</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_withBasicAuth">withBasicAuth</a>(string $username, string $password)
+        
+                                            <p>设置basic auth参数</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_withPathParams">withPathParams</a>(array $pathParams)
+        
+                                            <p>设置路径参数</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_addPathParam">addPathParam</a>(string $param)
+        
+                                            <p>增加一个路径参数</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_withQueryParams">withQueryParams</a>(array $queryParams)
+        
+                                            <p>设置query参数数组</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_addQueryParam">addQueryParam</a>(string $key, string $value)
+        
+                                            <p>增加一个query参数</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_withFormParams">withFormParams</a>(array $formParams)
+        
+                                            <p>设置表单参数</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_addFormParam">addFormParam</a>(string $key, string $value)
+        
+                                            <p>增加一个表单参数</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_withJson">withJson</a>(array $json)
+        
+                                            <p>设置json参数</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_withFiles">withFiles</a>(array $files)
+        
+                                            <p>设置通过multipart方式上传的文件</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_addFile">addFile</a>(<a href="../../Fangcloud/Upload/YfyFile.html"><abbr title="Fangcloud\Upload\YfyFile">YfyFile</abbr></a> $yfyFile)
+        
+                                            <p>增加一个通过multipart方式上传的文件</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_withConnectTimeout">withConnectTimeout</a>(int $connectTimeout)
+        
+                                            <p>设置连接超时时间</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_withTimeout">withTimeout</a>(int $timeout)
+        
+                                            <p>设置请求超时时间</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_returnStream">returnStream</a>(bool $stream)
+        
+                                            <p>设置是否以流形式返回</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_withYfyContext">withYfyContext</a>(<a href="../../Fangcloud/YfyContext.html"><abbr title="Fangcloud\YfyContext">YfyContext</abbr></a> $yfyContext)
+        
+                                            <p>设置请求上下文</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Fangcloud/Http/YfyRequest.html"><abbr title="Fangcloud\Http\YfyRequest">YfyRequest</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_build">build</a>()
+        
+                                            <p>构造request</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;<a href="../../Fangcloud/Http/YfyRequestBuilder.html"><abbr title="Fangcloud\Http\YfyRequestBuilder">YfyRequestBuilder</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_factory">factory</a>()
+        
+                                            <p>创建一个工厂实例</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">at         line 75</div>
+        <code>                    
+    <strong>__construct</strong>(<a href="../../Fangcloud/YfyContext.html"><abbr title="Fangcloud\YfyContext">YfyContext</abbr></a> $yfyContext = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>YfyRequestBuilder constructor.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Fangcloud/YfyContext.html"><abbr title="Fangcloud\YfyContext">YfyContext</abbr></a></td>
+                <td>$yfyContext</td>
+                <td>请求上下文</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_withMethod">
+        <div class="location">at         line 87</div>
+        <code>                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+    <strong>withMethod</strong>(string $method)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>设置请求方法</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$method</td>
+                <td>请求方法</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Fangcloud\Http\$this">$this</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_withEndpoint">
+        <div class="location">at         line 98</div>
+        <code>                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+    <strong>withEndpoint</strong>(string $endpoint)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>设置请求路径模板</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$endpoint</td>
+                <td>请求路径模板</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Fangcloud\Http\$this">$this</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_withHeaders">
+        <div class="location">at         line 109</div>
+        <code>                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+    <strong>withHeaders</strong>(array $headers)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>设置请求header数组</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$headers</td>
+                <td>请求header数组</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Fangcloud\Http\$this">$this</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_addHeader">
+        <div class="location">at         line 121</div>
+        <code>                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+    <strong>addHeader</strong>(string $key, string $value)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>增加一个header</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td>header的key</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$value</td>
+                <td>header的value</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Fangcloud\Http\$this">$this</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_withBasicAuth">
+        <div class="location">at         line 133</div>
+        <code>                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+    <strong>withBasicAuth</strong>(string $username, string $password)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>设置basic auth参数</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$username</td>
+                <td>basic auth中的用户名</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$password</td>
+                <td>basic auth中的密码</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Fangcloud\Http\$this">$this</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_withPathParams">
+        <div class="location">at         line 144</div>
+        <code>                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+    <strong>withPathParams</strong>(array $pathParams)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>设置路径参数</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$pathParams</td>
+                <td>路径参数</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Fangcloud\Http\$this">$this</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_addPathParam">
+        <div class="location">at         line 155</div>
+        <code>                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+    <strong>addPathParam</strong>(string $param)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>增加一个路径参数</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$param</td>
+                <td>路径参数</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Fangcloud\Http\$this">$this</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_withQueryParams">
+        <div class="location">at         line 166</div>
+        <code>                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+    <strong>withQueryParams</strong>(array $queryParams)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>设置query参数数组</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$queryParams</td>
+                <td>query参数数组</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Fangcloud\Http\$this">$this</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_addQueryParam">
+        <div class="location">at         line 178</div>
+        <code>                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+    <strong>addQueryParam</strong>(string $key, string $value)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>增加一个query参数</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td>query参数的key</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$value</td>
+                <td>query参数的value</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Fangcloud\Http\$this">$this</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_withFormParams">
+        <div class="location">at         line 189</div>
+        <code>                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+    <strong>withFormParams</strong>(array $formParams)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>设置表单参数</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$formParams</td>
+                <td>表单参数</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Fangcloud\Http\$this">$this</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_addFormParam">
+        <div class="location">at         line 201</div>
+        <code>                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+    <strong>addFormParam</strong>(string $key, string $value)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>增加一个表单参数</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td>表单参数的key</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$value</td>
+                <td>表单参数的value</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Fangcloud\Http\$this">$this</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_withJson">
+        <div class="location">at         line 212</div>
+        <code>                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+    <strong>withJson</strong>(array $json)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>设置json参数</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$json</td>
+                <td>json参数</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Fangcloud\Http\$this">$this</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_withFiles">
+        <div class="location">at         line 223</div>
+        <code>                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+    <strong>withFiles</strong>(array $files)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>设置通过multipart方式上传的文件</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$files</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Fangcloud\Http\$this">$this</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_addFile">
+        <div class="location">at         line 234</div>
+        <code>                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+    <strong>addFile</strong>(<a href="../../Fangcloud/Upload/YfyFile.html"><abbr title="Fangcloud\Upload\YfyFile">YfyFile</abbr></a> $yfyFile)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>增加一个通过multipart方式上传的文件</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Fangcloud/Upload/YfyFile.html"><abbr title="Fangcloud\Upload\YfyFile">YfyFile</abbr></a></td>
+                <td>$yfyFile</td>
+                <td>上传文件的封装</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Fangcloud\Http\$this">$this</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_withConnectTimeout">
+        <div class="location">at         line 245</div>
+        <code>                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+    <strong>withConnectTimeout</strong>(int $connectTimeout)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>设置连接超时时间</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$connectTimeout</td>
+                <td>连接超时时间</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Fangcloud\Http\$this">$this</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_withTimeout">
+        <div class="location">at         line 256</div>
+        <code>                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+    <strong>withTimeout</strong>(int $timeout)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>设置请求超时时间</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$timeout</td>
+                <td>请求超时时间</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Fangcloud\Http\$this">$this</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_returnStream">
+        <div class="location">at         line 267</div>
+        <code>                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+    <strong>returnStream</strong>(bool $stream)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>设置是否以流形式返回</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>bool</td>
+                <td>$stream</td>
+                <td>是否以流形式返回</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Fangcloud\Http\$this">$this</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_withYfyContext">
+        <div class="location">at         line 279</div>
+        <code>                    <abbr title="Fangcloud\Http\$this">$this</abbr>
+    <strong>withYfyContext</strong>(<a href="../../Fangcloud/YfyContext.html"><abbr title="Fangcloud\YfyContext">YfyContext</abbr></a> $yfyContext)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>设置请求上下文</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Fangcloud/YfyContext.html"><abbr title="Fangcloud\YfyContext">YfyContext</abbr></a></td>
+                <td>$yfyContext</td>
+                <td>请求上下文</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><abbr title="Fangcloud\Http\$this">$this</abbr></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_build">
+        <div class="location">at         line 312</div>
+        <code>                    <a href="../../Fangcloud/Http/YfyRequest.html"><abbr title="Fangcloud\Http\YfyRequest">YfyRequest</abbr></a>
+    <strong>build</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>构造request</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Fangcloud/Http/YfyRequest.html"><abbr title="Fangcloud\Http\YfyRequest">YfyRequest</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_factory">
+        <div class="location">at         line 339</div>
+        <code>        static            <a href="../../Fangcloud/Http/YfyRequestBuilder.html"><abbr title="Fangcloud\Http\YfyRequestBuilder">YfyRequestBuilder</abbr></a>
+    <strong>factory</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>创建一个工厂实例</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Fangcloud/Http/YfyRequestBuilder.html"><abbr title="Fangcloud\Http\YfyRequestBuilder">YfyRequestBuilder</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
+    </div>
+    </body>
+
+</html>

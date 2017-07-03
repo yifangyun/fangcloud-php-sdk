@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Fangcloud\YfyClient | Fangcloud PHP SDK API</title>
+
+            <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/sami.css">
+        <script src="../js/jquery-1.11.1.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/typeahead.min.js"></script>
+        <script src="../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
+
+    <body id="class" data-name="class:Fangcloud_YfyClient" data-root-path="../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <script>
+            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
+        </script>
+        <form id="search-form" action="../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">Fangcloud PHP SDK API</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../classes.html">Classes</a></li>
+                                            <li><a href="../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../interfaces.html">Interfaces</a></li>
+                    <li><a href="../traits.html">Traits</a></li>
+                    <li><a href="../doc-index.html">Index</a></li>
+                    <li><a href="../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                        <li><a href="../Fangcloud.html">Fangcloud</a></li><li class="backslash">\</li><li>YfyClient</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>
+            YfyClient
+                
+        </h1>
+    </div>
+
+    <p>    class
+    <strong>YfyClient</strong>
+</p>
+
+        
+    
+
+            <div class="description">
+            <p>Interface YfyClientInterface</p>                                </div>
+    
+    
+            <h2>Constants</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td>VERSION</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+            </table>
+
+    
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___construct">__construct</a>(array $options = [])
+        
+                                            <p>YfyClient constructor.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getAccessToken">getAccessToken</a>()
+        
+                                            <p>获取access token</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setAccessToken">setAccessToken</a>(string $accessToken)
+        
+                                            <p>设置access token</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getRefreshToken">getRefreshToken</a>()
+        
+                                            <p>获取refresh token</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setRefreshToken">setRefreshToken</a>(string $refreshToken)
+        
+                                            <p>设置refresh token</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../Fangcloud/PersistentData/PersistentDataHandler.html"><abbr title="Fangcloud\PersistentData\PersistentDataHandler">PersistentDataHandler</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getPersistentDataHandler">getPersistentDataHandler</a>()
+        
+                                            <p>获取持久化数据处理器</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setPersistentDataHandler">setPersistentDataHandler</a>(<a href="../Fangcloud/PersistentData/PersistentDataHandler.html"><abbr title="Fangcloud\PersistentData\PersistentDataHandler">PersistentDataHandler</abbr></a> $persistentDataHandler)
+        
+                                            <p>设置持久化数据处理器</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../Fangcloud/RandomString/RandomStringGenerator.html"><abbr title="Fangcloud\RandomString\RandomStringGenerator">RandomStringGenerator</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getRandomStringGenerator">getRandomStringGenerator</a>()
+        
+                                            <p>获取随机字符串生成器</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_setRandomStringGenerator">setRandomStringGenerator</a>(<a href="../Fangcloud/RandomString/RandomStringGenerator.html"><abbr title="Fangcloud\RandomString\RandomStringGenerator">RandomStringGenerator</abbr></a> $randomStringGenerator)
+        
+                                            <p>设置随机字符串生成器</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_oauth">oauth</a>()
+        
+                                            <p>返回授权操作</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../Fangcloud/Api/User/YfyUserClient.html"><abbr title="Fangcloud\Api\User\YfyUserClient">YfyUserClient</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_users">users</a>()
+        
+                                            <p>返回用户操作</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../Fangcloud/Api/File/YfyFileClient.html"><abbr title="Fangcloud\Api\File\YfyFileClient">YfyFileClient</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_files">files</a>()
+        
+                                            <p>返回文件操作</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../Fangcloud/Api/Folder/YfyFolderClient.html"><abbr title="Fangcloud\Api\Folder\YfyFolderClient">YfyFolderClient</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_folders">folders</a>()
+        
+                                            <p>返回文件夹操作</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../Fangcloud/Api/Item/YfyItemClient.html"><abbr title="Fangcloud\Api\Item\YfyItemClient">YfyItemClient</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_items">items</a>()
+        
+                                            <p>返回文件/文件夹通用操作</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../Fangcloud/Api/ShareLink/YfyShareLinkClient.html"><abbr title="Fangcloud\Api\ShareLink\YfyShareLinkClient">YfyShareLinkClient</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_shareLinks">shareLinks</a>()
+        
+                                            <p>返回分享链接操作</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../Fangcloud/Api/Trash/YfyTrashClient.html"><abbr title="Fangcloud\Api\Trash\YfyTrashClient">YfyTrashClient</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_trash">trash</a>()
+        
+                                            <p>返回回收站操作</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../Fangcloud/Api/Collab/YfyCollabClient.html"><abbr title="Fangcloud\Api\Collab\YfyCollabClient">YfyCollabClient</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_collabs">collabs</a>()
+        
+                                            <p>返回协作操作</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../Fangcloud/Api/Comment/YfyCommentClient.html"><abbr title="Fangcloud\Api\Comment\YfyCommentClient">YfyCommentClient</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_comments">comments</a>()
+        
+                                            <p>返回评论操作</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">at         line 91</div>
+        <code>                    
+    <strong>__construct</strong>(array $options = [])
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>YfyClient constructor.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>array</td>
+                <td>$options</td>
+                <td>可传入的选项</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                            <h4>See also</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>YfyClientOptions</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getAccessToken">
+        <div class="location">at         line 115</div>
+        <code>                    
+    <strong>getAccessToken</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>获取access token</p>                                                </div>
+                <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setAccessToken">
+        <div class="location">at         line 124</div>
+        <code>                    
+    <strong>setAccessToken</strong>(string $accessToken)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>设置access token</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$accessToken</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getRefreshToken">
+        <div class="location">at         line 131</div>
+        <code>                    
+    <strong>getRefreshToken</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>获取refresh token</p>                                                </div>
+                <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setRefreshToken">
+        <div class="location">at         line 140</div>
+        <code>                    
+    <strong>setRefreshToken</strong>(string $refreshToken)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>设置refresh token</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$refreshToken</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getPersistentDataHandler">
+        <div class="location">at         line 150</div>
+        <code>                    <a href="../Fangcloud/PersistentData/PersistentDataHandler.html"><abbr title="Fangcloud\PersistentData\PersistentDataHandler">PersistentDataHandler</abbr></a>
+    <strong>getPersistentDataHandler</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>获取持久化数据处理器</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../Fangcloud/PersistentData/PersistentDataHandler.html"><abbr title="Fangcloud\PersistentData\PersistentDataHandler">PersistentDataHandler</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setPersistentDataHandler">
+        <div class="location">at         line 160</div>
+        <code>                    
+    <strong>setPersistentDataHandler</strong>(<a href="../Fangcloud/PersistentData/PersistentDataHandler.html"><abbr title="Fangcloud\PersistentData\PersistentDataHandler">PersistentDataHandler</abbr></a> $persistentDataHandler)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>设置持久化数据处理器</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../Fangcloud/PersistentData/PersistentDataHandler.html"><abbr title="Fangcloud\PersistentData\PersistentDataHandler">PersistentDataHandler</abbr></a></td>
+                <td>$persistentDataHandler</td>
+                <td>PersistentDataHandler的实例</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getRandomStringGenerator">
+        <div class="location">at         line 171</div>
+        <code>                    <a href="../Fangcloud/RandomString/RandomStringGenerator.html"><abbr title="Fangcloud\RandomString\RandomStringGenerator">RandomStringGenerator</abbr></a>
+    <strong>getRandomStringGenerator</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>获取随机字符串生成器</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../Fangcloud/RandomString/RandomStringGenerator.html"><abbr title="Fangcloud\RandomString\RandomStringGenerator">RandomStringGenerator</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_setRandomStringGenerator">
+        <div class="location">at         line 181</div>
+        <code>                    
+    <strong>setRandomStringGenerator</strong>(<a href="../Fangcloud/RandomString/RandomStringGenerator.html"><abbr title="Fangcloud\RandomString\RandomStringGenerator">RandomStringGenerator</abbr></a> $randomStringGenerator)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>设置随机字符串生成器</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../Fangcloud/RandomString/RandomStringGenerator.html"><abbr title="Fangcloud\RandomString\RandomStringGenerator">RandomStringGenerator</abbr></a></td>
+                <td>$randomStringGenerator</td>
+                <td>RandomStringGenerator的实例</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_oauth">
+        <div class="location">at         line 189</div>
+        <code>                    
+    <strong>oauth</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>返回授权操作</p>                                                </div>
+                <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_users">
+        <div class="location">at         line 201</div>
+        <code>                    <a href="../Fangcloud/Api/User/YfyUserClient.html"><abbr title="Fangcloud\Api\User\YfyUserClient">YfyUserClient</abbr></a>
+    <strong>users</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>返回用户操作</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../Fangcloud/Api/User/YfyUserClient.html"><abbr title="Fangcloud\Api\User\YfyUserClient">YfyUserClient</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_files">
+        <div class="location">at         line 213</div>
+        <code>                    <a href="../Fangcloud/Api/File/YfyFileClient.html"><abbr title="Fangcloud\Api\File\YfyFileClient">YfyFileClient</abbr></a>
+    <strong>files</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>返回文件操作</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../Fangcloud/Api/File/YfyFileClient.html"><abbr title="Fangcloud\Api\File\YfyFileClient">YfyFileClient</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_folders">
+        <div class="location">at         line 225</div>
+        <code>                    <a href="../Fangcloud/Api/Folder/YfyFolderClient.html"><abbr title="Fangcloud\Api\Folder\YfyFolderClient">YfyFolderClient</abbr></a>
+    <strong>folders</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>返回文件夹操作</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../Fangcloud/Api/Folder/YfyFolderClient.html"><abbr title="Fangcloud\Api\Folder\YfyFolderClient">YfyFolderClient</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_items">
+        <div class="location">at         line 237</div>
+        <code>                    <a href="../Fangcloud/Api/Item/YfyItemClient.html"><abbr title="Fangcloud\Api\Item\YfyItemClient">YfyItemClient</abbr></a>
+    <strong>items</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>返回文件/文件夹通用操作</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../Fangcloud/Api/Item/YfyItemClient.html"><abbr title="Fangcloud\Api\Item\YfyItemClient">YfyItemClient</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_shareLinks">
+        <div class="location">at         line 249</div>
+        <code>                    <a href="../Fangcloud/Api/ShareLink/YfyShareLinkClient.html"><abbr title="Fangcloud\Api\ShareLink\YfyShareLinkClient">YfyShareLinkClient</abbr></a>
+    <strong>shareLinks</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>返回分享链接操作</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../Fangcloud/Api/ShareLink/YfyShareLinkClient.html"><abbr title="Fangcloud\Api\ShareLink\YfyShareLinkClient">YfyShareLinkClient</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_trash">
+        <div class="location">at         line 261</div>
+        <code>                    <a href="../Fangcloud/Api/Trash/YfyTrashClient.html"><abbr title="Fangcloud\Api\Trash\YfyTrashClient">YfyTrashClient</abbr></a>
+    <strong>trash</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>返回回收站操作</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../Fangcloud/Api/Trash/YfyTrashClient.html"><abbr title="Fangcloud\Api\Trash\YfyTrashClient">YfyTrashClient</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_collabs">
+        <div class="location">at         line 273</div>
+        <code>                    <a href="../Fangcloud/Api/Collab/YfyCollabClient.html"><abbr title="Fangcloud\Api\Collab\YfyCollabClient">YfyCollabClient</abbr></a>
+    <strong>collabs</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>返回协作操作</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../Fangcloud/Api/Collab/YfyCollabClient.html"><abbr title="Fangcloud\Api\Collab\YfyCollabClient">YfyCollabClient</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_comments">
+        <div class="location">at         line 285</div>
+        <code>                    <a href="../Fangcloud/Api/Comment/YfyCommentClient.html"><abbr title="Fangcloud\Api\Comment\YfyCommentClient">YfyCommentClient</abbr></a>
+    <strong>comments</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>返回评论操作</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../Fangcloud/Api/Comment/YfyCommentClient.html"><abbr title="Fangcloud\Api\Comment\YfyCommentClient">YfyCommentClient</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
+    </div>
+    </body>
+
+</html>

@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Fangcloud\Authentication\OAuthClient | Fangcloud PHP SDK API</title>
+
+            <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../css/sami.css">
+        <script src="../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/typeahead.min.js"></script>
+        <script src="../../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
+
+    <body id="class" data-name="class:Fangcloud_Authentication_OAuthClient" data-root-path="../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <script>
+            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
+        </script>
+        <form id="search-form" action="../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../index.html">Fangcloud PHP SDK API</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../classes.html">Classes</a></li>
+                                            <li><a href="../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../traits.html">Traits</a></li>
+                    <li><a href="../../doc-index.html">Index</a></li>
+                    <li><a href="../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                        <li><a href="../../Fangcloud.html">Fangcloud</a></li><li class="backslash">\</li><li><a href="../../Fangcloud/Authentication.html">Authentication</a></li><li class="backslash">\</li><li>OAuthClient</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>
+            OAuthClient
+                
+        </h1>
+    </div>
+
+    <p>    class
+    <strong>OAuthClient</strong>
+</p>
+
+        
+    
+
+            <div class="description">
+            <p>Class OAuthClient</p>                                </div>
+    
+    
+            <h2>Constants</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td>AUTHORIZATION_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>TOKEN_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>REVOKE_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>PERSISTENT_DATA_STATE_KEY</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+            </table>
+
+    
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___construct">__construct</a>(<a href="../../Fangcloud/HttpClient/YfyHttpClient.html"><abbr title="Fangcloud\HttpClient\YfyHttpClient">YfyHttpClient</abbr></a> $httpClient, <a href="../../Fangcloud/PersistentData/PersistentDataHandler.html"><abbr title="Fangcloud\PersistentData\PersistentDataHandler">PersistentDataHandler</abbr></a> $persistentDataHandler = null, <a href="../../Fangcloud/RandomString/RandomStringGenerator.html"><abbr title="Fangcloud\RandomString\RandomStringGenerator">RandomStringGenerator</abbr></a> $randomStringGenerator = null)
+        
+                                            <p>OAuthClient constructor.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../Fangcloud/Http/YfyRawResponse.html"><abbr title="Fangcloud\Http\YfyRawResponse">YfyRawResponse</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_execute">execute</a>(<a href="../../Fangcloud/Http/YfyRequest.html"><abbr title="Fangcloud\Http\YfyRequest">YfyRequest</abbr></a> $yfyRequest)
+        
+                                            <p>执行所有授权请求, 并且进行错误处理</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_refreshToken">refreshToken</a>(string $refreshToken)
+        
+                                            <p>刷新token</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getTokenByPasswordFlow">getTokenByPasswordFlow</a>(string $username, string $password)
+        
+                                            <p>通过密码模式获取token</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_revokeToken">revokeToken</a>($token)
+        
+                                            <p>取消一个token的授权(对应的refresh token也会失效)</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getAuthorizationUrl">getAuthorizationUrl</a>(string|null $state = null)
+        
+                                            <p>获取授权url</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_finishAuthorizationCodeFlow">finishAuthorizationCodeFlow</a>(string|null $code = null, string|null $state = null)
+        
+                                            <p>结束授权码流程</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">at         line 54</div>
+        <code>                    
+    <strong>__construct</strong>(<a href="../../Fangcloud/HttpClient/YfyHttpClient.html"><abbr title="Fangcloud\HttpClient\YfyHttpClient">YfyHttpClient</abbr></a> $httpClient, <a href="../../Fangcloud/PersistentData/PersistentDataHandler.html"><abbr title="Fangcloud\PersistentData\PersistentDataHandler">PersistentDataHandler</abbr></a> $persistentDataHandler = null, <a href="../../Fangcloud/RandomString/RandomStringGenerator.html"><abbr title="Fangcloud\RandomString\RandomStringGenerator">RandomStringGenerator</abbr></a> $randomStringGenerator = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>OAuthClient constructor.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Fangcloud/HttpClient/YfyHttpClient.html"><abbr title="Fangcloud\HttpClient\YfyHttpClient">YfyHttpClient</abbr></a></td>
+                <td>$httpClient</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a href="../../Fangcloud/PersistentData/PersistentDataHandler.html"><abbr title="Fangcloud\PersistentData\PersistentDataHandler">PersistentDataHandler</abbr></a></td>
+                <td>$persistentDataHandler</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a href="../../Fangcloud/RandomString/RandomStringGenerator.html"><abbr title="Fangcloud\RandomString\RandomStringGenerator">RandomStringGenerator</abbr></a></td>
+                <td>$randomStringGenerator</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_execute">
+        <div class="location">at         line 68</div>
+        <code>            protected        <a href="../../Fangcloud/Http/YfyRawResponse.html"><abbr title="Fangcloud\Http\YfyRawResponse">YfyRawResponse</abbr></a>
+    <strong>execute</strong>(<a href="../../Fangcloud/Http/YfyRequest.html"><abbr title="Fangcloud\Http\YfyRequest">YfyRequest</abbr></a> $yfyRequest)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>执行所有授权请求, 并且进行错误处理</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Fangcloud/Http/YfyRequest.html"><abbr title="Fangcloud\Http\YfyRequest">YfyRequest</abbr></a></td>
+                <td>$yfyRequest</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../Fangcloud/Http/YfyRawResponse.html"><abbr title="Fangcloud\Http\YfyRawResponse">YfyRawResponse</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_refreshToken">
+        <div class="location">at         line 117</div>
+        <code>                    mixed
+    <strong>refreshToken</strong>(string $refreshToken)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>刷新token</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$refreshToken</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getTokenByPasswordFlow">
+        <div class="location">at         line 157</div>
+        <code>                    mixed
+    <strong>getTokenByPasswordFlow</strong>(string $username, string $password)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>通过密码模式获取token</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$username</td>
+                <td>密码模式用户用户名</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$password</td>
+                <td>密码模式用户密码</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_revokeToken">
+        <div class="location">at         line 176</div>
+        <code>                    
+    <strong>revokeToken</strong>($token)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>取消一个token的授权(对应的refresh token也会失效)</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td></td>
+                <td>$token</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getAuthorizationUrl">
+        <div class="location">at         line 192</div>
+        <code>                    string
+    <strong>getAuthorizationUrl</strong>(string|null $state = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>获取授权url</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string|null</td>
+                <td>$state</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_finishAuthorizationCodeFlow">
+        <div class="location">at         line 219</div>
+        <code>                    mixed
+    <strong>finishAuthorizationCodeFlow</strong>(string|null $code = null, string|null $state = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>结束授权码流程</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string|null</td>
+                <td>$code</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>string|null</td>
+                <td>$state</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
+    </div>
+    </body>
+
+</html>

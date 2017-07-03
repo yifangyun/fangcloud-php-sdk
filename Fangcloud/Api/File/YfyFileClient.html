@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Fangcloud\Api\File\YfyFileClient | Fangcloud PHP SDK API</title>
+
+            <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/sami.css">
+        <script src="../../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+        <script src="../../../js/typeahead.min.js"></script>
+        <script src="../../../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
+
+    <body id="class" data-name="class:Fangcloud_Api_File_YfyFileClient" data-root-path="../../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <script>
+            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
+        </script>
+        <form id="search-form" action="../../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../../index.html">Fangcloud PHP SDK API</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../../classes.html">Classes</a></li>
+                                            <li><a href="../../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../../traits.html">Traits</a></li>
+                    <li><a href="../../../doc-index.html">Index</a></li>
+                    <li><a href="../../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                        <li><a href="../../../Fangcloud.html">Fangcloud</a></li><li class="backslash">\</li><li><a href="../../../Fangcloud/Api.html">Api</a></li><li class="backslash">\</li><li><a href="../../../Fangcloud/Api/File.html">File</a></li><li class="backslash">\</li><li>YfyFileClient</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>
+            YfyFileClient
+                
+        </h1>
+    </div>
+
+    <p>    class
+    <strong>YfyFileClient</strong>        extends <a href="../../../Fangcloud/Api/YfyBaseApiClient.html"><abbr title="Fangcloud\Api\YfyBaseApiClient">YfyBaseApiClient</abbr></a>
+</p>
+
+        
+    
+
+            <div class="description">
+            <p>Class YfyFileClient</p>                                </div>
+    
+    
+            <h2>Constants</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td>API_PREFIX</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>FILE_INFO_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>FILE_TRASH_INFO_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>FILE_UPDATE_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>FILE_DELETE_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>FILE_DELETE_FROM_TRASH_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>FILE_RESTORE_FROM_TRASH_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>FILE_MOVE_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>FILE_COPY_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>FILE_UPLOAD_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>FILE_UPLOAD_NEW_VERSION_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>FILE_DOWNLOAD_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>FILE_SHARE_LINKS_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>FILE_COMMENTS_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>FILE_VERSIONS_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>FILE_VERSION_INFO_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>FILE_VERSION_PROMOTE_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>FILE_VERSION_DELETE_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+            </table>
+
+    
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_yfyContext">
+                                        protected                                        <a href="../../../Fangcloud/YfyContext.html"><abbr title="Fangcloud\YfyContext">YfyContext</abbr></a>
+                </td>
+                <td>$yfyContext</td>
+                <td class="last"></td>
+                <td><small>from&nbsp;<a href="../../../Fangcloud/Api/YfyBaseApiClient.html#property_yfyContext"><abbr title="Fangcloud\Api\YfyBaseApiClient">YfyBaseApiClient</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_httpClient">
+                                        protected                                        <a href="../../../Fangcloud/HttpClient/YfyHttpClient.html"><abbr title="Fangcloud\HttpClient\YfyHttpClient">YfyHttpClient</abbr></a>
+                </td>
+                <td>$httpClient</td>
+                <td class="last"></td>
+                <td><small>from&nbsp;<a href="../../../Fangcloud/Api/YfyBaseApiClient.html#property_httpClient"><abbr title="Fangcloud\Api\YfyBaseApiClient">YfyBaseApiClient</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_oauthClient">
+                                        protected                                        <a href="../../../Fangcloud/Authentication/OAuthClient.html"><abbr title="Fangcloud\Authentication\OAuthClient">OAuthClient</abbr></a>
+                </td>
+                <td>$oauthClient</td>
+                <td class="last"></td>
+                <td><small>from&nbsp;<a href="../../../Fangcloud/Api/YfyBaseApiClient.html#property_oauthClient"><abbr title="Fangcloud\Api\YfyBaseApiClient">YfyBaseApiClient</abbr></a></small></td>
+            </tr>
+            </table>
+
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___construct">__construct</a>(<a href="../../../Fangcloud/YfyContext.html"><abbr title="Fangcloud\YfyContext">YfyContext</abbr></a> $yfyContext, <a href="../../../Fangcloud/HttpClient/YfyHttpClient.html"><abbr title="Fangcloud\HttpClient\YfyHttpClient">YfyHttpClient</abbr></a> $httpClient, <a href="../../../Fangcloud/Authentication/OAuthClient.html"><abbr title="Fangcloud\Authentication\OAuthClient">OAuthClient</abbr></a> $oauthClient)
+        
+                                            <p>YfyUserClient constructor.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Fangcloud/Http/YfyRawResponse.html"><abbr title="Fangcloud\Http\YfyRawResponse">YfyRawResponse</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_execute">execute</a>(<a href="../../../Fangcloud/Http/YfyRequest.html"><abbr title="Fangcloud\Http\YfyRequest">YfyRequest</abbr></a> $yfyRequest)
+        
+                                            <p>执行请求, 调用realExecute, 封装了重试的逻辑</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Fangcloud/Api/YfyBaseApiClient.html#method_execute"><abbr title="Fangcloud\Api\YfyBaseApiClient">YfyBaseApiClient</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Fangcloud/Http/YfyRawResponse.html"><abbr title="Fangcloud\Http\YfyRawResponse">YfyRawResponse</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_realExecute">realExecute</a>(<a href="../../../Fangcloud/Http/YfyRequest.html"><abbr title="Fangcloud\Http\YfyRequest">YfyRequest</abbr></a> $yfyRequest)
+        
+                                            <p>真正执行请求的函数
+会进行所有错误处理</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Fangcloud/Api/YfyBaseApiClient.html#method_realExecute"><abbr title="Fangcloud\Api\YfyBaseApiClient">YfyBaseApiClient</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getInfo">getInfo</a>(int $fileId)
+        
+                                            <p>获取文件信息</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getTrashInfo">getTrashInfo</a>(int $fileId)
+        
+                                            <p>获取在回收站中的文件信息</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_update">update</a>(int $fileId, string $name, string|null $description = null)
+        
+                                            <p>更新文件信息</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_deleteToTrash">deleteToTrash</a>(int $fileId)
+        
+                                            <p>删除文件至回收站</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_deleteFromTrash">deleteFromTrash</a>(int $fileId)
+        
+                                            <p>从回收站删除文件</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_restoreFromTrash">restoreFromTrash</a>(int $fileId)
+        
+                                            <p>从回收站恢复文件</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_move">move</a>(int $fileId, int $targetFolderId)
+        
+                                            <p>移动文件</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_copy">copy</a>(int $fileId, int $targetFolderId)
+        
+                                            <p>复制文件</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_listShareLinks">listShareLinks</a>(int $fileId)
+        
+                                            <p>获取文件的分享链接列表</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_listComments">listComments</a>(int $fileId)
+        
+                                            <p>获取文件的评论列表</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_listVersions">listVersions</a>(int $fileId)
+        
+                                            <p>获取文件的所有版本列表</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getVersionInfo">getVersionInfo</a>(int $fileId, int $versionId)
+        
+                                            <p>获取文件的特定版本信息</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_promoteVersion">promoteVersion</a>(int $fileId, int $versionId)
+        
+                                            <p>设置某版本为当前版本</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_deleteVersion">deleteVersion</a>(int $fileId, int $versionId)
+        
+                                            <p>删除文件版本</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getUploadFileUrl">getUploadFileUrl</a>(int $parentId, string $name)
+        
+                                            <p>获取上传文件url</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getUploadNewVersionUrl">getUploadNewVersionUrl</a>(int $fileId, string $name, string $remark)
+        
+                                            <p>获取上传文件新版本url</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_uploadFile">uploadFile</a>(int $parentId, string $name, resource|<abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>|string $resource)
+        
+                                            <p>上传文件</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_uploadNewVersion">uploadNewVersion</a>(int $fileId, string $name, string $remark, resource|<abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>|string $resource)
+        
+                                            <p>上传文件新版本</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getDownloadUrl">getDownloadUrl</a>(int $fileId)
+        
+                                            <p>获取下载文件的url</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Fangcloud/Download/DownloadFile.html"><abbr title="Fangcloud\Download\DownloadFile">DownloadFile</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_download">download</a>(string $fileId, string|null $savePath = null)
+        
+                                            <p>下载文件</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">at         line 47</div>
+        <code>                    
+    <strong>__construct</strong>(<a href="../../../Fangcloud/YfyContext.html"><abbr title="Fangcloud\YfyContext">YfyContext</abbr></a> $yfyContext, <a href="../../../Fangcloud/HttpClient/YfyHttpClient.html"><abbr title="Fangcloud\HttpClient\YfyHttpClient">YfyHttpClient</abbr></a> $httpClient, <a href="../../../Fangcloud/Authentication/OAuthClient.html"><abbr title="Fangcloud\Authentication\OAuthClient">OAuthClient</abbr></a> $oauthClient)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>YfyUserClient constructor.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/YfyContext.html"><abbr title="Fangcloud\YfyContext">YfyContext</abbr></a></td>
+                <td>$yfyContext</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a href="../../../Fangcloud/HttpClient/YfyHttpClient.html"><abbr title="Fangcloud\HttpClient\YfyHttpClient">YfyHttpClient</abbr></a></td>
+                <td>$httpClient</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a href="../../../Fangcloud/Authentication/OAuthClient.html"><abbr title="Fangcloud\Authentication\OAuthClient">OAuthClient</abbr></a></td>
+                <td>$oauthClient</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_execute">
+        <div class="location">in <a href="../../../Fangcloud/Api/YfyBaseApiClient.html#method_execute"><abbr title="Fangcloud\Api\YfyBaseApiClient">YfyBaseApiClient</abbr></a> at         line 61</div>
+        <code>            protected        <a href="../../../Fangcloud/Http/YfyRawResponse.html"><abbr title="Fangcloud\Http\YfyRawResponse">YfyRawResponse</abbr></a>
+    <strong>execute</strong>(<a href="../../../Fangcloud/Http/YfyRequest.html"><abbr title="Fangcloud\Http\YfyRequest">YfyRequest</abbr></a> $yfyRequest)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>执行请求, 调用realExecute, 封装了重试的逻辑</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Http/YfyRequest.html"><abbr title="Fangcloud\Http\YfyRequest">YfyRequest</abbr></a></td>
+                <td>$yfyRequest</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Fangcloud/Http/YfyRawResponse.html"><abbr title="Fangcloud\Http\YfyRawResponse">YfyRawResponse</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_realExecute">
+        <div class="location">in <a href="../../../Fangcloud/Api/YfyBaseApiClient.html#method_realExecute"><abbr title="Fangcloud\Api\YfyBaseApiClient">YfyBaseApiClient</abbr></a> at         line 93</div>
+        <code>            protected        <a href="../../../Fangcloud/Http/YfyRawResponse.html"><abbr title="Fangcloud\Http\YfyRawResponse">YfyRawResponse</abbr></a>
+    <strong>realExecute</strong>(<a href="../../../Fangcloud/Http/YfyRequest.html"><abbr title="Fangcloud\Http\YfyRequest">YfyRequest</abbr></a> $yfyRequest)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>真正执行请求的函数
+会进行所有错误处理</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Http/YfyRequest.html"><abbr title="Fangcloud\Http\YfyRequest">YfyRequest</abbr></a></td>
+                <td>$yfyRequest</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Fangcloud/Http/YfyRawResponse.html"><abbr title="Fangcloud\Http\YfyRawResponse">YfyRawResponse</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfyAuthorizationRequiredException.html"><abbr title="Fangcloud\Exception\YfyAuthorizationRequiredException">YfyAuthorizationRequiredException</abbr></a></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfyInvalidTokenException.html"><abbr title="Fangcloud\Exception\YfyInvalidTokenException">YfyInvalidTokenException</abbr></a></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfyRateLimitException.html"><abbr title="Fangcloud\Exception\YfyRateLimitException">YfyRateLimitException</abbr></a></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfyServerException.html"><abbr title="Fangcloud\Exception\YfyServerException">YfyServerException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getInfo">
+        <div class="location">at         line 59</div>
+        <code>                    mixed
+    <strong>getInfo</strong>(int $fileId)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>获取文件信息</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$fileId</td>
+                <td>文件id</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getTrashInfo">
+        <div class="location">at         line 77</div>
+        <code>                    mixed
+    <strong>getTrashInfo</strong>(int $fileId)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>获取在回收站中的文件信息</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$fileId</td>
+                <td>文件id</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_update">
+        <div class="location">at         line 96</div>
+        <code>                    mixed
+    <strong>update</strong>(int $fileId, string $name, string|null $description = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>更新文件信息</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$fileId</td>
+                <td>文件id</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>更新的文件名</td>
+            </tr>
+                    <tr>
+                <td>string|null</td>
+                <td>$description</td>
+                <td>更新的描述</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_deleteToTrash">
+        <div class="location">at         line 120</div>
+        <code>                    mixed
+    <strong>deleteToTrash</strong>(int $fileId)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>删除文件至回收站</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$fileId</td>
+                <td>文件id</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_deleteFromTrash">
+        <div class="location">at         line 138</div>
+        <code>                    mixed
+    <strong>deleteFromTrash</strong>(int $fileId)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>从回收站删除文件</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$fileId</td>
+                <td>文件id</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_restoreFromTrash">
+        <div class="location">at         line 156</div>
+        <code>                    mixed
+    <strong>restoreFromTrash</strong>(int $fileId)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>从回收站恢复文件</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$fileId</td>
+                <td>文件id</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_move">
+        <div class="location">at         line 175</div>
+        <code>                    mixed
+    <strong>move</strong>(int $fileId, int $targetFolderId)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>移动文件</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$fileId</td>
+                <td>文件id</td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$targetFolderId</td>
+                <td>目标文件夹id</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_copy">
+        <div class="location">at         line 198</div>
+        <code>                    mixed
+    <strong>copy</strong>(int $fileId, int $targetFolderId)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>复制文件</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$fileId</td>
+                <td>文件id</td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$targetFolderId</td>
+                <td>目标文件夹id</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_listShareLinks">
+        <div class="location">at         line 220</div>
+        <code>                    mixed
+    <strong>listShareLinks</strong>(int $fileId)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>获取文件的分享链接列表</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$fileId</td>
+                <td>文件id</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_listComments">
+        <div class="location">at         line 238</div>
+        <code>                    mixed
+    <strong>listComments</strong>(int $fileId)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>获取文件的评论列表</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$fileId</td>
+                <td>文件id</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_listVersions">
+        <div class="location">at         line 256</div>
+        <code>                    mixed
+    <strong>listVersions</strong>(int $fileId)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>获取文件的所有版本列表</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$fileId</td>
+                <td>文件id</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getVersionInfo">
+        <div class="location">at         line 275</div>
+        <code>                    mixed
+    <strong>getVersionInfo</strong>(int $fileId, int $versionId)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>获取文件的特定版本信息</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$fileId</td>
+                <td>文件id</td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$versionId</td>
+                <td>文件版本id</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_promoteVersion">
+        <div class="location">at         line 295</div>
+        <code>                    mixed
+    <strong>promoteVersion</strong>(int $fileId, int $versionId)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>设置某版本为当前版本</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$fileId</td>
+                <td>文件id</td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$versionId</td>
+                <td>文件版本id</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_deleteVersion">
+        <div class="location">at         line 315</div>
+        <code>                    mixed
+    <strong>deleteVersion</strong>(int $fileId, int $versionId)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>删除文件版本</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$fileId</td>
+                <td>文件id</td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$versionId</td>
+                <td>文件版本id</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getUploadFileUrl">
+        <div class="location">at         line 335</div>
+        <code>                    string
+    <strong>getUploadFileUrl</strong>(int $parentId, string $name)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>获取上传文件url</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$parentId</td>
+                <td>父文件夹id</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>上传文件名</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td>上传链接</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getUploadNewVersionUrl">
+        <div class="location">at         line 363</div>
+        <code>                    string
+    <strong>getUploadNewVersionUrl</strong>(int $fileId, string $name, string $remark)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>获取上传文件新版本url</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$fileId</td>
+                <td>文件id</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>新版本文件名</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$remark</td>
+                <td>备注</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td>上传链接</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_uploadFile">
+        <div class="location">at         line 391</div>
+        <code>                    mixed
+    <strong>uploadFile</strong>(int $parentId, string $name, resource|<abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>|string $resource)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>上传文件</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$parentId</td>
+                <td>父文件夹id</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>上传文件名</td>
+            </tr>
+                    <tr>
+                <td>resource|<abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>|string</td>
+                <td>$resource</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_uploadNewVersion">
+        <div class="location">at         line 420</div>
+        <code>                    mixed
+    <strong>uploadNewVersion</strong>(int $fileId, string $name, string $remark, resource|<abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>|string $resource)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>上传文件新版本</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$fileId</td>
+                <td>文件id</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>上传文件名</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$remark</td>
+                <td>备注</td>
+            </tr>
+                    <tr>
+                <td>resource|<abbr title="Psr\Http\Message\StreamInterface">StreamInterface</abbr>|string</td>
+                <td>$resource</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getDownloadUrl">
+        <div class="location">at         line 446</div>
+        <code>                    string
+    <strong>getDownloadUrl</strong>(int $fileId)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>获取下载文件的url</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$fileId</td>
+                <td>下载文件id</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td>下载链接</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_download">
+        <div class="location">at         line 466</div>
+        <code>                    <a href="../../../Fangcloud/Download/DownloadFile.html"><abbr title="Fangcloud\Download\DownloadFile">DownloadFile</abbr></a>
+    <strong>download</strong>(string $fileId, string|null $savePath = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>下载文件</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$fileId</td>
+                <td>文件路径</td>
+            </tr>
+                    <tr>
+                <td>string|null</td>
+                <td>$savePath</td>
+                <td>保存的目录或者文件名</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Fangcloud/Download/DownloadFile.html"><abbr title="Fangcloud\Download\DownloadFile">DownloadFile</abbr></a></td>
+            <td>若savePath为null,返回DownloadFile,其中包含下载的文件流</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
+    </div>
+    </body>
+
+</html>

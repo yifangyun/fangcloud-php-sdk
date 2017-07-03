@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Fangcloud\Api\ShareLink\YfyShareLinkClient | Fangcloud PHP SDK API</title>
+
+            <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../../../css/sami.css">
+        <script src="../../../js/jquery-1.11.1.min.js"></script>
+        <script src="../../../js/bootstrap.min.js"></script>
+        <script src="../../../js/typeahead.min.js"></script>
+        <script src="../../../sami.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
+
+    <body id="class" data-name="class:Fangcloud_Api_ShareLink_YfyShareLinkClient" data-root-path="../../../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <script>
+            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
+        </script>
+        <form id="search-form" action="../../../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../../../index.html">Fangcloud PHP SDK API</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../../../classes.html">Classes</a></li>
+                                            <li><a href="../../../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../../../interfaces.html">Interfaces</a></li>
+                    <li><a href="../../../traits.html">Traits</a></li>
+                    <li><a href="../../../doc-index.html">Index</a></li>
+                    <li><a href="../../../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                        <li><a href="../../../Fangcloud.html">Fangcloud</a></li><li class="backslash">\</li><li><a href="../../../Fangcloud/Api.html">Api</a></li><li class="backslash">\</li><li><a href="../../../Fangcloud/Api/ShareLink.html">ShareLink</a></li><li class="backslash">\</li><li>YfyShareLinkClient</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>
+            YfyShareLinkClient
+                
+        </h1>
+    </div>
+
+    <p>    class
+    <strong>YfyShareLinkClient</strong>        extends <a href="../../../Fangcloud/Api/YfyBaseApiClient.html"><abbr title="Fangcloud\Api\YfyBaseApiClient">YfyBaseApiClient</abbr></a>
+</p>
+
+        
+    
+
+            <div class="description">
+            <p>Class YfyShareLinkClient</p>                                </div>
+    
+    
+            <h2>Constants</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td>API_PREFIX</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>SHARE_LINK_INFO_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>SHARE_CREATE_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>SHARE_UPDATE_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+                    <tr>
+                <td>SHARE_REVOKE_URI</td>
+                <td class="last">
+                    <p><em></em></p>
+                    <p></p>
+                </td>
+            </tr>
+            </table>
+
+    
+            <h2>Properties</h2>
+
+            <table class="table table-condensed">
+                    <tr>
+                <td class="type" id="property_yfyContext">
+                                        protected                                        <a href="../../../Fangcloud/YfyContext.html"><abbr title="Fangcloud\YfyContext">YfyContext</abbr></a>
+                </td>
+                <td>$yfyContext</td>
+                <td class="last"></td>
+                <td><small>from&nbsp;<a href="../../../Fangcloud/Api/YfyBaseApiClient.html#property_yfyContext"><abbr title="Fangcloud\Api\YfyBaseApiClient">YfyBaseApiClient</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_httpClient">
+                                        protected                                        <a href="../../../Fangcloud/HttpClient/YfyHttpClient.html"><abbr title="Fangcloud\HttpClient\YfyHttpClient">YfyHttpClient</abbr></a>
+                </td>
+                <td>$httpClient</td>
+                <td class="last"></td>
+                <td><small>from&nbsp;<a href="../../../Fangcloud/Api/YfyBaseApiClient.html#property_httpClient"><abbr title="Fangcloud\Api\YfyBaseApiClient">YfyBaseApiClient</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type" id="property_oauthClient">
+                                        protected                                        <a href="../../../Fangcloud/Authentication/OAuthClient.html"><abbr title="Fangcloud\Authentication\OAuthClient">OAuthClient</abbr></a>
+                </td>
+                <td>$oauthClient</td>
+                <td class="last"></td>
+                <td><small>from&nbsp;<a href="../../../Fangcloud/Api/YfyBaseApiClient.html#property_oauthClient"><abbr title="Fangcloud\Api\YfyBaseApiClient">YfyBaseApiClient</abbr></a></small></td>
+            </tr>
+            </table>
+
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___construct">__construct</a>(<a href="../../../Fangcloud/YfyContext.html"><abbr title="Fangcloud\YfyContext">YfyContext</abbr></a> $yfyContext, <a href="../../../Fangcloud/HttpClient/YfyHttpClient.html"><abbr title="Fangcloud\HttpClient\YfyHttpClient">YfyHttpClient</abbr></a> $httpClient, <a href="../../../Fangcloud/Authentication/OAuthClient.html"><abbr title="Fangcloud\Authentication\OAuthClient">OAuthClient</abbr></a> $oauthClient)
+        
+                                            <p>YfyUserClient constructor.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Fangcloud/Http/YfyRawResponse.html"><abbr title="Fangcloud\Http\YfyRawResponse">YfyRawResponse</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_execute">execute</a>(<a href="../../../Fangcloud/Http/YfyRequest.html"><abbr title="Fangcloud\Http\YfyRequest">YfyRequest</abbr></a> $yfyRequest)
+        
+                                            <p>执行请求, 调用realExecute, 封装了重试的逻辑</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Fangcloud/Api/YfyBaseApiClient.html#method_execute"><abbr title="Fangcloud\Api\YfyBaseApiClient">YfyBaseApiClient</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../../../Fangcloud/Http/YfyRawResponse.html"><abbr title="Fangcloud\Http\YfyRawResponse">YfyRawResponse</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_realExecute">realExecute</a>(<a href="../../../Fangcloud/Http/YfyRequest.html"><abbr title="Fangcloud\Http\YfyRequest">YfyRequest</abbr></a> $yfyRequest)
+        
+                                            <p>真正执行请求的函数
+会进行所有错误处理</p>                </div>
+                <div class="col-md-2"><small>from&nbsp;<a href="../../../Fangcloud/Api/YfyBaseApiClient.html#method_realExecute"><abbr title="Fangcloud\Api\YfyBaseApiClient">YfyBaseApiClient</abbr></a></small></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getInfo">getInfo</a>(string $uniqueName)
+        
+                                            <p>获取分享链接信息</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_create">create</a>(string $type, int $id, string $access, string $dueTime, bool $disableDownload = false, bool $passwordProtected = false, string $password = null)
+        
+                                            <p>创建分享链接</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_update">update</a>(string $uniqueName, string $access, string $dueTime, bool $disableDownload = false, bool $passwordProtected = false, string $password = null)
+        
+                                            <p>更新分享链接</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    mixed
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_revoke">revoke</a>(string $uniqueName)
+        
+                                            <p>删除分享链接</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">at         line 33</div>
+        <code>                    
+    <strong>__construct</strong>(<a href="../../../Fangcloud/YfyContext.html"><abbr title="Fangcloud\YfyContext">YfyContext</abbr></a> $yfyContext, <a href="../../../Fangcloud/HttpClient/YfyHttpClient.html"><abbr title="Fangcloud\HttpClient\YfyHttpClient">YfyHttpClient</abbr></a> $httpClient, <a href="../../../Fangcloud/Authentication/OAuthClient.html"><abbr title="Fangcloud\Authentication\OAuthClient">OAuthClient</abbr></a> $oauthClient)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>YfyUserClient constructor.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/YfyContext.html"><abbr title="Fangcloud\YfyContext">YfyContext</abbr></a></td>
+                <td>$yfyContext</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a href="../../../Fangcloud/HttpClient/YfyHttpClient.html"><abbr title="Fangcloud\HttpClient\YfyHttpClient">YfyHttpClient</abbr></a></td>
+                <td>$httpClient</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a href="../../../Fangcloud/Authentication/OAuthClient.html"><abbr title="Fangcloud\Authentication\OAuthClient">OAuthClient</abbr></a></td>
+                <td>$oauthClient</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_execute">
+        <div class="location">in <a href="../../../Fangcloud/Api/YfyBaseApiClient.html#method_execute"><abbr title="Fangcloud\Api\YfyBaseApiClient">YfyBaseApiClient</abbr></a> at         line 61</div>
+        <code>            protected        <a href="../../../Fangcloud/Http/YfyRawResponse.html"><abbr title="Fangcloud\Http\YfyRawResponse">YfyRawResponse</abbr></a>
+    <strong>execute</strong>(<a href="../../../Fangcloud/Http/YfyRequest.html"><abbr title="Fangcloud\Http\YfyRequest">YfyRequest</abbr></a> $yfyRequest)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>执行请求, 调用realExecute, 封装了重试的逻辑</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Http/YfyRequest.html"><abbr title="Fangcloud\Http\YfyRequest">YfyRequest</abbr></a></td>
+                <td>$yfyRequest</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Fangcloud/Http/YfyRawResponse.html"><abbr title="Fangcloud\Http\YfyRawResponse">YfyRawResponse</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_realExecute">
+        <div class="location">in <a href="../../../Fangcloud/Api/YfyBaseApiClient.html#method_realExecute"><abbr title="Fangcloud\Api\YfyBaseApiClient">YfyBaseApiClient</abbr></a> at         line 93</div>
+        <code>            protected        <a href="../../../Fangcloud/Http/YfyRawResponse.html"><abbr title="Fangcloud\Http\YfyRawResponse">YfyRawResponse</abbr></a>
+    <strong>realExecute</strong>(<a href="../../../Fangcloud/Http/YfyRequest.html"><abbr title="Fangcloud\Http\YfyRequest">YfyRequest</abbr></a> $yfyRequest)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>真正执行请求的函数
+会进行所有错误处理</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Http/YfyRequest.html"><abbr title="Fangcloud\Http\YfyRequest">YfyRequest</abbr></a></td>
+                <td>$yfyRequest</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../../../Fangcloud/Http/YfyRawResponse.html"><abbr title="Fangcloud\Http\YfyRawResponse">YfyRawResponse</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfyAuthorizationRequiredException.html"><abbr title="Fangcloud\Exception\YfyAuthorizationRequiredException">YfyAuthorizationRequiredException</abbr></a></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfyInvalidTokenException.html"><abbr title="Fangcloud\Exception\YfyInvalidTokenException">YfyInvalidTokenException</abbr></a></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfyRateLimitException.html"><abbr title="Fangcloud\Exception\YfyRateLimitException">YfyRateLimitException</abbr></a></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfyServerException.html"><abbr title="Fangcloud\Exception\YfyServerException">YfyServerException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getInfo">
+        <div class="location">at         line 45</div>
+        <code>                    mixed
+    <strong>getInfo</strong>(string $uniqueName)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>获取分享链接信息</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$uniqueName</td>
+                <td>分享链接唯一标识</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_create">
+        <div class="location">at         line 73</div>
+        <code>                    mixed
+    <strong>create</strong>(string $type, int $id, string $access, string $dueTime, bool $disableDownload = false, bool $passwordProtected = false, string $password = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>创建分享链接</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$type</td>
+                <td>item类型, 只能是Fangcloud\Constant\YfyItemType::FILE 或者Fangcloud\Constant\YfyItemType::FOLDER</td>
+            </tr>
+                    <tr>
+                <td>int</td>
+                <td>$id</td>
+                <td>item的id</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$access</td>
+                <td>分享链接的访问权限, 只能是Fangcloud\Constant\YfyShareLinkAccess中定义的常量</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$dueTime</td>
+                <td>到期时间(格式如:2017-05-30)</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$disableDownload</td>
+                <td>是否不允许下载(默认false)</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$passwordProtected</td>
+                <td>是否有密码(默认false)</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$password</td>
+                <td>密码</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a target="_blank" href="http://php.net/InvalidArgumentException">InvalidArgumentException</a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>See also</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>YfyItemType</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>YfyShareLinkAccess</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_update">
+        <div class="location">at         line 111</div>
+        <code>                    mixed
+    <strong>update</strong>(string $uniqueName, string $access, string $dueTime, bool $disableDownload = false, bool $passwordProtected = false, string $password = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>更新分享链接</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$uniqueName</td>
+                <td>分享链接唯一标识</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$access</td>
+                <td>分享链接的访问权限, 只能是Fangcloud\Constant\YfyShareLinkAccess中定义的常量</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$dueTime</td>
+                <td>到期时间(格式如:2017-05-30)</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$disableDownload</td>
+                <td>是否不允许下载(默认false)</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$passwordProtected</td>
+                <td>是否有密码(默认false)</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$password</td>
+                <td>密码</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td><a target="_blank" href="http://php.net/InvalidArgumentException">InvalidArgumentException</a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>See also</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>YfyShareLinkAccess</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_revoke">
+        <div class="location">at         line 138</div>
+        <code>                    mixed
+    <strong>revoke</strong>(string $uniqueName)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>删除分享链接</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$uniqueName</td>
+                <td>分享链接唯一标识</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>mixed</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="../../../Fangcloud/Exception/YfySdkException.html"><abbr title="Fangcloud\Exception\YfySdkException">YfySdkException</abbr></a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
+    </div>
+    </body>
+
+</html>
