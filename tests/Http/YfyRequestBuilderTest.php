@@ -10,6 +10,8 @@ namespace Fangcloud\Test\Http;
 
 
 use Fangcloud\Http\YfyRequestBuilder;
+use Fangcloud\YfyAppInfo;
+use Fangcloud\YfyClient;
 
 class YfyRequestBuilderTest extends \PHPUnit_Framework_TestCase
 {
@@ -32,5 +34,18 @@ class YfyRequestBuilderTest extends \PHPUnit_Framework_TestCase
             ->build();
         $url = $request->getUrl();
         $this->assertEquals('http://foo.bar/123/456', $url);
+    }
+
+    public function testUserAgent() {
+        YfyAppInfo::init('fake-client-id', 'fake-client-secret', 'http://foo.bar');
+        $request = YfyRequestBuilder::factory()->build();
+        $headers = $request->getHeaders();
+        $this->assertEquals('fake-client-id '.'OfficialFangcloudPhpSDK/'.YfyClient::VERSION, $headers['User-Agent']);
+    }
+
+    public function testRuntimeVersion() {
+        $request = YfyRequestBuilder::factory()->build();
+        $headers = $request->getHeaders();
+        $this->assertEquals(phpversion(), $headers['X-Runtime-Version']);
     }
 }

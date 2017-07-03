@@ -5,6 +5,8 @@
 namespace Fangcloud\Http;
 
 use Fangcloud\Upload\YfyFile;
+use Fangcloud\YfyAppInfo;
+use Fangcloud\YfyClient;
 use Fangcloud\YfyContext;
 
 /**
@@ -288,7 +290,8 @@ class YfyRequestBuilder
      */
     private function getMergedHeaders() {
         $defaultHeaders = array(
-            'User-Agent' => 'OfficialFangcloudPhpSDK'
+            'User-Agent' => YfyAppInfo::$clientId . ' OfficialFangcloudPhpSDK/' . YfyClient::VERSION,
+            'X-Runtime-Version' => phpversion()
         );
         if (!empty($this->yfyContext)) {
             $defaultHeaders['Authorization'] = 'Bearer ' . $this->yfyContext->getAccessToken();
