@@ -15,7 +15,7 @@
   "require-dev": {
     "phpunit/phpunit": "^4.8.35|^5.4.0",
     "mockery/mockery": "@stable",
-    "phpdocumentor/phpdocumentor": "2.*"
+    "sami/sami": "@stable"
   },
   "autoload": {
     "psr-4": {

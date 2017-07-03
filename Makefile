@@ -24,10 +24,10 @@ coverage-show:
 	open build/artifacts/coverage/index.html
 
 docs:
-	vendor/bin/phpdoc run -d ./src -t --target=build/artifacts/docs --cache-folder=build/artifacts/phpdoc-cache
+	php vendor/bin/sami.php update build/sami-config.php
 
 docs-show:
-	open build_doc/index.html
+	open build/artifacts/docs/index.html
 
 package:
 	mkdir -p build/artifacts
