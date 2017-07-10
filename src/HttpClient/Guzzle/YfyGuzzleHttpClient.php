@@ -9,6 +9,7 @@ use Fangcloud\Http\YfyRawResponse;
 use Fangcloud\HttpClient\AbstractYfyHttpClient;
 use Fangcloud\Upload\YfyFile;
 use Fangcloud\Http\YfyRequest;
+use Fangcloud\YfyAppInfo;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use Psr\Http\Message\ResponseInterface;
@@ -23,6 +24,10 @@ class YfyGuzzleHttpClient extends AbstractYfyHttpClient
      * @var \GuzzleHttp\Client The Guzzle client.
      */
     protected $guzzleClient;
+    /**
+     * @var string|bool 证书信息
+     */
+    protected $verify;
 
     /**
      * YfyGuzzleHttpClient constructor.
@@ -31,6 +36,12 @@ class YfyGuzzleHttpClient extends AbstractYfyHttpClient
     public function __construct(Client $guzzleClient = null)
     {
         $this->guzzleClient = $guzzleClient ?: new Client();
+        if (getenv(YfyAppInfo::TEST_ENV)) {
+            $this->verify = false;
+        }
+        else {
+            $this->verify = __DIR__ . '../cert/Geotrust_PCA_G3_Root.pem';
+        }
     }
 
     /**
@@ -44,7 +55,7 @@ class YfyGuzzleHttpClient extends AbstractYfyHttpClient
             'headers' => $yfyRequest->getHeaders(),
             'timeout' => $yfyRequest->getTimeout(),
             'connect_timeout' => $yfyRequest->getConnectTimeout(),
-            'verify' => false, // TODO: 加证书
+            'verify' => $this->verify,
             'stream' => $yfyRequest->isStream()
         ];
 
