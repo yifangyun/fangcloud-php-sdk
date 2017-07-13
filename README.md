@@ -158,5 +158,5 @@ $client = new YfyClient(options);
 
 ## 其他文档
 
-* [phpdoc](https://yifangyun.github.io/fangcloud-sdk-php)
+* [phpdoc](https://yifangyun.github.io/fangcloud-php-sdk)
 * [API文档](https://open.fangcloud.com/wiki/v2)
