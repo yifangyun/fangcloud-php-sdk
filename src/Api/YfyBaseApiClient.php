@@ -103,7 +103,7 @@ abstract class YfyBaseApiClient
             $requestId = array_key_exists('request_id', $body) ? $body['request_id'] : null;
             switch ($statusCode) {
                 case 401:
-                    switch ($errors[0]['code']) {
+                    switch (@$errors[0]['code']) {
                         // without token
                         case 'unauthorized':
                             throw new YfyAuthorizationRequiredException(null, $errors, $requestId);

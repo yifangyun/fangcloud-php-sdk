@@ -54,6 +54,14 @@ class YfyFileClientTest extends AbstractApiTest
     }
 
     /**
+     * @depends testFileInfo
+     */
+    public function testPreviewUrl() {
+        $previewUrl = static::$client->files()->getPreviewUrl(static::$testFileId);
+        echo $previewUrl . "\n";
+    }
+
+    /**
      * @depends testUploadFile
      */
     public function testUpdateFile() {
@@ -94,7 +102,7 @@ class YfyFileClientTest extends AbstractApiTest
      * @depends testUploadFile
      */
     public function testUploadNewVersion() {
-        $response = static::$client->files()->uploadNewVersion(static::$testFileId, static::TEST_FILENAME_NEW_VERSION, 'fake remark', \GuzzleHttp\Psr7\stream_for(static::TEST_FILE_CONTENT));
+        $response = static::$client->files()->uploadNewVersion(static::$testFileId, static::TEST_FILENAME_NEW_VERSION, \GuzzleHttp\Psr7\stream_for(static::TEST_FILE_CONTENT), 'fake remark');
         $this->assertArrayHasKey('id', $response);
         //echo "upload new version with id " . static::$testFileId . "\n";
     }

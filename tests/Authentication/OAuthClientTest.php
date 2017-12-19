@@ -4,6 +4,7 @@ namespace Fangcloud\Test\Authentication;
 
 
 use Fangcloud\Authentication\OAuthClient;
+use Fangcloud\Constant\YfyJwtSubType;
 use Fangcloud\Http\YfyRawResponse;
 use Fangcloud\YfyAppInfo;
 use Fangcloud\Http\YfyRequest;
@@ -178,6 +179,37 @@ class OAuthClientTest extends \PHPUnit_Framework_TestCase
             }))
             ->andReturn(new YfyRawResponse(['X-foo' => 'X-bar'], \GuzzleHttp\Psr7\stream_for($this->fakeTokenResponse), 200));
         $res = $this->oauthClient->getTokenByPasswordFlow($username, $password);
+    }
+
+    /**
+     * 测试jwt模式
+     */
+    public function testGetTokenByJwtFlow() {
+        $this->mockRandomStringGenerator->shouldReceive('getRandomString')
+            ->once()
+            ->andReturn('fakeRandomString');
+
+        $this->mockHttpClient->shouldReceive('send')
+            ->once()
+            ->with(\Mockery::on(function ($arg) {
+                if (!($arg instanceof YfyRequest)) {
+                    return false;
+                }
+                $headers = $arg->getHeaders();
+                $params = $arg->getFormParams();
+                if (!array_key_exists('Authorization', $headers)) {
+                    return false;
+                }
+                if (!array_key_exists('grant_type', $params) || $params['grant_type'] !== 'jwt') {
+                    return false;
+                }
+                if (!array_key_exists('assertion', $params)) {
+                    return false;
+                }
+                return true;
+            }))
+            ->andReturn(new YfyRawResponse(['X-foo' => 'X-bar'], \GuzzleHttp\Psr7\stream_for($this->fakeTokenResponse), 200));
+        $res = $this->oauthClient->getTokenByJwtFlow(YfyJwtSubType::ENTERPRISE, 12345, 'test-kid', __DIR__ . '/../Data/private_key.pem');
     }
 
     /**

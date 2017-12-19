@@ -8,6 +8,7 @@ namespace Fangcloud\Api\Collab;
 use Fangcloud\Api\YfyBaseApiClient;
 use Fangcloud\Authentication\OAuthClient;
 use Fangcloud\Constant\YfyCollabRole;
+use Fangcloud\Constant\YfyCollabSubType;
 use Fangcloud\Exception\YfySdkException;
 use Fangcloud\HttpClient\YfyHttpClient;
 use Fangcloud\YfyAppInfo;
@@ -40,8 +41,9 @@ class YfyCollabClient extends YfyBaseApiClient
      * 邀请协作
      *
      * @param int $folderId 协作文件夹id
-     * @param int $userId 邀请用户id
-     * @param string $userRole 邀请用户角色, 只能是Fangcloud\Constant\YfyCollabRole中定义的常量
+     * @param string $subType 邀请对象类型，只能是Fangcloud\Constant\YfyCollabSubType中定义的常量
+     * @param int $subId 邀请对象id
+     * @param string $subRole 邀请用户角色, 只能是Fangcloud\Constant\YfyCollabRole中定义的常量
      * @param string $message 邀请信息，长度不能超过140个字符
      * @return mixed
      * @throws YfySdkException
@@ -49,16 +51,18 @@ class YfyCollabClient extends YfyBaseApiClient
      *
      * @see YfyCollabRole
      */
-    public function invite($folderId, $userId, $userRole, $message = null) {
-        YfyCollabRole::validate($userRole);
+    public function invite($folderId, $subType, $subId, $subRole, $message = null) {
+        YfyCollabRole::validate($subRole);
+        YfyCollabSubType::validate($subType);
         $json = [
             'folder_id' => $folderId,
-            'invited_user' => [
-                'id' => $userId,
-                'role' => $userRole
+            'accessible_by' => [
+                'type' => $subType,
+                'id' => $subId,
+                'role' => $subRole
             ]
         ];
-        if (!empty($message)) $json['message'] = $message;
+        if (!empty($message)) $json['invitation_message'] = $message;
         $request = YfyRequestBuilder::factory()
             ->withEndpoint(YfyAppInfo::$apiHost . self::COLLAB_INVITE_URI)
             ->withMethod('POST')
@@ -91,7 +95,7 @@ class YfyCollabClient extends YfyBaseApiClient
      * 更新协作
      *
      * @param int $collabId 协作id
-     * @param string $role 用户角色, 只能是Fangcloud\Constant\YfyCollabRole中定义的常量
+     * @param string $role 对象角色, 只能是Fangcloud\Constant\YfyCollabRole中定义的常量
      * @return mixed
      * @throws YfySdkException
      * @throws \InvalidArgumentException

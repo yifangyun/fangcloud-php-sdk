@@ -15,6 +15,22 @@ class YfyFolderClientTest extends AbstractApiTest
     static $testCopyToFolderId;
     static $testFolderId;
 
+    public function testGetPersonalItems() {
+        $response = static::$client->folders()->listPersonalItems();
+        $this->assertArrayHasKey('folders', $response);
+        $this->assertArrayHasKey('files', $response);
+    }
+
+    public function testListDepartmentFolders() {
+        $response = static::$client->folders()->listDepartmentFolders(0);
+        $this->assertArrayHasKey('folders', $response);
+    }
+
+    public function testListCollabFolders() {
+        $response = static::$client->folders()->listCollabFolders();
+        $this->assertArrayHasKey('folders', $response);
+    }
+
     public function testInit() {
         $response = static::$client->folders()->create(static::TEST_ROOT_FOLDER_NAME, 0);
         $this->assertArrayHasKey('id', $response);

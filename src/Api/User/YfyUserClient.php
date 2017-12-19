@@ -25,6 +25,7 @@ class YfyUserClient extends YfyBaseApiClient
     const USER_INFO_URI = self::API_PREFIX . '/user/%s/info';
     const PROFILE_PIC_DOWNLOAD_URI = self::API_PREFIX . '/user/%s/profile_pic_download';
     const UPDATE_SELF_URI = self::API_PREFIX . '/user/update';
+    const SPACE_USAGE_URI = self::API_PREFIX . '/user/space_usage';
     const SEARCH_USER_URI = self::API_PREFIX . '/user/search';
 
     /**
@@ -44,7 +45,7 @@ class YfyUserClient extends YfyBaseApiClient
      * @return array
      * @throws YfySdkException
      */
-    function getSelf()
+    public function getSelf()
     {
         $request = YfyRequestBuilder::factory()
             ->withEndpoint(YfyAppInfo::$apiHost . self::SELF_INFO_URI)
@@ -62,7 +63,7 @@ class YfyUserClient extends YfyBaseApiClient
      * @return array
      * @throws YfySdkException
      */
-    function getUser($userId)
+    public function getUser($userId)
     {
         $request = YfyRequestBuilder::factory()
             ->withEndpoint(YfyAppInfo::$apiHost . self::USER_INFO_URI)
@@ -84,7 +85,7 @@ class YfyUserClient extends YfyBaseApiClient
      * @return void|DownloadFile
      * @throws YfySdkException
      */
-    function downloadProfilePic($userId, $profilePicKey, $savePath = null)
+    public function downloadProfilePic($userId, $profilePicKey, $savePath = null)
     {
         $request = YfyRequestBuilder::factory()
             ->withEndpoint(YfyAppInfo::$apiHost . self::PROFILE_PIC_DOWNLOAD_URI)
@@ -110,7 +111,7 @@ class YfyUserClient extends YfyBaseApiClient
      * @return mixed
      * @throws YfySdkException
      */
-    function updateSelf($name)
+    public function updateSelf($name)
     {
         $json = array(
             'name' => $name
@@ -126,13 +127,30 @@ class YfyUserClient extends YfyBaseApiClient
     }
 
     /**
+     * 获取用户空间使用情况
+     *
+     * @return mixed
+     * @throws YfySdkException
+     */
+    public function getSpaceUsage() {
+        $request = YfyRequestBuilder::factory()
+            ->withEndpoint(YfyAppInfo::$apiHost . self::SPACE_USAGE_URI)
+            ->withMethod('GET')
+            ->withYfyContext($this->yfyContext)
+            ->build();
+        $response =  $this->execute($request);
+        return json_decode($response->getBody(), true);
+    }
+
+    /**
      * 搜索用户
      *
      * @param string $queryWords 搜索关键词
      * @param int $pageId 页码
      * @return mixed
+     * @throws YfySdkException
      */
-    function searchUser($queryWords = null, $pageId = 0)
+    public function searchUser($queryWords = null, $pageId = 0)
     {
         $request = YfyRequestBuilder::factory()
             ->withEndpoint(YfyAppInfo::$apiHost . self::SEARCH_USER_URI)

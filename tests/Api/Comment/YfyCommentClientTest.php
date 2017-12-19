@@ -30,8 +30,8 @@ class YfyCommentClientTest extends AbstractApiTest
      */
     public function testCreateComment() {
         $response = static::$client->comments()->create(static::$testFileId, static::TEST_COMMENT_MESSAGE);
-        $this->assertArrayHasKey('comment_id', $response);
-        static::$testCommentId = $response['comment_id'];
+        $this->assertArrayHasKey('id', $response);
+        static::$testCommentId = $response['id'];
     }
 
     /**

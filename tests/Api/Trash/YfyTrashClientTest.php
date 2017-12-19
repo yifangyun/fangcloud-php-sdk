@@ -21,7 +21,7 @@ class YfyTrashClientTest extends AbstractApiTest
      * @depends testClear
      */
     public function testRestoreAll() {
-        $this->expectExceptionCode('empty_trash');
+        //$this->expectExceptionCode('empty_trash');
         $response = static::$client->trash()->restoreAll();
         $this->assertEquals(static::SUCCESS_RESPONSE, $response);
     }

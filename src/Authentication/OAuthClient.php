@@ -5,6 +5,7 @@
 namespace Fangcloud\Authentication;
 
 
+use Fangcloud\Constant\YfyJwtSubType;
 use Fangcloud\Exception\YfyInvalidGrantException;
 use Fangcloud\Exception\YfyInvalidStateException;
 use Fangcloud\Exception\YfySdkException;
@@ -13,12 +14,12 @@ use Fangcloud\Exception\YfyUnauthorizedException;
 use Fangcloud\HttpClient\YfyHttpClient;
 use Fangcloud\PersistentData\PersistentDataHandler;
 use Fangcloud\PersistentData\PersistentDataHandlerFactory;
-use Fangcloud\PersistentData\YfySessionPersistentDataHandler;
 use Fangcloud\RandomString\RandomStringGenerator;
 use Fangcloud\RandomString\RandomStringGeneratorFactory;
 use Fangcloud\YfyAppInfo;
 use Fangcloud\Http\YfyRequest;
 use Fangcloud\Http\YfyRequestBuilder;
+use Firebase\JWT\JWT;
 
 /**
  * Class OAuthClient
@@ -78,7 +79,7 @@ class OAuthClient
             $requestId = array_key_exists('request_id', $body) ? $body['request_id'] : null;
             switch ($statusCode) {
                 case 400:
-                    switch ($errors['code']) {
+                    switch (@$errors['code']) {
                         case 'invalid_grant':
                             throw new YfyInvalidGrantException(null, $errors, $requestId);
                             break;
@@ -236,5 +237,53 @@ class OAuthClient
             throw new YfyInvalidStateException($expected, $state);
         }
     }
+
+    /**
+     * 通过jwt模式获取token
+     *
+     * @param string $subType 授权对象类型，只能是Fangcloud\Constant\YfyJwtSubType中定义的常量
+     * @param int $subId 授权对象id
+     * @param int $kid 由亿方云下发的代表公钥的唯一id
+     * @param string $privateKeyPath 私钥路径
+     * @param string $privateKeyContent 私钥文本，该参数存在时优先使用该参数
+     * @return mixed
+     * @throws YfySdkException
+     * @throws \InvalidArgumentException
+     */
+    public function getTokenByJwtFlow($subType, $subId, $kid, $privateKeyPath, $privateKeyContent = null) {
+        YfyJwtSubType::validate($subType);
+        $iat = time();
+        $exp = $iat + 45;
+        $claims = array(
+            'yifangyun_sub_type' => $subType,
+            'sub' => $subId,
+            'exp' => $exp,
+            'iat' => $iat,
+            'jti' => $this->randomStringGenerator->getRandomString(16)
+        );
+
+        if (is_string($privateKeyContent)) {
+            $privateKey = $privateKeyContent;
+        }
+        else if (file_exists($privateKeyPath)) {
+            $privateKey = file_get_contents($privateKeyPath);
+        }
+        else {
+            throw new \InvalidArgumentException($privateKeyPath . ' does not exist!');
+        }
+
+        $jwt = JWT::encode($claims, $privateKey, 'RS256', $kid);
+
+        $request = YfyRequestBuilder::factory()
+            ->withEndpoint(YfyAppInfo::$authHost . self::TOKEN_URI)
+            ->withMethod('POST')
+            ->withBasicAuth(YfyAppInfo::$clientId, YfyAppInfo::$clientSecret)
+            ->addFormParam('grant_type', 'jwt')
+            ->addFormParam('assertion', $jwt)
+            ->build();
+        $response = $this->execute($request);
+        return json_decode($response->getBody(), true);
+    }
+
 
 }

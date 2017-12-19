@@ -37,6 +37,7 @@ class YfyFileClient extends YfyBaseApiClient
     const FILE_VERSION_INFO_URI = self::API_PREFIX . '/file/%s/version/%s/info';
     const FILE_VERSION_PROMOTE_URI = self::API_PREFIX . '/file/%s/version/%s/promote';
     const FILE_VERSION_DELETE_URI = self::API_PREFIX . '/file/%s/version/%s/delete';
+    const FILE_PREVIEW_URI = '/preview/preview.html';
 
     /**
      * YfyUserClient constructor.
@@ -329,16 +330,20 @@ class YfyFileClient extends YfyBaseApiClient
      *
      * @param int $parentId 父文件夹id
      * @param string $name 上传文件名
+     * @param bool $isCovered 为true时重名情况下直接返回上传新版本的预签名链接
      * @return string 上传链接
      * @throws YfySdkException
      */
-    public function getUploadFileUrl($parentId, $name) {
+    public function getUploadFileUrl($parentId, $name, $isCovered = false) {
         // presign
         $json = array(
             'parent_id' => $parentId,
             'name' => $name,
             'upload_type' => 'api'
         );
+        if ($isCovered) {
+            $json['is_covered'] = true;
+        }
 
         $request = YfyRequestBuilder::factory()
             ->withEndpoint(YfyAppInfo::$apiHost . self::FILE_UPLOAD_URI)
@@ -360,13 +365,15 @@ class YfyFileClient extends YfyBaseApiClient
      * @return string 上传链接
      * @throws YfySdkException
      */
-    public function getUploadNewVersionUrl($fileId, $name, $remark) {
+    public function getUploadNewVersionUrl($fileId, $name, $remark = null) {
         // presign
         $json = [
             'name' => $name,
-            'remark' => $remark,
             'upload_type' => 'api'
         ];
+        if (!empty($remark)) {
+            $json['remark'] = $remark;
+        }
         $request = YfyRequestBuilder::factory()
             ->withEndpoint(YfyAppInfo::$apiHost . self::FILE_UPLOAD_NEW_VERSION_URI)
             ->withMethod('POST')
@@ -384,12 +391,13 @@ class YfyFileClient extends YfyBaseApiClient
      *
      * @param int $parentId 父文件夹id
      * @param string $name 上传文件名
+     * @param bool $isCovered 为true时重名情况下直接上传新版本
      * @param resource|StreamInterface|string $resource
      * @return mixed
      * @throws YfySdkException
      */
-    public function uploadFile($parentId, $name, $resource) {
-        $uploadLink = $this->getUploadFileUrl($parentId, $name);
+    public function uploadFile($parentId, $name, $resource, $isCovered = false) {
+        $uploadLink = $this->getUploadFileUrl($parentId, $name, $isCovered);
 
         // multipart upload
         if (is_string($resource)) {
@@ -417,7 +425,7 @@ class YfyFileClient extends YfyBaseApiClient
      * @return mixed
      * @throws YfySdkException
      */
-    public function uploadNewVersion($fileId, $name, $remark, $resource) {
+    public function uploadNewVersion($fileId, $name, $resource, $remark = null) {
         $uploadLink = $this->getUploadNewVersionUrl($fileId, $name, $remark);
 
         // multipart upload
@@ -476,6 +484,21 @@ class YfyFileClient extends YfyBaseApiClient
             return $response->createDownloadFile();
         }
         $response->saveToFile($savePath);
+    }
+
+    /**
+     * 获取预览链接
+     *
+     * @param int $fileId 文件id
+     * @param null $fileName 文件名
+     * @return string 该文件的预览链接
+     */
+    public function getPreviewUrl($fileId, $fileName = null) {
+        $previewUrl = YfyAppInfo::$apiHost . self::FILE_PREVIEW_URI . '?file_id=' . $fileId . '&access_token=' . $this->yfyContext->getAccessToken();
+        if (!empty($fileName)) {
+            $previewUrl = $previewUrl . '&file_name=' . $fileName;
+        }
+        return $previewUrl;
     }
 
 }

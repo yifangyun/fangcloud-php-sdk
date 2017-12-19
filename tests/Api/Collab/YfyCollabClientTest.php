@@ -3,6 +3,7 @@
 namespace Fangcloud\Test\Api\Collab;
 
 
+use Fangcloud\Constant\YfyCollabSubType;
 use Fangcloud\Test\Api\AbstractApiTest;
 
 class YfyCollabClientTest extends AbstractApiTest
@@ -47,9 +48,9 @@ class YfyCollabClientTest extends AbstractApiTest
      * @depends testInit
      */
     public function testCollabInvite() {
-        $response = static::$client->collabs()->invite(static::$testFolderId, static::$anotherUserId, static::ROLE);
-        $this->assertArrayHasKey('collab_id', $response);
-        static::$testCollabId = $response['collab_id'];
+        $response = static::$client->collabs()->invite(static::$testFolderId, YfyCollabSubType::USER, static::$anotherUserId, static::ROLE);
+        $this->assertArrayHasKey('id', $response);
+        static::$testCollabId = $response['id'];
     }
 
     /**
@@ -57,7 +58,7 @@ class YfyCollabClientTest extends AbstractApiTest
      */
     public function testCollabInfo() {
         $response = static::$client->collabs()->getInfo(static::$testCollabId);
-        $this->assertArrayHasKey('collab_id', $response);
+        $this->assertArrayHasKey('id', $response);
     }
 
     /**
@@ -65,7 +66,7 @@ class YfyCollabClientTest extends AbstractApiTest
      */
     public function testUpdateCollab() {
         $response = static::$client->collabs()->update(static::$testCollabId, static::ROLE_UPDATED);
-        $this->assertArrayHasKey('collab_id', $response);
+        $this->assertArrayHasKey('id', $response);
         $this->assertArrayHasKey('role', $response);
         $this->assertEquals(static::ROLE_UPDATED, $response['role']);
     }
@@ -75,9 +76,9 @@ class YfyCollabClientTest extends AbstractApiTest
      */
     public function testListFolderCollabs() {
         $response = static::$client->folders()->listCollabs(static::$testFolderId);
-        $this->assertArrayHasKey('collab_info', $response);
-        $this->assertTrue(is_array($response['collab_info']));
-        $this->assertEquals(2, count($response['collab_info']));
+        $this->assertArrayHasKey('collabs', $response);
+        $this->assertTrue(is_array($response['collabs']));
+        $this->assertEquals(2, count($response['collabs']));
     }
 
     /**

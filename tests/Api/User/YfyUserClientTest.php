@@ -2,12 +2,7 @@
 
 namespace Fangcloud\Test\Api\User;
 
-use Fangcloud\Api\User\YfyUserClient;
-use Fangcloud\HttpClient\YfyHttpClientFactory;
 use Fangcloud\Test\Api\AbstractApiTest;
-use Fangcloud\YfyAppInfo;
-use Fangcloud\YfyContext;
-use PHPUnit\Framework\TestCase;
 
 class YfyUserClientTest extends AbstractApiTest
 {
@@ -72,4 +67,15 @@ class YfyUserClientTest extends AbstractApiTest
         $downloadProfilePic = static::$client->users()->downloadProfilePic(static::$selfUserId, static::$selfProfileKey);
         $this->assertNotTrue($downloadProfilePic->getStream()->eof());
     }
+
+    /**
+     * @depends testSelfInfo
+     */
+    public function testGetSpaceUsage()
+    {
+        $response = static::$client->users()->getSpaceUsage();
+        $this->assertArrayHasKey('space_used', $response);
+        $this->assertArrayHasKey('space_total', $response);
+    }
+
 }

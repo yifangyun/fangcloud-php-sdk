@@ -10,8 +10,8 @@ class YfyClientFactory
     public static function getClient() {
         if (empty(static::$instance)) {
             \Fangcloud\YfyAppInfo::init(
-                '72ba059d-09a7-4f00-bd15-c4e48a79a155',
-                '338ab9bb-decb-4053-9502-dd5fc946457c',
+                'e885b1d0-39e4-49eb-be06-16078cf3f613',
+                'b366fa56-c50e-4a68-bc12-1044d974d7b8',
                 'http://localhost:8000/callback.php'
             );
             static::$instance = new \Fangcloud\YfyClient(array());

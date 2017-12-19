@@ -39,16 +39,22 @@ class YfyShareLinkClient extends YfyBaseApiClient
      * 获取分享链接信息
      *
      * @param string $uniqueName 分享链接唯一标识
+     * @param string $password 密码
      * @return mixed
      * @throws YfySdkException
      */
-    public function getInfo($uniqueName) {
-        $request = YfyRequestBuilder::factory()
+    public function getInfo($uniqueName, $password = null) {
+        $builder = YfyRequestBuilder::factory()
             ->withEndpoint(YfyAppInfo::$apiHost . self::SHARE_LINK_INFO_URI)
             ->withMethod('GET')
             ->addPathParam($uniqueName)
-            ->withYfyContext($this->yfyContext)
-            ->build();
+            ->withYfyContext($this->yfyContext);
+
+        if (is_string($password)) {
+            $builder->addQueryParam('password', $password);
+        }
+
+        $request = $builder->build();
         $response =  $this->execute($request);
         return json_decode($response->getBody(), true);
     }

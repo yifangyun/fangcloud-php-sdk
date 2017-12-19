@@ -4,10 +4,14 @@
  */
 namespace Fangcloud;
 
+use Fangcloud\Api\Admin\YfyAdminClient;
 use Fangcloud\Api\Collab\YfyCollabClient;
 use Fangcloud\Api\Comment\YfyCommentClient;
+use Fangcloud\Api\Common\YfyCommonClient;
+use Fangcloud\Api\Department\YfyDepartmentClient;
 use Fangcloud\Api\File\YfyFileClient;
 use Fangcloud\Api\Folder\YfyFolderClient;
+use Fangcloud\Api\Group\YfyGroupClient;
 use Fangcloud\Api\Item\YfyItemClient;
 use Fangcloud\Api\ShareLink\YfyShareLinkClient;
 use Fangcloud\Api\Trash\YfyTrashClient;
@@ -82,6 +86,22 @@ class YfyClient
      * @var YfyCommentClient 处理评论操作的client
      */
     private $commentClient;
+    /**
+     * @var YfyDepartmentClient 处理部门操作的client
+     */
+    private $departmentClient;
+    /**
+     * @var YfyGroupClient 处理群组操作的client
+     */
+    private $groupClient;
+    /**
+     * @var YfyAdminClient 处理管理操作的client
+     */
+    private $adminClient;
+    /**
+     * @var YfyCommonClient 自定义请求的client
+     */
+    private $commonClient;
 
     /**
      * YfyClient constructor.
@@ -289,5 +309,52 @@ class YfyClient
         return $this->commentClient;
     }
 
+    /**
+     * 返回部门操作
+     *
+     * @return YfyDepartmentClient
+     */
+    public function departments() {
+        if (!$this->departmentClient) {
+            $this->departmentClient =  new YfyDepartmentClient($this->yfyContext, $this->httpClient, $this->oauth());
+        }
+        return $this->departmentClient;
+    }
+
+    /**
+     * 返回群组操作
+     *
+     * @return YfyGroupClient
+     */
+    public function groups() {
+        if (!$this->groupClient) {
+            $this->groupClient =  new YfyGroupClient($this->yfyContext, $this->httpClient, $this->oauth());
+        }
+        return $this->groupClient;
+    }
+
+    /**
+     * 返回管理操作
+     *
+     * @return YfyAdminClient
+     */
+    public function admin() {
+        if (!$this->adminClient) {
+            $this->adminClient =  new YfyAdminClient($this->yfyContext, $this->httpClient, $this->oauth());
+        }
+        return $this->adminClient;
+    }
+
+    /**
+     * 返回自定义操作
+     *
+     * @return YfyCommonClient
+     */
+    public function custom() {
+        if (!$this->commonClient) {
+            $this->commonClient =  new YfyCommonClient($this->yfyContext, $this->httpClient, $this->oauth());
+        }
+        return $this->commonClient;
+    }
 
 }

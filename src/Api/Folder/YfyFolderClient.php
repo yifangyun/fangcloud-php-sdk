@@ -7,6 +7,8 @@ namespace Fangcloud\Api\Folder;
 
 use Fangcloud\Api\YfyBaseApiClient;
 use Fangcloud\Authentication\OAuthClient;
+use Fangcloud\Constant\YfyFolderListChildrenSortType;
+use Fangcloud\Constant\YfySortDirection;
 use Fangcloud\Exception\YfySdkException;
 use Fangcloud\HttpClient\YfyHttpClient;
 use Fangcloud\YfyAppInfo;
@@ -29,6 +31,9 @@ class YfyFolderClient extends YfyBaseApiClient
     const FOLDER_RESTORE_FROM_TRASH_URI = self::API_PREFIX . '/folder/%s/restore_from_trash';
     const FOLDER_MOVE_URI = self::API_PREFIX . '/folder/%s/move';
     const FOLDER_CHILDREN_URI = self::API_PREFIX . '/folder/%s/children';
+    const FOLDER_DEPARTMENT_FOLDERS_URI = self::API_PREFIX . '/folder/department_folders';
+    const FOLDER_PERSONAL_ITEMS_URI = self::API_PREFIX . '/folder/personal_items';
+    const FOLDER_COLLAB_FOLDERS_URI = self::API_PREFIX . '/folder/collab_folders';
     const FOLDER_SHARE_LINKS = self::API_PREFIX . '/folder/%s/share_links';
     const FOLDER_COLLABS = self::API_PREFIX . '/folder/%s/collabs';
 
@@ -84,14 +89,20 @@ class YfyFolderClient extends YfyBaseApiClient
      *
      * @param string $name 文件夹名称
      * @param int $parentId 父文件夹id
+     * @param int $departmentId 部门id
      * @return mixed
      * @throws YfySdkException
      */
-    public function create($name, $parentId) {
+    public function create($name, $parentId, $departmentId = null) {
         $json = [
             'name' => $name,
             'parent_id' => $parentId
         ];
+
+        if (!empty($departmentId)) {
+            $json['departmentId'] = $departmentId;
+        }
+
         $request = YfyRequestBuilder::factory()
             ->withEndpoint(YfyAppInfo::$apiHost . self::FOLDER_CREATE_URI)
             ->withMethod('POST')
@@ -184,13 +195,19 @@ class YfyFolderClient extends YfyBaseApiClient
      *
      * @param int $folderId 文件夹id
      * @param int $targetFolderId 目标文件夹id
+     * @param int $departmentId 部门id
      * @return mixed
      * @throws YfySdkException
      */
-    public function move($folderId, $targetFolderId) {
+    public function move($folderId, $targetFolderId, $departmentId = null) {
         $json = [
             'target_folder_id' => $targetFolderId
         ];
+
+        if (!empty($departmentId)) {
+            $json['departmentId'] = $departmentId;
+        }
+
         $request = YfyRequestBuilder::factory()
             ->withEndpoint(YfyAppInfo::$apiHost . self::FOLDER_MOVE_URI)
             ->withMethod('POST')
@@ -209,13 +226,17 @@ class YfyFolderClient extends YfyBaseApiClient
      * @param int $pageId 页码
      * @param int $pageCapacity 页容量
      * @param string $type 搜索文件类型, 只能是Fangcloud\Constant\YfyItemType中定义的常量
+     * @param string $sortBy 搜索类型，只能是Fangcloud\Constant\YfyFolderListChildrenSortType中定义的常量
+     * @param string $sortDirection 搜索结果排序顺序，只能是Fangcloud\Constant\YfySortDirection中定义的常量
      * @return mixed
      * @throws YfySdkException
      * @throws \InvalidArgumentException
      *
      * @see YfyItemType
+     * @see YfyFolderListChildrenSortType
+     * @see YfySortDirection
      */
-    public function listChildren($folderId, $pageId = 0, $pageCapacity = 20, $type = YfyItemType::ITEM) {
+    public function listChildren($folderId, $pageId = 0, $pageCapacity = 20, $type = YfyItemType::ITEM, $sortBy = null, $sortDirection = null) {
         YfyItemType::validate($type);
         $builder = YfyRequestBuilder::factory()
             ->withEndpoint(YfyAppInfo::$apiHost . self::FOLDER_CHILDREN_URI)
@@ -229,6 +250,121 @@ class YfyFolderClient extends YfyBaseApiClient
             $builder->addQueryParam('page_capacity', $pageCapacity);
         }
         $builder->addQueryParam('type', $type);
+        if (!empty($sortBy)) {
+            YfyFolderListChildrenSortType::validate($sortBy);
+            $builder->addQueryParam('sort_by', $sortBy);
+        }
+        if (!empty($sortDirection)) {
+            YfySortDirection::validate($sortDirection);
+            $builder->addQueryParam('sort_direction', $sortDirection);
+        }
+
+        $request = $builder->build();
+        $response =  $this->execute($request);
+        return json_decode($response->getBody(), true);
+    }
+
+    /**
+     * 获取部门首层文件夹列表
+     *
+     * @param int $departmentId 部门id
+     * @param int $pageId 页码
+     * @param int $pageCapacity 页容量
+     * @param string $sortBy 搜索类型，只能是Fangcloud\Constant\YfyFolderListChildrenSortType中定义的常量
+     * @param string $sortDirection 搜索结果排序顺序，只能是Fangcloud\Constant\YfySortDirection中定义的常量
+     * @return mixed
+     *
+     * @see YfyItemType
+     * @see YfyFolderListChildrenSortType
+     * @see YfySortDirection
+     */
+    public function listDepartmentFolders($departmentId, $pageId = 0, $pageCapacity = 20, $sortBy = null, $sortDirection = null) {
+        $builder = YfyRequestBuilder::factory()
+            ->withEndpoint(YfyAppInfo::$apiHost . self::FOLDER_DEPARTMENT_FOLDERS_URI)
+            ->withMethod('GET')
+            ->addQueryParam('department_id', $departmentId)
+            ->withYfyContext($this->yfyContext);
+
+        if (is_int($pageId)) {
+            $builder->addQueryParam('page_id', $pageId);
+        }
+        if (is_int($pageCapacity)) {
+            $builder->addQueryParam('page_capacity', $pageCapacity);
+        }
+        if (!empty($sortBy)) {
+            YfyFolderListChildrenSortType::validate($sortBy);
+            $builder->addQueryParam('sort_by', $sortBy);
+        }
+        if (!empty($sortDirection)) {
+            YfySortDirection::validate($sortDirection);
+            $builder->addQueryParam('sort_direction', $sortDirection);
+        }
+
+        $request = $builder->build();
+        $response =  $this->execute($request);
+        return json_decode($response->getBody(), true);
+    }
+
+    /**
+     * 获取个人首层文件夹与文件列表
+     *
+     * @param int $pageId 页码
+     * @param int $pageCapacity 页容量
+     * @param string $type 搜索文件类型, 只能是Fangcloud\Constant\YfyItemType中定义的常量
+     * @param string $sortBy 搜索类型，只能是Fangcloud\Constant\YfyFolderListChildrenSortType中定义的常量
+     * @param string $sortDirection 搜索结果排序顺序，只能是Fangcloud\Constant\YfySortDirection中定义的常量
+     * @return mixed
+     *
+     * @see YfyItemType
+     * @see YfyFolderListChildrenSortType
+     * @see YfySortDirection
+     */
+    public function listPersonalItems($pageId = 0, $pageCapacity = 20, $type = YfyItemType::ITEM, $sortBy = null, $sortDirection = null) {
+        $builder = YfyRequestBuilder::factory()
+            ->withEndpoint(YfyAppInfo::$apiHost . self::FOLDER_PERSONAL_ITEMS_URI)
+            ->withMethod('GET')
+            ->withYfyContext($this->yfyContext);
+
+        if (is_int($pageId)) {
+            $builder->addQueryParam('page_id', $pageId);
+        }
+        if (is_int($pageCapacity)) {
+            $builder->addQueryParam('page_capacity', $pageCapacity);
+        }
+        $builder->addQueryParam('type', $type);
+        if (!empty($sortBy)) {
+            YfyFolderListChildrenSortType::validate($sortBy);
+            $builder->addQueryParam('sort_by', $sortBy);
+        }
+        if (!empty($sortDirection)) {
+            YfySortDirection::validate($sortDirection);
+            $builder->addQueryParam('sort_direction', $sortDirection);
+        }
+
+        $request = $builder->build();
+        $response =  $this->execute($request);
+        return json_decode($response->getBody(), true);
+    }
+
+    /**
+     * 获取与我协作的文件夹列表
+     *
+     * @param int $pageId 页码
+     * @param int $pageCapacity 页容量
+     * @return mixed
+     */
+    public function listCollabFolders($pageId = 0, $pageCapacity = 20) {
+        $builder = YfyRequestBuilder::factory()
+            ->withEndpoint(YfyAppInfo::$apiHost . self::FOLDER_COLLAB_FOLDERS_URI)
+            ->withMethod('GET')
+            ->withYfyContext($this->yfyContext);
+
+        if (is_int($pageId)) {
+            $builder->addQueryParam('page_id', $pageId);
+        }
+        if (is_int($pageCapacity)) {
+            $builder->addQueryParam('page_capacity', $pageCapacity);
+        }
 
         $request = $builder->build();
         $response =  $this->execute($request);
@@ -239,16 +375,25 @@ class YfyFolderClient extends YfyBaseApiClient
      * 获取文件夹的分享链接列表
      *
      * @param int $folderId 文件夹id
+     * @param int $pageId 页码
+     * @param int $ownerId 分享链接创建者id
      * @return mixed
      * @throws YfySdkException
      */
-    public function listShareLinks($folderId) {
-        $request = YfyRequestBuilder::factory()
+    public function listShareLinks($folderId, $pageId = 0, $ownerId = null) {
+        $builder = YfyRequestBuilder::factory()
             ->withEndpoint(YfyAppInfo::$apiHost . self::FOLDER_SHARE_LINKS)
             ->withMethod('GET')
             ->addPathParam($folderId)
-            ->withYfyContext($this->yfyContext)
-            ->build();
+            ->withYfyContext($this->yfyContext);
+        if (!is_int($pageId)) {
+            $builder->addQueryParam('page_id', $pageId);
+        }
+        if (!is_int($ownerId)) {
+            $builder->addQueryParam('owner_id', $ownerId);
+        }
+
+        $request = $builder->build();
         $response =  $this->execute($request);
         return json_decode($response->getBody(), true);
     }

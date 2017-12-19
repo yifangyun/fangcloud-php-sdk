@@ -6,6 +6,7 @@ namespace Fangcloud\Api\Item;
 
 use Fangcloud\Api\YfyBaseApiClient;
 use Fangcloud\Authentication\OAuthClient;
+use Fangcloud\Constant\YfyItemSearchQueryFilter;
 use Fangcloud\Constant\YfyItemType;
 use Fangcloud\Exception\YfySdkException;
 use Fangcloud\HttpClient\YfyHttpClient;
@@ -39,13 +40,15 @@ class YfyItemClient extends YfyBaseApiClient
      * @param string $type 搜索类型，只能是Fangcloud\Constant\YfyItemType中定义的常量
      * @param int $pageId 页码
      * @param int $searchInFolder 指定父文件夹
+     * @param string $queryFilter 搜索过滤类型, 只能是Fangcloud\Constant\YfyItemSearchQueryFilter中的常量
+     * @param string $updatedTimeRange 更新时间范围，格式参考wiki
      * @return mixed
      * @throws YfySdkException
      * @throws \InvalidArgumentException
      *
      * @see YfyItemType
      */
-    public function search($queryWords, $type = YfyItemType::ITEM, $pageId = 0, $searchInFolder = null) {
+    public function search($queryWords, $type = YfyItemType::ITEM, $pageId = 0, $searchInFolder = null, $queryFilter = null, $updatedTimeRange = null) {
         YfyItemType::validate($type);
         $builder = YfyRequestBuilder::factory()
             ->withEndpoint(YfyAppInfo::$apiHost . self::ITEM_SEARCH_URI)
@@ -53,6 +56,14 @@ class YfyItemClient extends YfyBaseApiClient
             ->withYfyContext($this->yfyContext);
         if (!empty($searchInFolder)) {
             $builder->addQueryParam('search_in_folder', $searchInFolder);
+        }
+        if (!empty($queryFilter)) {
+            YfyItemSearchQueryFilter::validate($queryFilter);
+            $builder->addQueryParam('query_filter', $queryFilter);
+        }
+        $updatedTimeRange = trim($updatedTimeRange);
+        if (!empty($updatedTimeRange) && $updatedTimeRange != ',') {
+            $builder->addQueryParam('updated_time_range', $updatedTimeRange);
         }
         $builder->addQueryParam('page_id', $pageId);
         $builder->addQueryParam('type', $type);
